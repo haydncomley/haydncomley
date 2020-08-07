@@ -1,7 +1,5 @@
-### Hey there,
-## I'm Haydn Comley 👋
-
-
+### Hey there - I'm Haydn Comley 👋
+> I like making accessible software that everyone can enjoy.
 
 <!--
 **haydncomley/haydncomley** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
