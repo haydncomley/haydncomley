@@ -1,0 +1,8 @@
+<div class="p-home">
+
+
+    <div class="p-home__list">
+        <app-project-pane *ngFor="let project of projects; let i = index" [project]="project"
+            [style.z-index]="projects.length - i" [offset]="i"></app-project-pane>
+    </div>
+</div>

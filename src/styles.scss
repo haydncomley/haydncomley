@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import "@vm/theme";
+@import "@vm/fonts";
+
+@import './theme/normal.css';
+
+body {
+    background-color: rgba(var(--theme-background), 1);
+}

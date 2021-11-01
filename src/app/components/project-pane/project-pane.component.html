@@ -1,0 +1,16 @@
+<div class="c-pane" [style.--project-main]="project.theme.primary" [style.--project-sub]="project.theme.secondary"
+    [style.--project-contrast]="project.theme.contrast" (click)="selectProject()"
+    [ngStyle]="{ animationDelay: ((offset + 0) - (.75 * offset)) + 's' }">
+
+    <span class="c-pane__highlight"></span>
+
+    <span class="c-pane__art">
+        <img *ngIf="helix" [src]="helix" alt="">
+    </span>
+
+    <span class="c-pane__details">
+        <h3 class="c-pane__details__name">{{ project.name }}</h3>
+        <span class="c-pane__details__short">{{ project.short_desc }}</span>
+    </span>
+
+</div>

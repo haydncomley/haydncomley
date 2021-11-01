@@ -1,0 +1,20 @@
+<span class="c-navbar-shade" [ngClass]="{ 'show': mobileShown }" (click)="toggleMobileDrawer(false)"></span>
+
+<nav class="c-navbar" [ngClass]="{ 'closed': !!selectedProject, 'open': mobileShown }" #navbar>
+    <img class="c-navbar__image" src="/assets/img/nav-spiral.png">
+
+    <span class="c-navbar__header">
+        <app-banner></app-banner>
+    </span>
+
+    <ol class="c-navbar__list">
+        <li class="c-navbar__list__item" *ngFor="let page of pages" [ngClass]="{ 'active': page === currentPage }"
+            (click)="selectPage(page)">
+            {{ page.label}}
+        </li>
+    </ol>
+
+    <span class="c-navbar__copy">
+        Copyright {{ thisYear }} © Haydn Comley
+    </span>
+</nav>
