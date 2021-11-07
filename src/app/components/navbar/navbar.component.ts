@@ -1,4 +1,4 @@
-import { AfterContentInit, AfterViewInit, Component, ElementRef, NgZone, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, ElementRef, Input, NgZone, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import * as moment from 'moment';
 import { INavPage } from 'src/app/interfaces/INavPage';
@@ -14,7 +14,11 @@ import { IProject } from 'src/app/interfaces/IProject';
 })
 export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  @ViewChild('navbar') navbarElement: ElementRef;
+  SELECTED_ANIMATION_TIME = 400;
+
+  @ViewChild('navbar') navbarElement: ElementRef<HTMLElement>;
+
+  @Input() slim: boolean = false;
 
   thisYear: string = '';
   currentPage: INavPage;
@@ -22,6 +26,10 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
 
   projectSelectionSub: Subscription;
   routerSub: Subscription;
+
+  timeout;
+
+  backButton = false;
 
   pages: INavPage[] = [
     {
@@ -31,6 +39,10 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
     {
       label: 'About',
       route: '/about'
+    },
+    {
+      label: 'Contact',
+      route: '/contact'
     }
   ];
 
@@ -39,7 +51,6 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(
     private router: Router,
     private projectSelectionService: ProjectSelectionService,
-    private ngZone: NgZone
   ) { }
 
   ngOnInit(): void {
@@ -56,16 +67,32 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngAfterViewInit() {
     this.projectSelectionSub = this.projectSelectionService.getSelectedProject().subscribe((e) => {
-      this.ngZone.run(() => { })
-      requestAnimationFrame(() => {
-        this.selectedProject = e;
-        this.adjustNavbarWidth();
-      });
+      const changed = (!!this.selectedProject) != (!!e);
+      const listItem = document.querySelector<HTMLElement>('#selectedProject');
+      listItem.style.maxHeight = (e ? '4rem' : '0px');
+      listItem.style.padding = (e ? null : 0 + 'px');
+      listItem.style.opacity = (e ? '1' : '0');
+      listItem.style.background = (e ? `rgba(${e.theme.primary}, .25)` : null);
+
+      if (this.timeout) {
+        clearTimeout(this.timeout);
+        this.timeout = null;
+      }
+
+      this.backButton = !!e;
+
+      this.timeout = setTimeout(() => {
+        requestAnimationFrame(() => {
+          this.selectedProject = e;
+          this.adjustNavbarWidth();
+          this.checkPage();
+
+        });
+      }, !e ? this.SELECTED_ANIMATION_TIME : 0);
     })
   }
 
   adjustNavbarWidth() {
-    console.log(!!this.selectedProject, this.navbarElement.nativeElement.scrollWidth)
     if (this.navbarElement) {
       // this.navbarElement.nativeElement.style.width = !!this.selectedProject ? '3rem' : this.navbarElement.nativeElement.scrollWidth + 'px';
     }
@@ -90,11 +117,17 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
   selectPage(page: INavPage) {
     this.projectSelectionService.selectProject(null);
     this.router.navigate([page.route]);
-    this.toggleMobileDrawer(false);
+    this.toggleMobileDrawer(false, false);
   }
 
-  toggleMobileDrawer(show?: boolean) {
-    console.log(show);
+  toggleMobileDrawer(show?: boolean, checkRoute = true) {
+    if (this.selectedProject && checkRoute) {
+      this.projectSelectionService.selectProject(null);
+      this.router.navigate(['/']);
+      this.backButton = false;
+      return;
+    }
+
     if (show === undefined) show = !this.mobileShown;
     this.mobileShown = show;
   }

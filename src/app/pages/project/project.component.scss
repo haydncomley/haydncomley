@@ -1,0 +1,11 @@
+@import '@vm/mobile';
+
+.p-project {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+    @include mobile {
+        padding-top: 4rem;
+    }
+}

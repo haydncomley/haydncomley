@@ -1,20 +1,19 @@
-// .p-home {
-//     display: flex;
-//     overflow: hidden;
-//     height: 100vh;
-    
-//     app-navbar {
-//         z-index: 10;
-//     }
+@import '@vm/mobile';
 
-//     &__list {
-//         overflow: auto;
-//         flex: 1;
-//         height: 100%;
+.p-home {
 
-//         app-project-pane {
-//             position: relative;
-//             display: block;
-//         }
-//     }
-// }
+    &__list {
+
+        app-project-pane {
+            @include mobile {
+                display: block;
+
+                &:first-child {
+                    @include mobile {
+                        margin-top: 8rem;
+                    }
+                }
+            }
+        }
+    }
+}

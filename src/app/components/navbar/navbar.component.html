@@ -8,7 +8,10 @@
     </span>
 
     <ol class="c-navbar__list">
-        <li class="c-navbar__list__item" *ngFor="let page of pages" [ngClass]="{ 'active': page === currentPage }"
+        <li id="selectedProject" class="c-navbar__list__item active selected">
+            {{ selectedProject?.name }}
+        </li>
+        <li class="c-navbar__list__item" *ngFor="let page of pages" [ngClass]="{ 'active': page == currentPage }"
             (click)="selectPage(page)">
             {{ page.label}}
         </li>
@@ -17,4 +20,13 @@
     <span class="c-navbar__copy">
         Copyright {{ thisYear }} © Haydn Comley
     </span>
+</nav>
+<nav class="c-navbar-mobile" [ngClass]="{ 'slim': slim }">
+    <span class="c-navbar-mobile__banner">
+        <app-banner [ngClass]="{ 'hidden': backButton }"></app-banner>
+        <app-banner [ngClass]="{ 'hidden': !backButton }" [header]="selectedProject?.name"
+            [subtitle]="selectedProject?.short_desc" [center]="selectedProject">
+        </app-banner>
+    </span>
+    <app-navbar-burger [isBack]="backButton" (click)="toggleMobileDrawer()"></app-navbar-burger>
 </nav>

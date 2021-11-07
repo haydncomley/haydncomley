@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar.component';
 import { BannerModule } from '../banner/banner.module';
+import { NavbarBurgerModule } from '../navbar-burger/navbar-burger.module';
 
 
 
@@ -9,7 +10,9 @@ import { BannerModule } from '../banner/banner.module';
   declarations: [NavbarComponent],
   imports: [
     CommonModule,
-    BannerModule
+    BannerModule,
+
+    NavbarBurgerModule
   ],
   exports: [NavbarComponent],
 })

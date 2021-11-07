@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarModule } from './components/navbar/navbar.module';
 import { HomeModule } from './pages/home/home.module';
+import { ProjectModule } from './pages/project/project.module';
 
 @NgModule({
   declarations: [
@@ -13,8 +14,13 @@ import { HomeModule } from './pages/home/home.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+
+    // Components
+    NavbarModule,
+
+    // Pages
     HomeModule,
-    NavbarModule
+    ProjectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

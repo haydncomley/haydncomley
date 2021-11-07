@@ -30,10 +30,28 @@ $hovertransition: 1s ease;
     overflow: hidden;
     box-shadow: 0 0 2rem rgba(0,0,0, .2);
     user-select: none;
+    transition: .2s ease;
     
     @include mobile {
         padding: $paddingMobile;
         height: $heightMobile;
+        border-radius: $paddingMobile $paddingMobile 0 0;
+        margin-top: -$paddingMobile;
+
+        &.pop {
+            .c-pane__art {
+                transform: translateX(-25%) rotateZ(-5deg);
+                opacity: .5;
+            }
+    
+            .c-pane__highlight {
+                opacity: .2;
+            }
+    
+            .c-pane__details {
+                color: rgba(var(--project-contrast));
+            }
+        }
     }
 
     &:hover {
@@ -98,8 +116,11 @@ $hovertransition: 1s ease;
         height: 100%;
         margin-left: 1.5rem;
         position: relative;
-        transition: $hovertransition;
         color: rgba(var(--project-contrast));
+
+        @include not_mobile {
+            transition: $hovertransition;
+        }
 
         &__name {
             font-size: 1.5rem;
