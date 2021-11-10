@@ -1,6 +1,7 @@
-<div class="c-pi-gallery" (mouseenter)="pause()" (mouseleave)="play()">
+<div class="c-pi-gallery" [ngClass]="{ 'setHeight': height }" [ngStyle]="{ 'height': height }" (mouseenter)="pause()"
+    (mouseleave)="play()">
     <ng-container *ngFor="let image of safeImages; let i = index">
-        <img *ngIf="i == selected" [@slide]="direction" [src]="image">
+        <img *ngIf="i == selected" [ngStyle]="{ 'object-fit': fit }" [@swipe]="direction" [src]="image">
     </ng-container>
 
     <span class="c-pi-gallery__dots">

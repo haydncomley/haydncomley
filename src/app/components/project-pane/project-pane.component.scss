@@ -7,13 +7,11 @@ $hovertransition: 1s ease;
 
 @keyframes paneIn {
     0% {
-        // height: 0;
         opacity: 0;
         padding: 0 $padding;
         width: 0%;
     }
     100% {
-        // height: $height;
         padding: $padding;
         opacity: 1;
         width: 100%;
@@ -39,10 +37,6 @@ $hovertransition: 1s ease;
         border-radius: $paddingMobile $paddingMobile 0 0;
         margin-top: -$paddingMobile;
 
-        &.isLast {
-
-        }
-
         &.pop {
             .c-pane__art {
                 transform: translateX(-25%) rotateZ(-5deg);
@@ -59,34 +53,36 @@ $hovertransition: 1s ease;
         }
     }
 
-    &:hover {
-        cursor: pointer;
-
-        .c-pane__art {
-            transform: translateX(-10%) rotateZ(5deg);
-            opacity: .5;
-        }
-
-        .c-pane__highlight {
-            opacity: .1;
-        }
-
-        .c-pane__details {
-            transform: translateX(1rem);
-            color: rgba(var(--project-contrast));
-        }
-
-        .c-pane__details__time {
-            right: 4rem;
-        }
-
-        .c-pane__details__tags {
-            margin-right: 2rem;
-        }
-
-        app-navbar-burger {
-            opacity: 1;
-            right: -2.5rem;
+    @include not_mobile {
+        &:hover {
+            cursor: pointer;
+    
+            .c-pane__art {
+                transform: translateX(-10%) rotateZ(5deg);
+                opacity: .5;
+            }
+    
+            .c-pane__highlight {
+                opacity: .1;
+            }
+    
+            .c-pane__details {
+                transform: translateX(1rem);
+                color: rgba(var(--project-contrast));
+            }
+    
+            .c-pane__details__time {
+                right: 4rem;
+            }
+    
+            .c-pane__details__tags {
+                margin-right: 2rem;
+            }
+    
+            app-navbar-burger {
+                opacity: 1;
+                right: -2.5rem;
+            }
         }
     }
 

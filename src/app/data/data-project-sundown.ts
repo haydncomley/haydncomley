@@ -6,5 +6,5 @@ export const Project_Sundown: IProject = {
     short_desc: 'Festival Website',
     time: 'Winter 2019',
     theme: ProjectTheme_Orange,
-    tags: ['Vanilla JS', 'Ecommerce']
+    tags: ['JavaScript', 'Ecommerce']
 }

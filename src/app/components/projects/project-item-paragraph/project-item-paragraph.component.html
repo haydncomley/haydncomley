@@ -1,4 +1,5 @@
 <div class="c-pi-paragraph">
+    <h4 class="c-pi-paragraph__header" *ngIf="_header" [innerHTML]="_header"></h4>
     <app-project-item-text #viewContainer></app-project-item-text>
     <!-- <p class="c-pi-paragraph__text">
         {{ text }}

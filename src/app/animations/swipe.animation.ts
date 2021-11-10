@@ -3,51 +3,51 @@ import { animate, animation, keyframes, style, transition, trigger, useAnimation
 const timing = '.5s ease';
 
 export const swipeInFromLeft = animation([
-    style({ 'clip-path': 'polygon(0 0, 0 0, 0 100%, 0% 100%)' }),
+    style({ 'clip-path': 'polygon(0 0, 0 0, 0 100%, 0% 100%)', opacity: '0' }),
     animate(
         timing,
         keyframes([
-            style({ 'clip-path': 'polygon(0 0, 0 0, 0 100%, 0% 100%)' }),
-            style({ 'clip-path': 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)' }),
+            style({ 'clip-path': 'polygon(0 0, 0 0, 0 100%, 0% 100%)', opacity: '0' }),
+            style({ 'clip-path': 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', opacity: '1' }),
         ])
     )
 ]);
 
 export const swipeInFromRight = animation([
-    style({ 'clip-path': 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)' }),
+    style({ 'clip-path': 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)', opacity: '0' }),
     animate(
         timing,
         keyframes([
-            style({ 'clip-path': 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)' }),
-            style({ 'clip-path': 'polygon(100% 0, 0 0, 0 100%, 100% 100%)' }),
+            style({ 'clip-path': 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)', opacity: '0' }),
+            style({ 'clip-path': 'polygon(100% 0, 0 0, 0 100%, 100% 100%)', opacity: '1' }),
         ])
     )
 ]);
 
 export const swipeOutToLeft = animation([
-    style({ 'clip-path': 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', position: 'absolute' }),
+    style({ 'clip-path': 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', position: 'absolute', opacity: '1' }),
     animate(
         timing,
         keyframes([
-            style({ 'clip-path': 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', position: 'absolute' }),
-            style({ 'clip-path': 'polygon(0 0, 0 0, 0 100%, 0% 100%)', position: 'absolute' }),
+            style({ 'clip-path': 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', position: 'absolute', opacity: '1' }),
+            style({ 'clip-path': 'polygon(0 0, 0 0, 0 100%, 0% 100%)', position: 'absolute', opacity: '0' }),
         ])
     )
 ]);
 
 export const swipeOutToRight = animation([
-    style({ 'clip-path': 'polygon(100% 0, 0 0, 0 100%, 100% 100%)', position: 'absolute' }),
+    style({ 'clip-path': 'polygon(100% 0, 0 0, 0 100%, 100% 100%)', position: 'absolute', opacity: '1' }),
     animate(
         timing,
         keyframes([
-            style({ 'clip-path': 'polygon(100% 0, 0 0, 0 100%, 100% 100%)', position: 'absolute' }),
-            style({ 'clip-path': 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)', position: 'absolute' }),
+            style({ 'clip-path': 'polygon(100% 0, 0 0, 0 100%, 100% 100%)', position: 'absolute', opacity: '1' }),
+            style({ 'clip-path': 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)', position: 'absolute', opacity: '0' }),
         ])
     )
 ]);
 
 export const swipeAnimation = trigger(
-    'slide',
+    'swipe',
     [
         transition('void => left', [useAnimation(swipeInFromLeft)]),
         transition('void => right', [useAnimation(swipeInFromRight)]),

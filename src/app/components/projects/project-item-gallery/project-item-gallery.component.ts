@@ -10,7 +10,7 @@ import { ProjectItemBase } from '../project-item-base.component';
   selector: 'app-project-item-gallery',
   templateUrl: './project-item-gallery.component.html',
   styleUrls: ['./project-item-gallery.component.scss'],
-  animations: [swipeAnimation]
+  animations: [swipeAnimation, slideAnimation]
 })
 export class ProjectItemGalleryComponent implements ProjectItemBase, OnInit, OnDestroy {
 
@@ -19,7 +19,9 @@ export class ProjectItemGalleryComponent implements ProjectItemBase, OnInit, OnD
   public images: string[] = [];
   public selected = 0;
   public interval = 5000;
-  public wrap = true;
+  public height = 'auto';
+  public fit = 'contain';
+  public animation = 'swipe';
 
   direction = 'right';
   safeImages: SafeResourceUrl[] = [];
@@ -33,6 +35,9 @@ export class ProjectItemGalleryComponent implements ProjectItemBase, OnInit, OnD
     this.play();
 
     this.images.forEach((e) => {
+      const img = new Image();
+      img.src = e;
+
       this.safeImages.push(this.sanitizer.bypassSecurityTrustResourceUrl(e));
     });
   }

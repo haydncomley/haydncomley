@@ -6,7 +6,7 @@ export const Project_Boxedjs: IProject = {
     short_desc: 'Web Framework',
     time: 'Winter 2021',
     theme: ProjectTheme_Purple,
-    tags: ['Open Source', 'Vanilla JS'],
+    tags: ['Open Source', 'JavaScript'],
     content: [
         new ProjectContentItem_Header({
             header: 'Boxed JS',
@@ -15,7 +15,7 @@ export const Project_Boxedjs: IProject = {
         new ProjectContentItem_Columns({
             items: [
                 new ProjectContentItem_Text({
-                    text: 'This is some text that will get put into a text paragraph. 1'
+                    text: 'This is some text that will get put into a __text paragraph__. 1'
                 }),
                 new ProjectContentItem_Link({
                     header: 'Visit Site',

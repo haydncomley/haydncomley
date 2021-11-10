@@ -1,0 +1,20 @@
+.format-bold {
+    font-weight: 600;
+    
+    &--accent {
+        color: rgba(var(--project-primary));
+    }
+
+    &--block {
+        white-space: pre-wrap;
+        color: rgba(var(--project-contrast));
+        background: linear-gradient(to bottom right, rgba(var(--project-primary)), rgba(var(--project-secondary)));
+        padding: 0 .25em;
+    }
+
+    &--quiet {
+        font-weight: normal;
+        font-size: .8em;
+        opacity: 0.5;
+    }
+}

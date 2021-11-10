@@ -14,6 +14,10 @@ $dotSize: .5rem;
         .c-pi-gallery__dots {
             opacity: 1;
         }
+
+        .c-pi-gallery__side {
+            opacity: .25;
+        }
     }
 
     img {
@@ -37,7 +41,7 @@ $dotSize: .5rem;
             height: $dotSize;
             width: $dotSize;
             border-radius: 50%;
-            background-color: rgba(var(--theme-background), .5);
+            background-color: rgba(var(--project-primary), .5);
             transition: .15s ease;
             margin: .25rem;
             display: inline-block;
@@ -63,7 +67,7 @@ $dotSize: .5rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(to right, rgba(var(--theme-background), .5), transparent);
+        background: linear-gradient(to right, rgba(var(--theme-background-contrast), .5), transparent);
         opacity: 0;
         transition: .2s ease;
 
@@ -80,7 +84,7 @@ $dotSize: .5rem;
         &--other {
             left: auto;
             right: 0;
-            background: linear-gradient(to left, rgba(var(--theme-background), .5), transparent);
+            background: linear-gradient(to left, rgba(var(--theme-background-contrast), .5), transparent);
 
             .c-pi-gallery__side__icon {
                 transform: rotateZ(180deg);
@@ -88,8 +92,14 @@ $dotSize: .5rem;
         }
 
         &:hover {
-            opacity: 1;
+            opacity: 1 !important;
             cursor: pointer;
+        }
+    }
+
+    &.setHeight {
+        img {
+            height: 100%;
         }
     }
 }

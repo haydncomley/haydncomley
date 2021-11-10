@@ -15,10 +15,28 @@ export class AppComponent {
   slimNavbar = false;
   selected: IProject;
 
+  lastScrollHeight = 0;
+
   constructor(
     private projectSelection: ProjectSelectionService
   ) {
-    this.projectSelection.getSelectedProject().subscribe((e) => this.selected = e);
+    this.projectSelection.getSelectedProject().subscribe((e) => {
+      this.selected = e;
+
+      const pages = document.querySelector('.app__pages');
+
+      if (pages) {
+        if (e) {
+          this.lastScrollHeight = pages.scrollTop;
+          pages.scrollTop = 0;
+        } else {
+          requestAnimationFrame(() => {
+            pages.scrollTop = this.lastScrollHeight;
+            this.lastScrollHeight = 0;
+          })
+        }
+      }
+    });
   }
 
   onScroll(e: Event) {

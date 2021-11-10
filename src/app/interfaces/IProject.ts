@@ -60,6 +60,7 @@ export class ProjectContentItem_Columns extends ProjectContentItem {
 export class ProjectContentItem_Paragraph extends ProjectContentItem {
     component = ProjectItemParagraphComponent;
     constructor(props: {
+        header?: string;
         text: ProjectContentItem_Text;
     }) { super(props) }
 }
@@ -89,5 +90,9 @@ export class ProjectContentItem_Gallery extends ProjectContentItem {
     component = ProjectItemGalleryComponent;
     constructor(props: {
         images: string[];
+        height?: string;
+        interval?: number;
+        fit?: 'contain' | 'cover';
+        animation?: 'swipe' | 'slide';
     }) { super(props) }
 }
