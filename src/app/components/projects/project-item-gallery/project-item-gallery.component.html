@@ -1,0 +1,22 @@
+<div class="c-pi-gallery" (mouseenter)="pause()" (mouseleave)="play()">
+    <ng-container *ngFor="let image of safeImages; let i = index">
+        <img *ngIf="i == selected" [@slide]="direction" [src]="image">
+    </ng-container>
+
+    <span class="c-pi-gallery__dots">
+        <span class="c-pi-gallery__dots__item" *ngFor="let image of safeImages; let i = index" (click)="selectPage(i)"
+            [ngClass]="{ 'selected': i == selected }"></span>
+    </span>
+
+    <span class="c-pi-gallery__side" (click)="nextSlide(-1)">
+        <span class="c-pi-gallery__side__icon">
+            <app-navbar-burger [isBack]="true"></app-navbar-burger>
+        </span>
+    </span>
+
+    <span class="c-pi-gallery__side c-pi-gallery__side--other" (click)="nextSlide(1)">
+        <span class="c-pi-gallery__side__icon">
+            <app-navbar-burger [isBack]="true"></app-navbar-burger>
+        </span>
+    </span>
+</div>

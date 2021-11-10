@@ -1,0 +1,26 @@
+@import '@vm/mobile';
+
+.app {
+    display: flex;
+    overflow: hidden;
+    height: 100vh;
+
+    @include mobile {
+        flex-direction: column;
+    }
+    
+    app-navbar {
+        z-index: 10;
+    }
+
+    &__pages {
+        overflow: auto;
+        flex: 1;
+        height: 100%;
+        position: relative;
+
+        @include mobile {
+            height: auto;
+        }
+    }
+}

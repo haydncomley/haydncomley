@@ -1,0 +1,33 @@
+<span class="c-navbar-shade" [ngClass]="{ 'show': mobileShown }" (click)="toggleMobileDrawer(false)"></span>
+
+<nav class="c-navbar" [ngClass]="{ 'closed': !!selectedProject, 'open': mobileShown }" #navbar>
+    <img class="c-navbar__image" src="/assets/img/nav-spiral.png">
+
+    <span class="c-navbar__header">
+        <app-banner></app-banner>
+    </span>
+
+    <ol class="c-navbar__list">
+        <li id="selectedProject" class="c-navbar__list__item active selected" (click)="toggleMobileDrawer()">
+            <app-navbar-burger [isBack]="true"></app-navbar-burger>
+            {{ selectedProject?.name }}
+        </li>
+        <li class="c-navbar__list__item" *ngFor="let page of pages" [ngClass]="{ 'active': page == currentPage }"
+            (click)="selectPage(page)">
+            {{ page.label}}
+        </li>
+    </ol>
+
+    <span class="c-navbar__copy">
+        Copyright {{ thisYear }} © Haydn Comley
+    </span>
+</nav>
+<nav class="c-navbar-mobile" [ngClass]="{ 'slim': slim }">
+    <span class="c-navbar-mobile__banner">
+        <app-banner [ngClass]="{ 'hidden': backButton }"></app-banner>
+        <app-banner [ngClass]="{ 'hidden': !backButton }" [header]="selectedProject?.name"
+            [subtitle]="selectedProject?.short_desc" [center]="selectedProject">
+        </app-banner>
+    </span>
+    <app-navbar-burger [isBack]="backButton" (click)="toggleMobileDrawer()"></app-navbar-burger>
+</nav>

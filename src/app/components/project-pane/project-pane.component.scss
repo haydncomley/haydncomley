@@ -1,0 +1,206 @@
+@import '@vm/mobile';
+$padding: 2rem;
+$height: 13rem;
+$heightMobile: 10rem;
+$paddingMobile: 1rem;
+$hovertransition: 1s ease;
+
+@keyframes paneIn {
+    0% {
+        // height: 0;
+        opacity: 0;
+        padding: 0 $padding;
+        width: 0%;
+    }
+    100% {
+        // height: $height;
+        padding: $padding;
+        opacity: 1;
+        width: 100%;
+    }
+}
+
+.c-pane {
+    width: 100%;
+    padding: $padding;
+    background: linear-gradient(to right, rgba(var(--project-main)), rgba(var(--project-sub)));
+    box-sizing: border-box;
+    height: $height;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 2rem rgba(0,0,0, .2);
+    user-select: none;
+    transition: .2s ease;
+    
+    @include mobile {
+        padding: $paddingMobile;
+        padding-bottom: calc(#{$paddingMobile} * 2);
+        height: $heightMobile;
+        border-radius: $paddingMobile $paddingMobile 0 0;
+        margin-top: -$paddingMobile;
+
+        &.isLast {
+
+        }
+
+        &.pop {
+            .c-pane__art {
+                transform: translateX(-25%) rotateZ(-5deg);
+                opacity: .5;
+            }
+    
+            .c-pane__highlight {
+                opacity: .2;
+            }
+    
+            .c-pane__details {
+                color: rgba(var(--project-contrast));
+            }
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        .c-pane__art {
+            transform: translateX(-10%) rotateZ(5deg);
+            opacity: .5;
+        }
+
+        .c-pane__highlight {
+            opacity: .1;
+        }
+
+        .c-pane__details {
+            transform: translateX(1rem);
+            color: rgba(var(--project-contrast));
+        }
+
+        .c-pane__details__time {
+            right: 4rem;
+        }
+
+        .c-pane__details__tags {
+            margin-right: 2rem;
+        }
+
+        app-navbar-burger {
+            opacity: 1;
+            right: -2.5rem;
+        }
+    }
+
+    &__highlight {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, transparent, white);
+        opacity: 0;
+        pointer-events: none;
+        transition: $hovertransition;
+    }
+
+    &__art {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 20rem;
+        transform: translateX(-20%);
+        opacity: .2;
+        pointer-events: none;
+        transition: $hovertransition;
+        transform-origin: 50% 50%;
+
+        @supports (mix-blend-mode: soft-light) {
+            mix-blend-mode: soft-light;
+            opacity: 1;
+          }
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            transform: scale(1.5);
+        }
+    }
+
+    &__details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        position: relative;
+        color: rgba(var(--project-contrast));
+
+        @include not_mobile {
+            transition: $hovertransition;
+        }
+
+        &__name {
+            font-size: 1.5rem;
+            color: inherit;
+            font-weight: 600;
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        &__short {
+            font-size: 1rem;
+            color: inherit;
+            font-weight: 300;
+            margin: 0;
+            white-space: nowrap;
+            opacity: .8;
+        }
+
+        &__tags {
+            margin-top: .5rem;
+            padding-top: .5rem;
+            border-top: 1px solid rgba(255, 255, 255, .2);
+            transition: margin-right $hovertransition;
+            overflow: auto;
+            white-space: nowrap;
+
+            app-chip {
+                margin-right: .25rem;
+            }
+        }
+
+        &__time {
+            color: inherit;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: .8rem;
+            opacity: .75;
+            transition: right $hovertransition;
+            display: flex;
+            align-items: center;
+            pointer-events: none;
+
+            app-navbar-burger {
+                --burger-height: 1rem;
+                --burger-width: 1rem;
+                --burger-line-height: 2px;
+                display: inline-block;
+                position: absolute;
+                right: -1rem;
+                opacity: 0;
+                transform: rotateZ(180deg);
+                --burger-color: rgba(var(--project-contrast));
+                align-items: center;
+                transition: $hovertransition;
+
+                @include mobile {
+                    display: none;
+                }
+            }
+        }
+    }
+}
