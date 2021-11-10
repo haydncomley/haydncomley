@@ -106,6 +106,9 @@ $slimSlideTime: .3s ease;
             transition: .2s ease, padding $selectedSlideTime, max-height $selectedSlideTime, opacity $selectedSlideTime;
             box-sizing: border-box;
             color: rgba(var(--theme-background-contrast), 1);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
 
             &:hover {
                 cursor: pointer;
@@ -116,6 +119,25 @@ $slimSlideTime: .3s ease;
             &.active {
                 background-color: rgba(var(--theme-background-contrast), .1);
                 box-shadow: -0.5rem 0 .5rem -.5rem rgba(var(--theme-background-contrast), .2) inset;
+            }
+
+            app-navbar-burger {
+                --burger-height: 1rem;
+                --burger-width: 1.25rem;
+                --burger-line-height: 2px;
+                margin-right: 1.25rem;
+                transition: .2s ease;
+
+                &:hover {
+                    transform: translateX(-20%);
+                    opacity: .8;
+                }
+            }
+
+            &.selected:hover {
+                app-navbar-burger {
+                    transform: translateX(-20%);
+                }
             }
 
             // @include mobile {
@@ -146,9 +168,9 @@ $slimSlideTime: .3s ease;
     left: 0;
     right: 0;
     z-index: 1;
-    backdrop-filter: blur(0rem);
+    // backdrop-filter: blur(0rem);
     background: transparent;
-    transition: $slimSlideTime;
+    transition: $slimSlideTime, background .1s ease, box-shadow .1s ease;
 
     &__banner {
         transition: $slimSlideTime;
@@ -172,9 +194,9 @@ $slimSlideTime: .3s ease;
     }
 
     &.slim {
-        backdrop-filter: blur(.2rem);
-        background: rgba(var(--theme-background), .75);
+        background: rgba(var(--theme-background), 1);
         height: 4rem;
+        box-shadow: 0 0 0.5rem 0 rgb(0,0,0,0.5);
 
         .c-navbar-mobile__banner {
             transform: scale(.75);

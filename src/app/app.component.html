@@ -1,6 +1,6 @@
 <div class="app">
     <app-navbar [slim]="slimNavbar || selected"></app-navbar>
-    <span class="app__pages" (scroll)="onScroll($event)">
-        <router-outlet></router-outlet>
+    <span class="app__pages" (scroll)="onScroll($event)" [@routeAnimations]="prepareRoute(outlet)">
+        <router-outlet #outlet="outlet"></router-outlet>
     </span>
 </div>

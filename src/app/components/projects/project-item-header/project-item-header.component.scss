@@ -4,15 +4,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 15rem;
+    min-height: 12.5rem;
     position: relative;
     flex-direction: column;
     padding: 2rem;
     box-sizing: border-box;
     text-align: center;
+    color: var(--project-item-color, rgba(var(--project-contrast), 1));
 
     @include mobile {
-        padding: 1rem;
+        padding: 3rem 2rem;
+        height: auto;
     }
 
     app-image-background {
@@ -21,6 +23,19 @@
         top: 0;
         height: 100%;
         width: 100%;
+        --image-background: linear-gradient(to bottom right, rgba(var(--project-primary)), rgba(var(--project-secondary)));
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+
+        @include mobile {
+            align-items: center;
+            text-align: center;
+        }
     }
 
     &__text {
@@ -28,13 +43,23 @@
         z-index: 1;
         font-size: 2rem;
         font-weight: bold;
+        margin: 0;
+        margin-bottom: -.5rem;
+        padding: 0;
+
+        @include mobile {
+            margin-bottom: -.25rem;
+        }
     }
 
     &__sub {
         position: relative;
         z-index: 1;
-        width: 80%;
+        width: 100%;
+        margin: 0;
         margin-top: .25rem;
+        opacity: .6;
+        padding: 0;
 
         @include mobile {
             width: 90%;

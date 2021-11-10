@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ComponentFactoryResolver, ElementRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { IProject } from 'src/app/interfaces/IProject';
 import { ProjectSelectionService } from 'src/app/services/project-selection.service';
@@ -14,7 +14,8 @@ export class ProjectComponent implements OnInit {
 
   constructor(
     private factoryResolver: ComponentFactoryResolver,
-    private projectSelectionService: ProjectSelectionService
+    private projectSelectionService: ProjectSelectionService,
+    private element: ElementRef<HTMLElement>
   ) { }
 
   ngOnInit(): void {
@@ -33,6 +34,10 @@ export class ProjectComponent implements OnInit {
         view.instance[key] = contentItem.props[key];
       });
       view.instance['project'] = project;
+
+      this.element.nativeElement.style.setProperty('--project-primary', project.theme.primary);
+      this.element.nativeElement.style.setProperty('--project-secondary', project.theme.secondary);
+      this.element.nativeElement.style.setProperty('--project-contrast', project.theme.contrast);
     });
   }
 }

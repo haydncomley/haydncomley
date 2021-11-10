@@ -4,6 +4,7 @@ import { ProjectTheme_Green, ProjectTheme_Orange, ProjectTheme_Red, ProjectTheme
 export const Project_Sundown: IProject = {
     name: 'Sundown',
     short_desc: 'Festival Website',
-    time: 'Summer 2019',
-    theme: ProjectTheme_Orange
+    time: 'Winter 2019',
+    theme: ProjectTheme_Orange,
+    tags: ['Vanilla JS', 'Ecommerce']
 }

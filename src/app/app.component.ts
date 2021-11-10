@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { pageAnimation } from './animations/page.animation';
 import { IProject } from './interfaces/IProject';
 import { ProjectSelectionService } from './services/project-selection.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [pageAnimation]
 })
 export class AppComponent {
 
@@ -20,10 +23,14 @@ export class AppComponent {
 
   onScroll(e: Event) {
     const page = e.target as HTMLElement;
-    this.slimNavbar = page.scrollTop > 30;
+    this.slimNavbar = page.scrollTop > 0;
     if (!this.selected) {
       this.projectSelection.setScrollPos(page.scrollTop);
     }
+  }
+
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet?.activatedRouteData?.['animation'];
   }
 
 }

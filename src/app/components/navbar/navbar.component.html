@@ -8,7 +8,8 @@
     </span>
 
     <ol class="c-navbar__list">
-        <li id="selectedProject" class="c-navbar__list__item active selected">
+        <li id="selectedProject" class="c-navbar__list__item active selected" (click)="toggleMobileDrawer()">
+            <app-navbar-burger [isBack]="true"></app-navbar-burger>
             {{ selectedProject?.name }}
         </li>
         <li class="c-navbar__list__item" *ngFor="let page of pages" [ngClass]="{ 'active': page == currentPage }"

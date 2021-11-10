@@ -34,9 +34,14 @@ $hovertransition: 1s ease;
     
     @include mobile {
         padding: $paddingMobile;
+        padding-bottom: calc(#{$paddingMobile} * 2);
         height: $heightMobile;
         border-radius: $paddingMobile $paddingMobile 0 0;
         margin-top: -$paddingMobile;
+
+        &.isLast {
+
+        }
 
         &.pop {
             .c-pane__art {
@@ -63,12 +68,25 @@ $hovertransition: 1s ease;
         }
 
         .c-pane__highlight {
-            opacity: .5;
+            opacity: .1;
         }
 
         .c-pane__details {
             transform: translateX(1rem);
             color: rgba(var(--project-contrast));
+        }
+
+        .c-pane__details__time {
+            right: 4rem;
+        }
+
+        .c-pane__details__tags {
+            margin-right: 2rem;
+        }
+
+        app-navbar-burger {
+            opacity: 1;
+            right: -2.5rem;
         }
     }
 
@@ -114,7 +132,8 @@ $hovertransition: 1s ease;
         flex-direction: column;
         justify-content: center;
         height: 100%;
-        margin-left: 1.5rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
         position: relative;
         color: rgba(var(--project-contrast));
 
@@ -136,6 +155,52 @@ $hovertransition: 1s ease;
             font-weight: 300;
             margin: 0;
             white-space: nowrap;
+            opacity: .8;
+        }
+
+        &__tags {
+            margin-top: .5rem;
+            padding-top: .5rem;
+            border-top: 1px solid rgba(255, 255, 255, .2);
+            transition: margin-right $hovertransition;
+            overflow: auto;
+            white-space: nowrap;
+
+            app-chip {
+                margin-right: .25rem;
+            }
+        }
+
+        &__time {
+            color: inherit;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: .8rem;
+            opacity: .75;
+            transition: right $hovertransition;
+            display: flex;
+            align-items: center;
+            pointer-events: none;
+
+            app-navbar-burger {
+                --burger-height: 1rem;
+                --burger-width: 1rem;
+                --burger-line-height: 2px;
+                display: inline-block;
+                position: absolute;
+                right: -1rem;
+                opacity: 0;
+                transform: rotateZ(180deg);
+                --burger-color: rgba(var(--project-contrast));
+                align-items: center;
+                transition: $hovertransition;
+
+                @include mobile {
+                    display: none;
+                }
+            }
         }
     }
 }

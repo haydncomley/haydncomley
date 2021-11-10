@@ -5,5 +5,6 @@ export const Project_VersionMaybe: IProject = {
     name: 'VersionMaybe.',
     short_desc: 'Business Website',
     time: 'Winter 2020',
-    theme: ProjectTheme_VM
+    theme: ProjectTheme_VM,
+    tags: ['Angular', 'CMS']
 }

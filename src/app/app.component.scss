@@ -17,6 +17,7 @@
         overflow: auto;
         flex: 1;
         height: 100%;
+        position: relative;
 
         @include mobile {
             height: auto;

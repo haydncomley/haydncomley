@@ -14,6 +14,7 @@ export class ProjectPaneComponent implements OnInit, OnDestroy {
 
   @Input() project: IProject;
   @Input() offset: number = 0;
+  @Input() isLast: boolean = false;
 
   private scrollSub: Subscription;
 
@@ -33,6 +34,11 @@ export class ProjectPaneComponent implements OnInit, OnDestroy {
 
     this.helix = await HelixArt.Generate({ x: size, y: size }, Math.floor(Math.random() * 4) + 2);
     this.scrollSub = this.projectService.getScrollPos().subscribe((e) => this.scrollChange(e));
+    this.project.tags = this.project.tags.sort((a, b) => {
+      if (a > b) return 1;
+      if (a < b) return -1;
+      return 0;
+    });
   }
 
   ngOnDestroy() {

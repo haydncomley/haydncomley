@@ -1,7 +1,7 @@
 .c-image-background {
     height: 100%;
     width: 100%;
-    background: rgba(var(--theme-background-contrast), .1);
+    background: var(--image-background, rgba(var(--theme-background-contrast), .1));
     position: absolute;
 
     img {
