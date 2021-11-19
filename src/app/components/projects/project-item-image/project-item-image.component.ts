@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { IProject } from 'src/app/interfaces/IProject';
 import { ProjectItemBase } from '../project-item-base.component';
@@ -12,15 +12,15 @@ export class ProjectItemImageComponent implements ProjectItemBase, OnInit {
 
   public project: IProject;
 
-  public image: string;
+  @Input() set image(value: string) {
+    this.imageSrc = this.sanitiser.bypassSecurityTrustResourceUrl(value);
+  }
   imageSrc: SafeResourceUrl;
 
   constructor(
     private sanitiser: DomSanitizer
   ) { }
 
-  ngOnInit(): void {
-    this.imageSrc = this.sanitiser.bypassSecurityTrustResourceUrl(this.image);
-  }
+  ngOnInit(): void { }
 
 }

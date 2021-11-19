@@ -28,4 +28,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     if (this.selectedProjectSub) { this.selectedProjectSub.unsubscribe(); }
   }
 
+  trackByProject(index: number, item: IProject) {
+    return item.name;
+  }
+
 }

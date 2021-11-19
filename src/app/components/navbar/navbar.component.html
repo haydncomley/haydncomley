@@ -22,11 +22,14 @@
         Copyright {{ thisYear }} © Haydn Comley
     </span>
 </nav>
-<nav class="c-navbar-mobile" [ngClass]="{ 'slim': slim }">
+<nav class="c-navbar-mobile" [ngClass]="{ 'slim': slim || slimPage }">
     <span class="c-navbar-mobile__banner">
-        <app-banner [ngClass]="{ 'hidden': backButton }"></app-banner>
+        <app-banner [ngClass]="{ 'hidden': backButton || slimPage }"></app-banner>
         <app-banner [ngClass]="{ 'hidden': !backButton }" [header]="selectedProject?.name"
             [subtitle]="selectedProject?.short_desc" [center]="selectedProject">
+        </app-banner>
+        <app-banner [ngClass]="{ 'hidden': !slimPage }" [header]="navDetails?.header" [subtitle]="navDetails?.subtitle"
+            [center]="navDetails?.center">
         </app-banner>
     </span>
     <app-navbar-burger [isBack]="backButton" (click)="toggleMobileDrawer()"></app-navbar-burger>

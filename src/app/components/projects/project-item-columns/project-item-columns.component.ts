@@ -1,4 +1,4 @@
-import { AfterContentInit, AfterViewInit, Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { IProject, ProjectContentItem } from 'src/app/interfaces/IProject';
 import { ProjectItemBase } from '../project-item-base.component';
 
@@ -13,9 +13,9 @@ export class ProjectItemColumnsComponent implements ProjectItemBase, AfterViewIn
 
   public project: IProject;
 
-  public items: ProjectContentItem[];
-  public minWidth: string = '';
-  public center: boolean = true;
+  @Input() items: ProjectContentItem[];
+  @Input() minWidth: string = '';
+  @Input() center: boolean = true;
 
   constructor(
     private factoryResolver: ComponentFactoryResolver

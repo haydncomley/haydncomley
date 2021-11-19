@@ -16,6 +16,7 @@ export class AppComponent {
   selected: IProject;
 
   lastScrollHeight = 0;
+  lastPath = '/';
 
   constructor(
     private projectSelection: ProjectSelectionService
@@ -28,10 +29,11 @@ export class AppComponent {
       if (pages) {
         if (e) {
           this.lastScrollHeight = pages.scrollTop;
+          this.lastPath = location.pathname;
           pages.scrollTop = 0;
         } else {
           requestAnimationFrame(() => {
-            pages.scrollTop = this.lastScrollHeight;
+            pages.scrollTop = this.lastPath == location.pathname ? this.lastScrollHeight : 0;
             this.lastScrollHeight = 0;
           })
         }

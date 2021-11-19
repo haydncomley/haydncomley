@@ -9,9 +9,7 @@
                 display: block;
 
                 &:first-child {
-                    @include mobile {
-                        margin-top: 8rem;
-                    }
+                    margin-top: 8rem;
                 }
             }
         }

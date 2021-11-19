@@ -127,24 +127,14 @@ $slimSlideTime: .3s ease;
                 --burger-line-height: 2px;
                 margin-right: 1.25rem;
                 transition: .2s ease;
-
-                &:hover {
-                    transform: translateX(-20%);
-                    opacity: .8;
-                }
             }
 
             &.selected:hover {
                 app-navbar-burger {
                     transform: translateX(-20%);
+                    opacity: .5;
                 }
             }
-
-            // @include mobile {
-            //     &.selected {
-            //         display: none;
-            //     }
-            // }
         }
     }
 
@@ -168,9 +158,9 @@ $slimSlideTime: .3s ease;
     left: 0;
     right: 0;
     z-index: 1;
-    // backdrop-filter: blur(0rem);
-    background: transparent;
-    transition: $slimSlideTime, background .1s ease, box-shadow .1s ease;
+    backdrop-filter: blur(0rem);
+    background: rgba(var(--theme-background), .1);
+    transition: $slimSlideTime;
 
     &__banner {
         transition: $slimSlideTime;
@@ -194,12 +184,13 @@ $slimSlideTime: .3s ease;
     }
 
     &.slim {
-        background: rgba(var(--theme-background), 1);
+        background: rgba(var(--theme-background), .7);
+        backdrop-filter: blur(.5rem);
         height: 4rem;
         box-shadow: 0 0 0.5rem 0 rgb(0,0,0,0.5);
 
         .c-navbar-mobile__banner {
-            transform: scale(.75);
+            transform: scale(0.75) translateY(0.3rem);
         }
 
         app-navbar-burger {

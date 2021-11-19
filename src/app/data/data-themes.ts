@@ -1,9 +1,10 @@
 import { IProjectTheme } from "../interfaces/IProject";
 
 export const ProjectTheme_Green: IProjectTheme = {
-    primary: '143, 252, 160',
-    secondary: '73, 246, 188',
-    contrast: '255, 255, 255'
+    primary: '73, 216, 188',
+    secondary: '143, 222, 130',
+    contrast: '255, 255, 255',
+    // tertiary: '73, 246, 188',
 }
 
 export const ProjectTheme_Violet: IProjectTheme = {
@@ -15,7 +16,8 @@ export const ProjectTheme_Violet: IProjectTheme = {
 export const ProjectTheme_Purple: IProjectTheme = {
     primary: '154, 117, 245',
     secondary: '214, 140, 245',
-    contrast: '255, 255, 255'
+    contrast: '255, 255, 255',
+    tertiary: '154, 117, 245',
 }
 
 export const ProjectTheme_Brown: IProjectTheme = {
@@ -27,13 +29,15 @@ export const ProjectTheme_Brown: IProjectTheme = {
 export const ProjectTheme_Red: IProjectTheme = {
     primary: '255, 56, 56',
     secondary: '210, 60, 100',
-    contrast: '255, 255, 255'
+    contrast: '255, 255, 255',
+    tertiary: '210, 60, 100',
 }
 
 export const ProjectTheme_Teal: IProjectTheme = {
-    primary: '95, 220, 200',
-    secondary: '95, 240, 200',
-    contrast: '255, 255, 255'
+    primary: '55, 210, 200',
+    secondary: '205, 220, 190',
+    contrast: '255, 255, 255',
+    // tertiary: '95, 220, 200',
 }
 
 export const ProjectTheme_Blue: IProjectTheme = {
@@ -42,20 +46,44 @@ export const ProjectTheme_Blue: IProjectTheme = {
     contrast: '255, 255, 255'
 }
 
+export const ProjectTheme_ImagineX: IProjectTheme = {
+    primary: '255, 70, 100',
+    secondary: '190, 110, 200',
+    contrast: '255, 255, 255',
+    tertiary: '255, 70, 80',
+}
+
+export const ProjectTheme_LightPurple: IProjectTheme = {
+    primary: '190, 185, 255',
+    secondary: '155, 165, 250',
+    contrast: '255, 255, 255',
+    tertiary: '150, 145, 250',
+}
+
 export const ProjectTheme_Orange: IProjectTheme = {
-    primary: '245, 206, 110',
-    secondary: '255, 135, 131',
-    contrast: '255, 255, 255'
+    primary: '255, 135, 131',
+    secondary: '245, 206, 110',
+    contrast: '255, 255, 255',
+    tertiary: '255, 135, 131',
 }
 
 export const ProjectTheme_DeepOrange: IProjectTheme = {
     primary: '255, 155, 55',
     secondary: '230, 210, 140',
-    contrast: '255, 255, 255'
+    contrast: '255, 255, 255',
+    tertiary: '255, 155, 55',
 }
 
 export const ProjectTheme_VM: IProjectTheme = {
     primary: '250, 95, 149',
     secondary: '250, 156, 141',
-    contrast: '255, 255, 255'
+    contrast: '255, 255, 255',
+    tertiary: '250, 95, 149',
+}
+
+export const ProjectTheme_VocalCommunities: IProjectTheme = {
+    primary: '248, 222, 47',
+    secondary: '240, 70, 110',
+    contrast: '255, 255, 255',
+    tertiary: '240, 70, 110',
 }

@@ -15,12 +15,14 @@ export interface HexlixPath {
 
 export class HelixArt {
 
-    public static Generate(size: Vector2, turns: number): Promise<string> {
+    public static Generate(size: Vector2, turns: number, gradient?: {
+        startRGB: string, endRGB?: string; darkenPercentage?: number
+    }, flip?: boolean): Promise<string> {
         return new Promise((res) => {
             const randomness = 50;
 
             const { canvas, ctx } = this.makeCanvas(size);
-            let helixPoints = this.getHelix(size, turns, randomness);
+            let helixPoints = this.getHelix(size, turns + (flip ? 1 : 0), randomness, flip);
             helixPoints = this.randomiseHelix(helixPoints, randomness);
 
             const rotation = this.randomOffset(0, 20, 10) * (Math.floor(Math.random() * 2) % 2 ? -1 : 1);
@@ -33,18 +35,42 @@ export class HelixArt {
                 ctx.quadraticCurveTo(point.curve.x, point.curve.y, point.point.x, point.point.y);
             });
 
-            const grd = ctx.createLinearGradient(0, helixPoints.midpoint, size.x, helixPoints.midpoint);
-            grd.addColorStop(0, 'rgba(0,0,0,0.5)');
-            grd.addColorStop(1, 'rgba(0,0,0,1)');
-            ctx.fillStyle = grd;
 
+            let startColor = '0,0,0';
+            let endColor = '0,0,0';
+
+            if (gradient) {
+                const darken = gradient.darkenPercentage || .9;
+
+                startColor = HelixArt.darkenRGB(gradient.startRGB, darken);
+                endColor = HelixArt.darkenRGB(gradient.endRGB || startColor, darken);
+            }
+
+            const grd = ctx.createLinearGradient(0, helixPoints.size.y, size.x, helixPoints.size.x);
+            grd.addColorStop(0, `rgba(${startColor}, 0`);
+            grd.addColorStop(1, `rgba(${endColor}, 1`);
+            ctx.fillStyle = grd;
 
             ctx.fill();
 
 
 
+
+
             res(canvas.toDataURL());
         })
+    }
+
+    private static darkenRGB(rgb: string, percentage: number) {
+        let color = rgb;
+
+        const colorSplit = color.split(',');
+        for (let i = 0; i < colorSplit.length; i++) {
+            const element = colorSplit[i];
+            colorSplit[i] = '' + Math.max(parseInt(element.trim()) * percentage, 0);
+        }
+
+        return colorSplit.join(',');
     }
 
     private static makeCanvas(size: Vector2) {
@@ -74,7 +100,7 @@ export class HelixArt {
         return helix;
     }
 
-    private static getHelix(size: Vector2, turnsWanted: number, randomness: number): HexlixPath {
+    private static getHelix(size: Vector2, turnsWanted: number, randomness: number, flip?: boolean): HexlixPath {
         const helix: HexlixPath = {
             size,
             start: { x: size.x / 2, y: size.y * 1.5 },
@@ -93,6 +119,14 @@ export class HelixArt {
                     y: size.y - (i * (size.y / turnsWanted)) + ((size.y / turnsWanted) / 2)
                 }
             })
+        }
+
+        if (flip) {
+            helix.path.shift();
+            for (let i = 0; i < helix.path.length; i++) {
+                helix.path[i].point.y += ((size.y / turnsWanted));
+                helix.path[i].curve.y += ((size.y / turnsWanted));
+            }
         }
 
         return helix;

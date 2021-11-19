@@ -32,7 +32,11 @@ export class ProjectPaneComponent implements OnInit, OnDestroy {
     const isMobile = window.innerWidth < 600;
     const size = isMobile ? 300 : 500;
 
-    this.helix = await HelixArt.Generate({ x: size, y: size }, Math.floor(Math.random() * 4) + 2);
+    this.helix = await HelixArt.Generate({ x: size, y: size }, Math.floor(Math.random() * 4) + 2, {
+      startRGB: this.project.theme.tertiary || this.project.theme.primary,
+      endRGB: this.project.theme.tertiary || this.project.theme.secondary,
+      darkenPercentage: .9
+    }, this.offset % 2 == 1);
     this.scrollSub = this.projectService.getScrollPos().subscribe((e) => this.scrollChange(e));
     this.project.tags = this.project.tags.sort((a, b) => {
       if (a > b) return 1;

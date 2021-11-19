@@ -1,6 +1,6 @@
 <div class="p-home">
     <div class="p-home__list" id="projectList">
-        <app-project-pane *ngFor="let project of projects; let i = index" [project]="project"
+        <app-project-pane *ngFor="let project of projects; let i = index; trackBy: trackByProject" [project]="project"
             [style.z-index]="projects.length - i" [offset]="i" [isLast]="index === projects.length - 1"></app-project-pane>
     </div>
 </div>

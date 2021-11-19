@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IProject } from 'src/app/interfaces/IProject';
 import { ProjectItemBase } from '../project-item-base.component';
 
@@ -11,9 +11,9 @@ export class ProjectItemLinkComponent implements ProjectItemBase, OnInit {
 
   public project: IProject;
 
-  public header: string;
-  public link: string;
-  public filled: boolean = false;
+  @Input() header: string;
+  @Input() link: string;
+  @Input() filled: boolean = false;
 
   constructor() { }
 

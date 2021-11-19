@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IProject } from 'src/app/interfaces/IProject';
 import { ProjectItemBase } from '../project-item-base.component';
 
@@ -11,9 +11,10 @@ export class ProjectItemHeaderComponent implements ProjectItemBase, OnInit {
 
   public project: IProject;
 
-  public header = '';
-  public subtitle = '';
-  public background = '';
+  @Input() header = '';
+  @Input() subtitle = '';
+  @Input() background = '';
+  @Input() slim = false;
 
   constructor() { }
 

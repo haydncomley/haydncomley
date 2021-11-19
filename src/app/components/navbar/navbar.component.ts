@@ -1,5 +1,5 @@
 import { AfterContentInit, AfterViewInit, Component, ElementRef, Input, NgZone, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import * as moment from 'moment';
 import { INavPage } from 'src/app/interfaces/INavPage';
 import { filter } from 'rxjs/operators';
@@ -19,10 +19,12 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('navbar') navbarElement: ElementRef<HTMLElement>;
 
   @Input() slim: boolean = false;
+  slimPage = false;
 
   thisYear: string = '';
   currentPage: INavPage;
   selectedProject: IProject;
+  navDetails: any;
 
   projectSelectionSub: Subscription;
   routerSub: Subscription;
@@ -51,6 +53,7 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(
     private router: Router,
     private projectSelectionService: ProjectSelectionService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -112,6 +115,18 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
         this.currentPage = null;
       }
     }
+
+    if (!this.route.firstChild) return;
+
+    this.slimPage = this.route.firstChild.snapshot.data['slimNavigation'];
+    const details = this.route.firstChild.snapshot.data['details'];
+
+    setTimeout(() => {
+      requestAnimationFrame(() => {
+        this.navDetails = details;
+      });
+    }, !details ? this.SELECTED_ANIMATION_TIME : 0);
+
   }
 
   selectPage(page: INavPage) {

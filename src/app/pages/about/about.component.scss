@@ -1,0 +1,17 @@
+@import '@vm/mobile';
+
+.p-about {
+    --project-primary: 255, 95, 100;
+    --project-secondary: 200, 200, 180;
+    --project-contrast: 255, 255, 255;
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: var(--padding);
+
+    @include mobile {
+        display: block;
+        margin-top: 4rem;
+    }
+}

@@ -20,6 +20,7 @@ export interface IProject {
 export interface IProjectTheme {
     primary: string;
     secondary: string;
+    tertiary?: string;
     contrast: string;
 }
 
@@ -91,8 +92,10 @@ export class ProjectContentItem_Gallery extends ProjectContentItem {
     constructor(props: {
         images: string[];
         height?: string;
+        maxHeight?: string;
         interval?: number;
         fit?: 'contain' | 'cover';
+        position?: 'center' | 'top' | 'bottom';
         animation?: 'swipe' | 'slide';
     }) { super(props) }
 }

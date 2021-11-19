@@ -1,21 +1,23 @@
-<div class="c-pi-gallery" [ngClass]="{ 'setHeight': height }" [ngStyle]="{ 'height': height }" (mouseenter)="pause()"
+<div class="c-pi-gallery" [ngClass]="{ 'setHeight': height || maxHeight }"
+    [ngStyle]="{ 'height': height, 'max-height': maxHeight }" (mouseenter)="pause()"
     (mouseleave)="play()">
     <ng-container *ngFor="let image of safeImages; let i = index">
-        <img *ngIf="i == selected" [ngStyle]="{ 'object-fit': fit }" [@swipe]="direction" [src]="image">
+        <img *ngIf="i == selected" [ngStyle]="{ 'object-fit': fit, 'object-position': position }" [@swipe]="direction"
+            [src]="image">
     </ng-container>
 
-    <span class="c-pi-gallery__dots">
+    <span class="c-pi-gallery__dots" *ngIf="images.length > 1">
         <span class="c-pi-gallery__dots__item" *ngFor="let image of safeImages; let i = index" (click)="selectPage(i)"
             [ngClass]="{ 'selected': i == selected }"></span>
     </span>
 
-    <span class="c-pi-gallery__side" (click)="nextSlide(-1)">
+    <span class="c-pi-gallery__side" (click)="nextSlide(-1)" *ngIf="images.length > 1">
         <span class="c-pi-gallery__side__icon">
             <app-navbar-burger [isBack]="true"></app-navbar-burger>
         </span>
     </span>
 
-    <span class="c-pi-gallery__side c-pi-gallery__side--other" (click)="nextSlide(1)">
+    <span class="c-pi-gallery__side c-pi-gallery__side--other" (click)="nextSlide(1)" *ngIf="images.length > 1">
         <span class="c-pi-gallery__side__icon">
             <app-navbar-burger [isBack]="true"></app-navbar-burger>
         </span>

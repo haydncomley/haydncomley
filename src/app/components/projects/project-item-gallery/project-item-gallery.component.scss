@@ -98,6 +98,8 @@ $dotSize: .5rem;
     }
 
     &.setHeight {
+        overflow: hidden;
+        
         img {
             height: 100%;
         }

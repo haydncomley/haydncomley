@@ -1,11 +1,11 @@
 import { IProject, ProjectContentItem_Gallery, ProjectContentItem_Header, ProjectContentItem_Paragraph, ProjectContentItem_Text } from "../interfaces/IProject";
-import { ProjectTheme_DeepOrange } from "./data-themes";
+import { ProjectTheme_DeepOrange, ProjectTheme_VocalCommunities } from "./data-themes";
 
 export const Project_Vocal: IProject = {
     name: 'Vocal Communities',
-    short_desc: 'Business Website',
+    short_desc: 'Social Enterprise',
     time: 'Winter 2021',
-    theme: ProjectTheme_DeepOrange,
+    theme: ProjectTheme_VocalCommunities,
     tags: ['WordPress', 'Blog', 'CMS'],
     content: [
         new ProjectContentItem_Header({

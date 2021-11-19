@@ -12,9 +12,17 @@
     text-align: center;
     color: var(--project-item-color, rgba(var(--project-contrast), 1));
 
+    &.slim {
+        min-height: 7rem;
+    }
+
     @include mobile {
         padding: 3rem 2rem;
         height: auto;
+
+        &.slim {
+            padding: 2rem 2rem;
+        }
     }
 
     app-image-background {

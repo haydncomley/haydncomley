@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { fadeAnimation } from 'src/app/animations/fade.animation';
 import { slideAnimation } from 'src/app/animations/slide.animation';
@@ -16,12 +16,14 @@ export class ProjectItemGalleryComponent implements ProjectItemBase, OnInit, OnD
 
   public project: IProject;
 
-  public images: string[] = [];
-  public selected = 0;
-  public interval = 5000;
-  public height = 'auto';
-  public fit = 'contain';
-  public animation = 'swipe';
+  @Input() images: string[] = [];
+  @Input() selected = 0;
+  @Input() interval = 5000;
+  @Input() height = 'auto';
+  @Input() maxHeight = null;
+  @Input() fit = 'contain';
+  @Input() position = 'center';
+  @Input() animation = 'swipe';
 
   direction = 'right';
   safeImages: SafeResourceUrl[] = [];
@@ -65,7 +67,7 @@ export class ProjectItemGalleryComponent implements ProjectItemBase, OnInit, OnD
   }
 
   play() {
-    if (this.interval) {
+    if (this.interval && this.images.length > 1) {
       this.timeout = setInterval(() => this.nextSlide(1), this.interval);
     }
   }

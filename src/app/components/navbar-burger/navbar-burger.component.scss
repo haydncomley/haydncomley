@@ -18,7 +18,7 @@ $transition: .35s ease;
         width: 100%;
         height: var(--burger-line-height,  12%);
         background: var(--burger-color, rgba(var(--theme-background-contrast), 1));
-        border-radius: 0 1rem 1rem 0;
+        // border-radius: 0 1rem 1rem 0;
         transform-origin: 0 50%;
         transition: $transition;
 
