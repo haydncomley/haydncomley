@@ -30,8 +30,9 @@
         text-overflow: ellipsis;
     }
     
-    &:hover {
+    &:hover, &:focus {
         box-shadow: 0 0 0 .15rem rgba(var(--theme-background-contrast), .8) inset;
+        outline: none;
 
         app-navbar-burger {
             right: .25rem;
@@ -50,9 +51,10 @@
         color: rgba(var(--project-contrast), 1);
         border: none;
 
-        &:hover {
+        &:hover, &:focus {
             border: none;
             box-shadow: 0 0 0 .15rem rgba(var(--project-contrast), .8) inset;
+            outline: none;
            
             .c-pi-link__url {
                 opacity: 1;

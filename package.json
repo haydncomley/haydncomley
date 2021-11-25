@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "start": "ng serve",
+    "build:dev": "ng build --aot",
     "build": "ng build --prod --aot"
   },
   "private": true,

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar.component';
 import { BannerModule } from '../banner/banner.module';
 import { NavbarBurgerModule } from '../navbar-burger/navbar-burger.module';
+import { SharedDirectivesModule } from 'src/app/directives/shared-directives.module';
 
 
 
@@ -10,8 +11,9 @@ import { NavbarBurgerModule } from '../navbar-burger/navbar-burger.module';
   declarations: [NavbarComponent],
   imports: [
     CommonModule,
-    BannerModule,
+    SharedDirectivesModule,
 
+    BannerModule,
     NavbarBurgerModule
   ],
   exports: [NavbarComponent],

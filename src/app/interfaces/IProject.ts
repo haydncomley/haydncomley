@@ -11,6 +11,10 @@ import { ProjectItemTextComponent } from "../components/projects/project-item-te
 export interface IProject {
     name: string;
     short_desc: string;
+    is_live?: {
+        label?: string;
+        link: string;
+    }
     time: string;
     theme: IProjectTheme;
     content?: ProjectContentItem[];

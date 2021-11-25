@@ -5,8 +5,12 @@ export const Project_Sundown: IProject = {
     name: 'Sundown',
     short_desc: 'Festival Website',
     time: 'Winter 2019',
+    is_live: {
+        label: 'View Demo',
+        link: 'https://sundown.haydncomley.com'
+    },
     theme: ProjectTheme_Orange,
-    tags: ['JavaScript', 'Ecommerce'],
+    tags: ['JavaScript', 'E-Commerce'],
     content: [
         new ProjectContentItem_Header({
             header: 'Sundown',
@@ -50,7 +54,7 @@ export const Project_Sundown: IProject = {
             center: false,
             items: [
                 new ProjectContentItem_Text({
-                    text: 'I initially went through some revisions on !!Adobe Photoshop!! before settling on a design to bring forward. I really like the final aesthetic that I went for, and think that I made a really funnctional website.'
+                    text: 'I initially went through some revisions on !!Adobe Photoshop!! before settling on a design to bring forward. I really like the final aesthetic that I went for, and think that I made a really functional website.'
                 }),
                 new ProjectContentItem_Link({
                     header: 'View Website',

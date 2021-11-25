@@ -14,9 +14,9 @@ import { Project_Vocal } from "./data-project-vocal";
 export const AllProjects: IProject[] = [
     Project_Vocal,
     Project_Boxedjs,
-    Project_HaydnComley,
+    // Project_HaydnComley,
     Project_Portfolio,
-    // Project_Knapsack,
+    Project_Knapsack,
     Project_ImagineX,
     Project_VersionMaybe,
     Project_Sundown,

@@ -5,6 +5,9 @@ export const Project_VersionMaybe: IProject = {
     name: 'VersionMaybe.',
     short_desc: 'Business Website',
     time: 'Summer 2020',
+    is_live: {
+        link: 'https://versionmaybe.com'
+    },
     theme: ProjectTheme_VM,
     tags: ['Angular', 'CMS', 'TypeScript', 'Static']
 }

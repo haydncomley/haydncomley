@@ -75,7 +75,8 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
       listItem.style.maxHeight = (e ? '4rem' : '0px');
       listItem.style.padding = (e ? null : 0 + 'px');
       listItem.style.opacity = (e ? '1' : '0');
-      listItem.style.background = (e ? `rgba(${e.theme.primary}, .25)` : null);
+      listItem.style.setProperty('--project-primary', (e ? `${e.theme.primary}` : null));
+      // listItem.style.background = (e ? `rgba(${e.theme.primary}, .25)` : null);
 
       if (this.timeout) {
         clearTimeout(this.timeout);

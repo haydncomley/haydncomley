@@ -5,6 +5,9 @@ export const Project_Vocal: IProject = {
     name: 'Vocal Communities',
     short_desc: 'Social Enterprise',
     time: 'Winter 2021',
+    is_live: {
+        link: 'https://vocal.versionmaybe.com'
+    },
     theme: ProjectTheme_VocalCommunities,
     tags: ['WordPress', 'Blog', 'CMS'],
     content: [
@@ -14,7 +17,7 @@ export const Project_Vocal: IProject = {
         }),
         new ProjectContentItem_Paragraph({
             text: new ProjectContentItem_Text({
-                text: 'This is some text that will get put into a text paragraph. Fairly easytt'
+                text: 'This is some text that will get put into a text paragraph. Fairly easy'
             })
         }),
         new ProjectContentItem_Gallery({

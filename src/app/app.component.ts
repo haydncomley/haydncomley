@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { pageAnimation } from './animations/page.animation';
 import { IProject } from './interfaces/IProject';
 import { ProjectSelectionService } from './services/project-selection.service';
@@ -17,6 +18,9 @@ export class AppComponent {
 
   lastScrollHeight = 0;
   lastPath = '/';
+
+  showWarning = true;
+  isProduction = environment.production;
 
   constructor(
     private projectSelection: ProjectSelectionService
@@ -51,6 +55,10 @@ export class AppComponent {
 
   prepareRoute(outlet: RouterOutlet) {
     return outlet?.activatedRouteData?.['animation'];
+  }
+
+  hideWarning() {
+    this.showWarning = false;
   }
 
 }

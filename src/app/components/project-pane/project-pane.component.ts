@@ -54,7 +54,9 @@ export class ProjectPaneComponent implements OnInit, OnDestroy {
     this.pop = (bounds.top + bounds.height) < (window.innerHeight * .75);
   }
 
-  async selectProject() {
+  async selectProject(e: MouseEvent) {
+    if (e.target && (e.target as HTMLElement).className.includes('c-pane-live-badge')) return;
+
     this.projectService.selectProject(this.project);
     this.router.navigate([`/project/${this.project.name.toLowerCase()}`]);
   }

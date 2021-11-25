@@ -35,3 +35,64 @@
         }
     }
 }
+
+.app-warning {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(var(--theme-background-contrast), .25);
+    backdrop-filter: blur(.5rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__box {
+        padding: 1rem;
+        border-radius: .3rem;
+        background-color: rgba(var(--theme-background), 1);
+        display: grid;
+
+        @include mobile {
+            max-width: 80vw;
+        }
+
+        &__title {
+            display: block;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: .25rem;
+        }
+
+        &__msg {
+            display: block;
+            max-width: 25rem;
+            opacity: .8;
+            font-weight: 100;
+            margin-bottom: .25rem;
+
+            @include mobile {
+                margin-bottom: 1rem;
+            }
+        }
+
+        button {
+            outline: none;
+            border: none;
+            padding: 0.4rem 0.75rem;
+            font-size: .8rem;
+            background-color: rgba(var(--theme-background-contrast), 0.25);
+            color: rgba(var(--theme-background-contrast), 1);
+            font-weight: 400;
+            margin-left: auto;
+            text-transform: uppercase;
+
+            &:hover {
+                cursor: pointer;
+                background-color: rgba(var(--theme-background-contrast), 0.5);
+            }
+        }
+    }
+}

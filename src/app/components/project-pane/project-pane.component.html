@@ -1,6 +1,6 @@
 <div class="c-pane" [style.--project-main]="project.theme.primary" [style.--project-sub]="project.theme.secondary"
-    [style.--project-contrast]="project.theme.contrast" (click)="selectProject()" [ngClass]="{ 'isLast': isLast }"
-    [ngStyle]="{ animationDelay: ((offset + 0) - (.75 * offset)) + 's' }">
+    [style.--project-contrast]="project.theme.contrast" (interaction)="selectProject($event)" [ngClass]="{ 'isLast': isLast }"
+    [ngStyle]="{ animationDelay: ((offset + 0) - (.75 * offset)) + 's' }" tabindex="0">
 
     <span class="c-pane__highlight"></span>
     <video class="c-pane__particles" src="/assets/vid/overlay.webm" autoplay muted loop></video>
@@ -10,7 +10,15 @@
     </span>
 
     <span class="c-pane__details">
-        <h3 class="c-pane__details__name">{{ project.name }}</h3>
+        <h3 class="c-pane__details__name">
+            {{ project.name }}
+            <a *ngIf="project.is_live" class="c-pane-live-badge" target="_blank" [href]="project.is_live.link">{{
+                project.is_live.label || 'View Now' }}
+                <span>
+                    <app-navbar-burger [isBack]="true"></app-navbar-burger>
+                </span>
+            </a>
+        </h3>
         <span class="c-pane__details__short">{{ project.short_desc }}</span>
         <span class="c-pane__details__tags">
             <app-chip *ngFor="let tag of project.tags">{{ tag }}</app-chip>

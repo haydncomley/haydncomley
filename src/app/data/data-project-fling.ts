@@ -22,10 +22,10 @@ export const Project_Fling: IProject = {
             center: false,
             items: [
                 new ProjectContentItem_Text({
-                    text: 'The art style was a key point that I wanted to nail - I wanted it to look modern, emulating some of the graphics of other popular games at the time while still running smoothly. I had been using !!Unity!! for a while at this point with hobbiest projects but I really wanted to publish something and get my work out there.'
+                    text: 'The art style was a key point that I wanted to nail - I wanted it to look modern, emulating some of the graphics of other popular games at the time while still running smoothly. I had been using !!Unity!! for a while at this point with hobbyist projects but I really wanted to publish something and get my work out there.'
                 }),
                 new ProjectContentItem_Text({
-                    text: 'Once the core game mechanics were in place the biggest task was creating content. This is always something I stuggle with as it\'s the final hurdle to overcome. I slowly made characters and levels in tandem with creating the store listing which helped push me forward.'
+                    text: 'Once the core game mechanics were in place the biggest task was creating content. This is always something I struggle with as it\'s the final hurdle to overcome. I slowly made characters and levels in tandem with creating the store listing which helped push me forward.'
                 })
             ]
         }),

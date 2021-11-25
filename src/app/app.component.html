@@ -4,3 +4,14 @@
         <router-outlet #outlet="outlet"></router-outlet>
     </span>
 </div>
+
+<div class="app-warning" *ngIf="showWarning && isProduction">
+    <div class="app-warning__box">
+        <span class="app-warning__box__title">Under Development</span>
+        <span class="app-warning__box__msg">
+            This website is currently under development so some content will be missing.
+            I'm getting everything together and it should all be ready soon.
+        </span>
+        <button (click)="hideWarning()">I Understand</button>
+    </div>
+</div>

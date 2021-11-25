@@ -5,6 +5,10 @@ export const Project_GetCards: IProject = {
     name: 'GetCards',
     short_desc: 'Mobile Game',
     time: 'Summer 2018',
+    is_live: {
+        label: 'View App',
+        link: 'https://getcards.app'
+    },
     theme: ProjectTheme_Red,
     tags: ['Ionic', 'iOS', 'Android', 'Firebase'],
     content: [
@@ -13,7 +17,7 @@ export const Project_GetCards: IProject = {
             subtitle: 'A mobile drinking game aimed at students and young adults.'
         }),
         new ProjectContentItem_Paragraph({
-            header: 'Inital __Release__',
+            header: 'Initial __Release__',
             text: new ProjectContentItem_Text({
                 text: 'The app was released initially on both !!iOS & Android!! in 2018 using the Unity Game engine. However through the years it has been modernised and moved to !!Ionic Native!!.'
             })
@@ -25,7 +29,7 @@ export const Project_GetCards: IProject = {
                     text: 'Using !!Firebase!! the app can be updated remotely. The backend allows for unlimited amounts of localisation that can change the UI as well as the contents of the game packs.'
                 }),
                 new ProjectContentItem_Text({
-                    text: 'The game can also have different promotions for different regions meaning it can also capatalise on localised events.'
+                    text: 'The game can also have different promotions for different regions meaning it can also capitalise on localised events.'
                 })
             ]
         }),
@@ -78,7 +82,7 @@ export const Project_GetCards: IProject = {
                     text: 'I would also like to grow the audience in general for this app wider. This means doing more research into marketing methods and growth tactics.'
                 }),
                 new ProjectContentItem_Text({
-                    text: 'I have thought about either doing paid ad placements on platforms such as Instagram but think I might be able to capatalise on the !!organic traction!! I have had by creating content for platforms such as TikTok.'
+                    text: 'I have thought about either doing paid ad placements on platforms such as Instagram but think I might be able to capitalise on the !!organic traction!! I have had by creating content for platforms such as TikTok.'
                 }),
             ]
         }),

@@ -55,8 +55,9 @@ $hovertransition: 1s ease;
     }
 
     @include not_mobile {
-        &:hover {
+        &:hover, &:focus {
             cursor: pointer;
+            outline: none;
     
             .c-pane__art {
                 transform: translateX(-10%) rotateZ(5deg);
@@ -64,7 +65,7 @@ $hovertransition: 1s ease;
             }
 
             .c-pane__particles {
-                opacity: .8;
+                opacity: .5;
             }
     
             .c-pane__highlight {
@@ -78,15 +79,15 @@ $hovertransition: 1s ease;
     
             .c-pane__details__time {
                 right: 4rem;
+
+                app-navbar-burger {
+                    opacity: 1;
+                    right: -2.5rem;
+                }
             }
     
             .c-pane__details__tags {
                 margin-right: 2rem;
-            }
-    
-            app-navbar-burger {
-                opacity: 1;
-                right: -2.5rem;
             }
         }
     }
@@ -173,6 +174,15 @@ $hovertransition: 1s ease;
             font-weight: 600;
             margin: 0;
             white-space: nowrap;
+            
+            display: flex;
+            align-items: center;
+
+            .c-pane-live-badge {
+                margin-left: .5rem;
+            }
+            
+            
         }
 
         &__short {
@@ -181,7 +191,7 @@ $hovertransition: 1s ease;
             font-weight: 300;
             margin: 0;
             white-space: nowrap;
-            opacity: .8;
+            color: rgba(var(--project-contrast), .8);
         }
 
         &__tags {
@@ -226,6 +236,79 @@ $hovertransition: 1s ease;
                 @include mobile {
                     display: none;
                 }
+            }
+        }
+    }
+}
+
+@keyframes glow {
+    0% {
+        opacity: 20%;
+    }
+    20% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 20%;
+    }
+}
+
+.c-pane-live-badge {
+    padding: 0.3rem 0.4rem;
+    background-color: #141414;
+    color: white;
+    border-radius: 0.2rem;
+    font-size: 0.6rem;
+    font-weight: 400;
+    margin-left: 0.5rem;
+    display: block;
+    transition: .1s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include mobile {
+        display: none;
+    }
+
+    > span {
+        height: .2rem;
+        width: .2rem;
+        border-radius: 50%;
+        background-color: currentColor;
+        margin-left: .4rem;
+        animation: glow 1s ease infinite;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        transition: .1s ease;
+
+        app-navbar-burger {
+            position: absolute;
+            transform: rotateZ(180deg) scale(0.3);
+            left: -50%;
+            pointer-events: none;
+            opacity: 0;
+            transition: .2s ease;
+        }
+    }
+
+    &:hover, &:focus {
+        cursor: pointer;
+        outline: none;
+        transform: scale(1.05);
+
+        > span {
+            animation-play-state: paused;
+            opacity: 1 !important;
+            width: 1rem;
+            background-color: transparent;
+    
+            app-navbar-burger {
+                opacity: 1;
+                left: -40%;
             }
         }
     }
