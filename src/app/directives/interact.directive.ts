@@ -24,7 +24,6 @@ export class InteractDirective {
 
     doInteraction(event: any, removeFocus?: boolean) {
         if (document.activeElement && document.activeElement != document.body && removeFocus) (document.activeElement as HTMLElement).blur();
-        console.log('Interaction!')
         this.interaction.emit(event)
     }
 

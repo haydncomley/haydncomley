@@ -4,6 +4,7 @@ import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular
 import { BehaviorSubject } from 'rxjs';
 import { filter, first } from 'rxjs/operators';
 import { AllProjects } from '../data/data-projects';
+import { AllPrototypes } from '../data/data-prototypes';
 import { IProject } from '../interfaces/IProject';
 
 @Injectable({
@@ -41,9 +42,13 @@ export class ProjectSelectionService {
   private checkURLForProject() {
     const urlSplit = decodeURI(location.pathname).split('/');
 
-    if (urlSplit.length >= 3 && urlSplit[1] === 'project') {
-      const project = AllProjects.find((x) => x.name.toLowerCase() == urlSplit[2]);
-      this.selectProject(project)
+    if (urlSplit.length >= 3) {
+      let projectSelected = null;
+
+      if (urlSplit[1] === 'project') projectSelected = AllProjects.find((x) => x.name.toLowerCase() == urlSplit[2])
+      if (urlSplit[1] === 'prototypes') projectSelected = AllPrototypes.find((x) => x.name.toLowerCase() == urlSplit[2])
+
+      this.selectProject(projectSelected)
     } else {
       this.selectProject(null);
     }
@@ -55,7 +60,6 @@ export class ProjectSelectionService {
    */
   public selectProject(project: IProject) {
     this.projectSelected.next(project);
-
     this.title.setTitle(project ? `Haydn Comley - ${project.name}` : `Haydn Comley`)
   }
 

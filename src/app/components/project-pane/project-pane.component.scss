@@ -243,13 +243,13 @@ $hovertransition: 1s ease;
 
 @keyframes glow {
     0% {
-        opacity: 20%;
+        opacity: .2;
     }
     20% {
-        opacity: 100%;
+        opacity: 1;
     }
     100% {
-        opacity: 20%;
+        opacity: .2;
     }
 }
 

@@ -1,5 +1,5 @@
-import { IProject } from "../interfaces/IProject";
-import { ProjectTheme_Blue, ProjectTheme_Green, ProjectTheme_LightPurple } from "./data-themes";
+import { IProject } from "../../interfaces/IProject";
+import { ProjectTheme_Blue, ProjectTheme_Green, ProjectTheme_LightPurple } from ".././data-themes";
 
 export const Project_HaydnComley: IProject = {
     name: 'Stream Assets',

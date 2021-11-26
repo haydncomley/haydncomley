@@ -4,6 +4,7 @@ import { AllProjects } from './data/data-projects';
 import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProjectComponent } from './pages/project/project.component';
+import { PrototypesComponent } from './pages/prototypes/prototypes.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,13 @@ const routes: Routes = [
     component: HomeComponent,
     data: {
       animation: 'Home',
+    }
+  },
+  {
+    path: 'prototypes',
+    component: PrototypesComponent,
+    data: {
+      animation: 'Prototypes',
     }
   },
   {
@@ -41,6 +49,11 @@ const routes: Routes = [
   },
   {
     path: 'project/:projectName',
+    component: ProjectComponent,
+    data: { animation: 'Project' }
+  },
+  {
+    path: 'prototypes/:projectName',
     component: ProjectComponent,
     data: { animation: 'Project' }
   },

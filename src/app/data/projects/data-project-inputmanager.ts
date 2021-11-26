@@ -1,5 +1,5 @@
-import { IProject } from "../interfaces/IProject";
-import { ProjectTheme_Brown } from "./data-themes";
+import { IProject } from "../../interfaces/IProject";
+import { ProjectTheme_Brown } from ".././data-themes";
 
 export const Project_InputManager: IProject = {
     name: 'Input Manager',

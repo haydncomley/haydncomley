@@ -58,6 +58,6 @@ export class ProjectPaneComponent implements OnInit, OnDestroy {
     if (e.target && (e.target as HTMLElement).className.includes('c-pane-live-badge')) return;
 
     this.projectService.selectProject(this.project);
-    this.router.navigate([`/project/${this.project.name.toLowerCase()}`]);
+    this.router.navigate([`/${location.pathname.includes('proto') ? 'prototypes' : 'project'}/${this.project.name.toLowerCase()}`]);
   }
 }

@@ -1,5 +1,5 @@
-import { IProject, ProjectContentItem_Columns, ProjectContentItem_Gallery, ProjectContentItem_Header, ProjectContentItem_Paragraph, ProjectContentItem_Text } from "../interfaces/IProject";
-import { ProjectTheme_Green } from "./data-themes";
+import { IProject, ProjectContentItem_Columns, ProjectContentItem_Gallery, ProjectContentItem_Header, ProjectContentItem_Paragraph, ProjectContentItem_Text } from "../../interfaces/IProject";
+import { ProjectTheme_Green } from ".././data-themes";
 
 export const Project_Fling: IProject = {
     name: 'Fling',

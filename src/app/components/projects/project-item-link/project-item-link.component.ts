@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IProject } from 'src/app/interfaces/IProject';
 import { ProjectItemBase } from '../project-item-base.component';
 
@@ -15,9 +16,23 @@ export class ProjectItemLinkComponent implements ProjectItemBase, OnInit {
   @Input() link: string;
   @Input() filled: boolean = false;
 
-  constructor() { }
+  get isLocal() {
+    return !(this.link || '').startsWith('http');
+  }
+
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  open() {
+    if (this.isLocal) {
+      this.router.navigate([this.link]);
+    } else {
+      window.open(this.link, '_blank');
+    }
   }
 
 }

@@ -35,11 +35,15 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
 
   pages: INavPage[] = [
     {
-      label: 'Home',
+      label: 'Projects',
       route: '/'
     },
     {
-      label: 'About',
+      label: 'Prototypes',
+      route: '/prototypes'
+    },
+    {
+      label: 'About Me',
       route: '/about'
     },
     {
@@ -109,7 +113,7 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
 
   checkPage() {
     this.currentPage = this.pages.find((x) => x.route === location.pathname);
-    if (!this.currentPage && !location.pathname.includes('/project') && !this.selectedProject) {
+    if (!this.currentPage && !location.pathname.includes('/pro') && !this.selectedProject) {
       this.selectPage(this.pages[0]);
     } else {
       if (this.selectedProject) {
@@ -139,7 +143,7 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
   toggleMobileDrawer(show?: boolean, checkRoute = true) {
     if (this.selectedProject && checkRoute) {
       this.projectSelectionService.selectProject(null);
-      this.router.navigate(['/']);
+      this.router.navigate([location.pathname.includes('prototype') ? '/prototypes' : '/']);
       this.backButton = false;
       return;
     }

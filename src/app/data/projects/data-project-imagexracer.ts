@@ -1,5 +1,5 @@
-import { IProject } from "../interfaces/IProject";
-import { ProjectTheme_Blue, ProjectTheme_Green, ProjectTheme_ImagineX } from "./data-themes";
+import { IProject } from "../../interfaces/IProject";
+import { ProjectTheme_Blue, ProjectTheme_Green, ProjectTheme_ImagineX } from ".././data-themes";
 
 export const Project_ImagineX: IProject = {
     name: 'ImagineX Racer',

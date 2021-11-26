@@ -1,5 +1,5 @@
-import { IProject, IProjectTheme, ProjectContentItem_Break, ProjectContentItem_Columns, ProjectContentItem_Gallery, ProjectContentItem_Header, ProjectContentItem_Link, ProjectContentItem_Paragraph, ProjectContentItem_Text } from "../interfaces/IProject";
-import { ProjectTheme_Green, ProjectTheme_Orange, ProjectTheme_Red, ProjectTheme_Violet } from "./data-themes";
+import { IProject, IProjectTheme, ProjectContentItem_Break, ProjectContentItem_Columns, ProjectContentItem_Gallery, ProjectContentItem_Header, ProjectContentItem_Link, ProjectContentItem_Paragraph, ProjectContentItem_Text } from "../../interfaces/IProject";
+import { ProjectTheme_Green, ProjectTheme_Orange, ProjectTheme_Red, ProjectTheme_Violet } from ".././data-themes";
 
 export const Project_Sundown: IProject = {
     name: 'Sundown',

@@ -8,6 +8,7 @@ import { NavbarModule } from './components/navbar/navbar.module';
 import { AboutModule } from './pages/about/about.module';
 import { HomeModule } from './pages/home/home.module';
 import { ProjectModule } from './pages/project/project.module';
+import { PrototypesModule } from './pages/prototypes/prototypes.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ProjectModule } from './pages/project/project.module';
 
     // Pages
     HomeModule,
+    PrototypesModule,
     ProjectModule,
     AboutModule
   ],

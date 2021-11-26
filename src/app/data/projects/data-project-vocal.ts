@@ -1,9 +1,9 @@
-import { IProject, ProjectContentItem_Gallery, ProjectContentItem_Header, ProjectContentItem_Paragraph, ProjectContentItem_Text } from "../interfaces/IProject";
-import { ProjectTheme_DeepOrange, ProjectTheme_VocalCommunities } from "./data-themes";
+import { IProject, ProjectContentItem_Gallery, ProjectContentItem_Header, ProjectContentItem_Paragraph, ProjectContentItem_Text } from "../../interfaces/IProject";
+import { ProjectTheme_DeepOrange, ProjectTheme_VocalCommunities } from ".././data-themes";
 
 export const Project_Vocal: IProject = {
     name: 'Vocal Communities',
-    short_desc: 'Social Enterprise',
+    short_desc: 'Business Website',
     time: 'Winter 2021',
     is_live: {
         link: 'https://vocal.versionmaybe.com'
