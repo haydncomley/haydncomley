@@ -8,7 +8,8 @@
     </span>
 
     <ol class="c-navbar__list">
-        <li (interaction)="toggleMobileDrawer()" tabindex="0" id="selectedProject" class="c-navbar__list__item active selected">
+        <li (interaction)="toggleMobileDrawer(false, true, false)" tabindex="0" id="selectedProject"
+            class="c-navbar__list__item active selected">
             <app-navbar-burger [isBack]="true"></app-navbar-burger>
             {{ selectedProject?.name }}
         </li>

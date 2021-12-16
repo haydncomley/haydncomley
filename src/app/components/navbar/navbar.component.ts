@@ -38,10 +38,10 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
       label: 'Projects',
       route: '/'
     },
-    // {
-    //   label: 'Prototypes',
-    //   route: '/prototypes'
-    // },
+    {
+      label: 'Prototypes',
+      route: '/prototypes'
+    },
     {
       label: 'About',
       route: '/about'
@@ -146,26 +146,24 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
     this.toggleMobileDrawer(false, false);
   }
 
-  toggleMobileDrawer(show?: boolean, checkRoute = true) {
+  toggleMobileDrawer(show?: boolean, checkRoute = true, forceMobile?) {
     if (this.selectedProject && checkRoute) {
       this.projectSelectionService.selectProject(null);
       this.router.navigate([location.pathname.includes('prototype') ? '/prototypes' : '/']);
       this.backButton = false;
+
+      if (forceMobile !== undefined) this.mobileShown = forceMobile;
       return;
     }
 
     if (show === undefined) show = !this.mobileShown;
     this.mobileShown = show;
-
-    if (this.mobileShown) {
-
-    }
   }
 
   createMobileGestures() {
     window.addEventListener('touchend', (e) => {
-      if (Math.abs(this.dragAmount) > this.navbarElement.nativeElement.getBoundingClientRect().width * .18) {
-        this.toggleMobileDrawer();
+      if (Math.abs(this.dragAmount) > this.navbarElement.nativeElement.getBoundingClientRect().width * .10) {
+        this.mobileShown = !this.mobileShown && (this.dragAmount > 0);
       }
 
       this.dragAmount = 0;
@@ -178,7 +176,7 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
 
     window.addEventListener('touchmove', (e) => {
       if (!this.dragStartTop) this.dragStartTop = e.touches[0].clientY;
-      if (Math.abs(e.touches[0].clientY - this.dragStartTop) > 10 && Math.abs(this.dragAmount) < this.navbarElement.nativeElement.getBoundingClientRect().width * .18) {
+      if (Math.abs(e.touches[0].clientY - this.dragStartTop) > 10 && Math.abs(this.dragAmount) < 10) {
         this.dragReset = true;
         this.dragAmount = 0;
         this.dragStart = null;
