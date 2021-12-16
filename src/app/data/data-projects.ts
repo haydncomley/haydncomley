@@ -16,7 +16,7 @@ export const AllProjects: IProject[] = [
     Project_Vocal,
     // Project_Boxedjs,
     // Project_HaydnComley,
-    Project_Portfolio,
+    // Project_Portfolio,
     Project_SantanderX,
     // Project_Knapsack,
     Project_ImagineX,

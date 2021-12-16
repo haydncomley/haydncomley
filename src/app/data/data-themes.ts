@@ -73,10 +73,10 @@ export const ProjectTheme_ImagineX: IProjectTheme = {
 }
 
 export const ProjectTheme_LightPurple: IProjectTheme = {
-    primary: '190, 185, 255',
-    secondary: '155, 165, 250',
+    primary: '190, 177, 255',
+    secondary: '129, 157, 226',
     contrast: '255, 255, 255',
-    tertiary: '150, 145, 250',
+    tertiary: '100, 134, 218',
 }
 
 export const ProjectTheme_Orange: IProjectTheme = {

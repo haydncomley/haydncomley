@@ -38,12 +38,12 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
       label: 'Projects',
       route: '/'
     },
+    // {
+    //   label: 'Prototypes',
+    //   route: '/prototypes'
+    // },
     {
-      label: 'Prototypes',
-      route: '/prototypes'
-    },
-    {
-      label: 'About Me',
+      label: 'About',
       route: '/about'
     },
     {
@@ -53,11 +53,16 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
   ];
 
   mobileShown = false;
+  dragStart = null;
+  dragStartTop = null;
+  dragAmount = 0;
+  dragReset = false;
 
   constructor(
     private router: Router,
     private projectSelectionService: ProjectSelectionService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private renderer: Renderer2
   ) { }
 
   ngOnInit(): void {
@@ -70,6 +75,7 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
     });
 
     this.checkPage();
+    this.createMobileGestures();
   }
 
   ngAfterViewInit() {
@@ -150,6 +156,56 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
 
     if (show === undefined) show = !this.mobileShown;
     this.mobileShown = show;
+
+    if (this.mobileShown) {
+
+    }
+  }
+
+  createMobileGestures() {
+    window.addEventListener('touchend', (e) => {
+      if (Math.abs(this.dragAmount) > this.navbarElement.nativeElement.getBoundingClientRect().width * .18) {
+        this.toggleMobileDrawer();
+      }
+
+      this.dragAmount = 0;
+      this.dragStart = null;
+      this.dragStartTop = null;
+      this.renderer.removeStyle(this.navbarElement.nativeElement, 'transition');
+      this.renderer.removeStyle(this.navbarElement.nativeElement, 'transform');
+      this.dragReset = false;
+    })
+
+    window.addEventListener('touchmove', (e) => {
+      if (!this.dragStartTop) this.dragStartTop = e.touches[0].clientY;
+      if (Math.abs(e.touches[0].clientY - this.dragStartTop) > 10 && Math.abs(this.dragAmount) < this.navbarElement.nativeElement.getBoundingClientRect().width * .18) {
+        this.dragReset = true;
+        this.dragAmount = 0;
+        this.dragStart = null;
+        this.renderer.removeStyle(this.navbarElement.nativeElement, 'transition');
+        this.renderer.removeStyle(this.navbarElement.nativeElement, 'transform');
+      };
+
+      if (this.dragReset) return;
+
+      if (this.mobileShown) {
+        e.preventDefault();
+        if (!this.dragStart) this.dragStart = e.touches[0].clientX;
+
+        this.dragAmount = Math.min(e.touches[0].clientX - this.dragStart, 0);
+        this.renderer.setStyle(this.navbarElement.nativeElement, 'transition', `none`);
+        this.renderer.setStyle(this.navbarElement.nativeElement, 'transform', `translateX(${this.dragAmount}px)`);
+      } else {
+        if (!this.dragStart) this.dragStart = e.touches[0].clientX;
+        this.dragAmount = Math.min(e.touches[0].clientX - this.dragStart, this.navbarElement.nativeElement.getBoundingClientRect().width);
+
+        if (this.dragAmount < 10) return;
+        e.preventDefault();
+
+        this.renderer.setStyle(this.navbarElement.nativeElement, 'transition', `none`);
+        this.renderer.setStyle(this.navbarElement.nativeElement, 'transform', `translateX(calc(-100% + ${this.dragAmount}px))`);
+      }
+    }, { passive: false })
   }
 
 }

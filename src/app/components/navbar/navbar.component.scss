@@ -154,6 +154,28 @@ $slimSlideTime: .3s ease;
         white-space: nowrap;
         font-size: .7rem;
         color: rgba(var(--theme-background-contrast), .5);
+
+        &__social {
+            display: flex;
+            justify-content: center;
+            margin-bottom: .5rem;
+            font-size: 1.25rem;
+            transition: .2s ease;
+
+            a {
+                color: rgba(var(--theme-background-contrast), .5);
+
+                &:not(:last-child) {
+                    margin-right: .75rem;
+                }
+
+                &:hover {
+                    color: rgba(var(--theme-background-contrast), 1);
+                    cursor: pointer;
+                    transform: scale(1.1);
+                }
+            }
+        }
     }
 }
 
