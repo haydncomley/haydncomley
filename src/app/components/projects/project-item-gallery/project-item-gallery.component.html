@@ -3,7 +3,7 @@
     (mouseleave)="play()">
     <ng-container *ngFor="let image of safeImages; let i = index">
         <img *ngIf="i == selected" [ngStyle]="{ 'object-fit': fit, 'object-position': position }" [@swipe]="direction"
-            [src]="image">
+            [src]="image" alt="Gallery Slide-show Image">
     </ng-container>
 
     <span class="c-pi-gallery__side" tabindex="0" (interaction)="nextSlide(-1)" *ngIf="images.length > 1">

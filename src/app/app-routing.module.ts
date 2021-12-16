@@ -12,6 +12,7 @@ const routes: Routes = [
     component: HomeComponent,
     data: {
       animation: 'Home',
+      subtitle: null,
     }
   },
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
     component: PrototypesComponent,
     data: {
       animation: 'Prototypes',
+      subtitle: 'Prototypes',
     }
   },
   {
@@ -26,6 +28,7 @@ const routes: Routes = [
     component: AboutComponent,
     data: {
       animation: 'About',
+      subtitle: 'About',
       slimNavigation: true,
       details: {
         header: 'About',
@@ -39,6 +42,7 @@ const routes: Routes = [
     component: AboutComponent,
     data: {
       animation: 'Contact',
+      subtitle: 'Contact',
       slimNavigation: true,
       details: {
         header: 'Contact',

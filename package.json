@@ -1,6 +1,7 @@
 {
   "name": "haydn-comley",
-  "version": "0.0.0",
+  "version": "0.5.0",
+  "description": "This is a personal repo that contains my portfolio website in whole.",
   "scripts": {
     "start": "ng serve",
     "build:dev": "ng build --aot",

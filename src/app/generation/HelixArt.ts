@@ -53,11 +53,7 @@ export class HelixArt {
 
             ctx.fill();
 
-
-
-
-
-            res(canvas.toDataURL());
+            res(canvas.toDataURL('image/webp'));
         })
     }
 

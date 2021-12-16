@@ -17,7 +17,8 @@ export class ProjectSelectionService {
 
   constructor(
     private router: Router,
-    private title: Title
+    private title: Title,
+    private route: ActivatedRoute
   ) { this.setupRouteEvents(); }
 
   /**
@@ -33,6 +34,10 @@ export class ProjectSelectionService {
 
     this.router.events.pipe(filter((x) => x instanceof NavigationEnd), first()).toPromise().then(async (e: NavigationEnd) => {
       this.checkURLForProject();
+    });
+
+    this.router.events.pipe(filter((x) => x instanceof NavigationEnd)).subscribe(async (e: NavigationEnd) => {
+      this.updateRouteTitle();
     });
   }
 
@@ -60,7 +65,14 @@ export class ProjectSelectionService {
    */
   public selectProject(project: IProject) {
     this.projectSelected.next(project);
-    this.title.setTitle(project ? `Haydn Comley - ${project.name}` : `Haydn Comley`)
+    this.updateRouteTitle();
+  }
+
+  private updateRouteTitle() {
+    const project = this.projectSelected.value;
+    const subtitle = this.route.firstChild.snapshot.data.subtitle;
+
+    this.title.setTitle(project ? `Haydn Comley - ${project.name}` : `Haydn Comley` + (subtitle ? ` - ${subtitle}` : ''))
   }
 
   /**

@@ -6,19 +6,19 @@
     <video class="c-pane__particles" src="/assets/vid/overlay.webm" autoplay muted loop></video>
 
     <span class="c-pane__art">
-        <img *ngIf="helix" [src]="helix" alt="">
+        <img *ngIf="helix" [src]="helix" alt="Themed Helix Art">
     </span>
 
     <span class="c-pane__details">
-        <h3 class="c-pane__details__name">
+        <p class="c-pane__details__name">
             {{ project.name }}
-            <a *ngIf="project.is_live" class="c-pane-live-badge" target="_blank" [href]="project.is_live.link">{{
+            <!-- <a *ngIf="project.is_live" class="c-pane-live-badge" target="_blank" [href]="project.is_live.link" rel="noopener">{{
                 project.is_live.label || 'View Now' }}
                 <span>
                     <app-navbar-burger [isBack]="true"></app-navbar-burger>
                 </span>
-            </a>
-        </h3>
+            </a> -->
+            </p>
         <span class="c-pane__details__short">{{ project.short_desc }}</span>
         <span class="c-pane__details__tags">
             <app-chip *ngFor="let tag of project.tags">{{ tag }}</app-chip>

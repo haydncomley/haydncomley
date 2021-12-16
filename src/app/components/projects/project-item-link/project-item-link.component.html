@@ -1,4 +1,4 @@
-<a class="c-pi-link" [ngClass]="{ 'filled': filled }" [href]="link" [target]="isLocal ? '' : '_blank'">
+<a class="c-pi-link" [ngClass]="{ 'filled': filled }" [href]="link" [target]="isLocal ? '' : '_blank'" rel="noopener">
     {{ header }}
     <span class="c-pi-link__url">{{ isLocal ? 'Open Here' : link }}</span>
 

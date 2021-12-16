@@ -257,16 +257,18 @@ $hovertransition: 1s ease;
     padding: 0.3rem 0.4rem;
     background-color: #141414;
     color: white;
+    --burger-color: white;
     border-radius: 0.2rem;
     font-size: 0.6rem;
     font-weight: 400;
     margin-left: 0.5rem;
     display: block;
-    transition: .1s ease;
+    transition: .2s ease;
     text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
+    transform-origin: 0 50%;
 
     @include mobile {
         display: none;
@@ -283,7 +285,7 @@ $hovertransition: 1s ease;
         align-items: center;
         justify-content: center;
         position: relative;
-        transition: .1s ease;
+        transition: .2s ease;
 
         app-navbar-burger {
             position: absolute;
