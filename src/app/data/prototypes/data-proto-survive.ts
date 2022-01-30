@@ -4,7 +4,7 @@ import { ProjectTheme_BlueGold, ProjectTheme_Forest, ProjectTheme_Green, Project
 export const Prototype_Survive: IProject = {
     name: 'Turtle Torture',
     short_desc: 'Game Jam',
-    time: 'Summer 2019',
+    time: 'Mid 2019',
     is_live: {
         label: 'View Submission',
         link: 'https://ldjam.com/events/ludum-dare/43/savetheturles'

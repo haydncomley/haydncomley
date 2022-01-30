@@ -4,13 +4,13 @@ import { ProjectTheme_Purple } from "../data-themes";
 export const Project_Boxedjs: IProject = {
     name: 'Boxed JS',
     short_desc: 'Web Framework',
-    time: 'Winter 2021',
+    time: 'Early 2022',
     is_live: {
         label: 'Learn More',
         link: 'https://boxedjs.com/'
     },
     theme: ProjectTheme_Purple,
-    tags: ['Open Source', 'JavaScript', 'Prototype'],
+    tags: ['Open Source', 'JavaScript', 'Framework'],
     content: [
         new ProjectContentItem_Header({
             header: 'Boxed JS',

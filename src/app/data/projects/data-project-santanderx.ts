@@ -4,7 +4,7 @@ import { ProjectTheme_Santander, ProjectTheme_Teal } from ".././data-themes";
 export const Project_SantanderX: IProject = {
     name: 'Santander X Awards',
     short_desc: 'National Competition',
-    time: 'Summer 2021',
+    time: 'Mid 2021',
     theme: ProjectTheme_Santander,
     tags: ['Angular', 'Ionic', 'TypeScript', 'PWA'],
     content: [

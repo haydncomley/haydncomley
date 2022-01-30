@@ -4,7 +4,7 @@ import { ProjectTheme_DeepOrange, ProjectTheme_VocalCommunities } from ".././dat
 export const Project_Vocal: IProject = {
     name: 'Vocal Communities',
     short_desc: 'Business Website',
-    time: 'Winter 2021',
+    time: 'Late 2021',
     is_live: {
         link: 'https://vocal.versionmaybe.com'
     },

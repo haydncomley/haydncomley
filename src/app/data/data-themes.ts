@@ -106,3 +106,10 @@ export const ProjectTheme_VocalCommunities: IProjectTheme = {
     contrast: '255, 255, 255',
     tertiary: '240, 70, 110',
 }
+
+export const ProjectTheme_Memoray: IProjectTheme = {
+    primary: '260, 150, 70',
+    secondary: '255, 240, 10',
+    contrast: '255, 255, 255',
+    tertiary: '220, 120, 70',
+}

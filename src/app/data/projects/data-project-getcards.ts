@@ -4,7 +4,7 @@ import { ProjectTheme_Red } from "../data-themes";
 export const Project_GetCards: IProject = {
     name: 'GetCards',
     short_desc: 'Mobile Game',
-    time: 'Summer 2018',
+    time: 'Early 2021',
     is_live: {
         label: 'View App',
         link: 'https://getcards.app'
@@ -19,7 +19,7 @@ export const Project_GetCards: IProject = {
         new ProjectContentItem_Paragraph({
             header: 'Initial __Release__',
             text: new ProjectContentItem_Text({
-                text: 'The app was released initially on both !!iOS & Android!! in 2018 using the Unity Game engine. However through the years it has been modernised and moved to !!Ionic Native!!.'
+                text: 'The app was released initially on both !!iOS & Android!! in 2018 using the Unity Game engine. However through the years it has been modernised and most recently in 2021 built from scratch with the use of !!Ionic Native!!.'
             })
         }),
         new ProjectContentItem_Columns({

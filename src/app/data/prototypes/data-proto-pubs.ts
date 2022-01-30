@@ -4,7 +4,7 @@ import { ProjectTheme_BlueGold, ProjectTheme_Teal } from ".././data-themes";
 export const Prototype_Pubs: IProject = {
     name: 'Fourteen Units',
     short_desc: 'Data Visualisation',
-    time: 'Winter 2019',
+    time: 'Late 2019',
     theme: ProjectTheme_BlueGold,
     tags: ['Deck.GL', 'Google Maps API', 'FSA API'],
     content: [

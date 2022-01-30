@@ -4,7 +4,7 @@ import { ProjectTheme_Green, ProjectTheme_Orange, ProjectTheme_Red, ProjectTheme
 export const Project_Sundown: IProject = {
     name: 'Sundown',
     short_desc: 'Festival Website',
-    time: 'Winter 2019',
+    time: 'Late 2019',
     is_live: {
         label: 'View Demo',
         link: 'https://sundown.haydncomley.com'
@@ -39,8 +39,8 @@ export const Project_Sundown: IProject = {
             animation: 'slide',
             height: '15rem',
             images: [
-                '/assets/projects/getcards/preview-1.png',
-                '/assets/projects/getcards/preview-2.png',
+                '/assets/projects/sundown/preview-1.png',
+                '/assets/projects/sundown/preview-2.png',
             ]
         }),
         new ProjectContentItem_Break(),
@@ -63,13 +63,13 @@ export const Project_Sundown: IProject = {
             ]
         }),
         new ProjectContentItem_Gallery({
-            fit: 'cover',
+            fit: 'contain',
             interval: 3000,
             animation: 'slide',
             height: '15rem',
             images: [
-                '/assets/projects/getcards/preview-1.png',
-                '/assets/projects/getcards/preview-2.png',
+                '/assets/projects/sundown/preview-4.png',
+                '/assets/projects/sundown/preview-3.png',
             ]
         }),
         new ProjectContentItem_Paragraph({

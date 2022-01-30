@@ -38,10 +38,10 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
       label: 'Projects',
       route: '/'
     },
-    {
-      label: 'Prototypes',
-      route: '/prototypes'
-    },
+    // {
+    //   label: 'Prototypes',
+    //   route: '/prototypes'
+    // },
     {
       label: 'About',
       route: '/about'

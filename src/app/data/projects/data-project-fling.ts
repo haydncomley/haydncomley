@@ -1,10 +1,10 @@
-import { IProject, ProjectContentItem_Columns, ProjectContentItem_Gallery, ProjectContentItem_Header, ProjectContentItem_Paragraph, ProjectContentItem_Text } from "../../interfaces/IProject";
+import { IProject, ProjectContentItem_Break, ProjectContentItem_Columns, ProjectContentItem_Gallery, ProjectContentItem_Header, ProjectContentItem_Link, ProjectContentItem_Paragraph, ProjectContentItem_Text } from "../../interfaces/IProject";
 import { ProjectTheme_Green } from ".././data-themes";
 
 export const Project_Fling: IProject = {
     name: 'Fling',
     short_desc: 'Mobile Game',
-    time: 'Summer 2017',
+    time: 'Early 2017',
     theme: ProjectTheme_Green,
     tags: ['Unity', 'C#', 'iOS', 'Android'],
     content: [
@@ -37,5 +37,46 @@ export const Project_Fling: IProject = {
                 '/assets/projects/fling/preview-1.jpg',
             ]
         }),
+        new ProjectContentItem_Paragraph({
+            header: 'Core __Development__',
+            text: new ProjectContentItem_Text({
+                text: 'When it came to development I tried to use no third party packages, therefore I went through all the stages needed to !!integrate with native APIs!! such as handling in-app purchases, touch controls, store deployment and more.'
+            })
+        }),
+        new ProjectContentItem_Columns({
+            center: false,
+            items: [
+                new ProjectContentItem_Text({
+                    text: 'The main reason I chose not to use external libraries was because this was going to be my first self-published app and I wanted to get familiar with all the steps needed.'
+                }),
+                new ProjectContentItem_Text({
+                    text: 'This knowledge of integration and deployment will go on to help me with projects later down the line that might use different tooling and allow me to diagnose platform specific bugs easier.'
+                }),
+            ]
+        }),
+        new ProjectContentItem_Break(),
+        new ProjectContentItem_Columns({
+            center: true,
+            items: [
+                new ProjectContentItem_Text({
+                    text: 'This game is still available on iOS and gains a couple of downloads each month still to this day.'
+                }),
+                new ProjectContentItem_Link({
+                    header: 'View App',
+                    link: 'https://apps.apple.com/bg/app/falmingo/id1290883506#?platform=iphone'
+                })
+            ]
+        }),
+        new ProjectContentItem_Gallery({
+            fit: 'contain',
+            interval: 3000,
+            animation: 'slide',
+            height: '15rem',
+            images: [
+                '/assets/projects/fling/preview-1.png',
+                '/assets/projects/fling/preview-2.png',
+            ]
+        }),
+        new ProjectContentItem_Break(),
     ]
 }
