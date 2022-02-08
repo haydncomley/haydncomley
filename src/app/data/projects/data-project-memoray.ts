@@ -9,7 +9,7 @@ export const Project_Memoray: IProject = {
         link: 'httsp://memo-ray.web.app/'
     },
     theme: ProjectTheme_Memoray,
-    tags: ['Ionic', 'Angular', 'TypeScript'],
+    tags: ['Angular', 'TypeScript', 'AI'],
     content: [
         new ProjectContentItem_Header({
             header: 'Memo-rays',

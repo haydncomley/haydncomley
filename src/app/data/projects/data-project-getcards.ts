@@ -10,7 +10,7 @@ export const Project_GetCards: IProject = {
         link: 'https://getcards.app'
     },
     theme: ProjectTheme_Red,
-    tags: ['Ionic', 'iOS', 'Android', 'Firebase'],
+    tags: ['Ionic', 'iOS', 'Android', 'Google Cloud'],
     content: [
         new ProjectContentItem_Header({
             header: 'GetCards',

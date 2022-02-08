@@ -14,13 +14,13 @@ import { Project_VersionMaybe } from "./projects/data-project-versionmaybe";
 import { Project_Vocal } from "./projects/data-project-vocal";
 
 export const AllProjects: IProject[] = [
-    Project_Boxedjs,
+    // Project_Boxedjs,
+    Project_Knapsack,
     Project_Memoray,
     // Project_Vocal,
     // ,
     // Project_HaydnComley,
     // Project_Portfolio,
-    Project_Knapsack,
     Project_SantanderX,
     Project_GetCards,
     Project_ImagineX,

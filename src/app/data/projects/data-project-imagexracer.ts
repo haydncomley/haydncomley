@@ -6,7 +6,7 @@ export const Project_ImagineX: IProject = {
     short_desc: 'Web Application + Game',
     time: 'Late 2020',
     theme: ProjectTheme_ImagineX,
-    tags: ['Angular', 'C#', 'TypeScript', 'Web Assembly'],
+    tags: ['Angular', 'C#', 'Unity', 'Web Assembly'],
     content: [
         new ProjectContentItem_Header({
             header: 'ImagineX Racer',
