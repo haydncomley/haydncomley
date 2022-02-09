@@ -16,7 +16,7 @@ export const pageFade = animation([
                 '.4s ease',
                 keyframes([
                     style({ opacity: 1 }),
-                    style({ opacity: 0, }),
+                    style({ opacity: 1, }),
                 ])
             )
         ], { optional: true }),
@@ -46,19 +46,19 @@ export const pageSlide = animation([
         query(':leave', [
             style({ opacity: 1, transform: `translateX(0rem)` }),
             animate(
-                '.4s ease',
+                '.4s ease-out',
                 keyframes([
                     style({ opacity: 1, transform: `translateX(0rem)` }),
-                    style({ opacity: 0, transform: `translateX(-10rem)` }),
+                    style({ opacity: 1, transform: `translateX(-100%)` }),
                 ])
             )
         ], { optional: true }),
         query(':enter', [
-            style({ opacity: 0, transform: `translateX(10rem)` }),
+            style({ opacity: 0, transform: `translateX(100%)` }),
             animate(
-                '.4s ease',
+                '.4s ease-out',
                 keyframes([
-                    style({ opacity: 0, transform: `translateX(10rem)` }),
+                    style({ opacity: 1, transform: `translateX(100%)` }),
                     style({ opacity: 1, transform: `translateX(0rem)` }),
                 ])
             )

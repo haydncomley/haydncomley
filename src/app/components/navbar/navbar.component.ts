@@ -35,7 +35,7 @@ export class NavbarComponent implements OnInit, OnDestroy, AfterViewInit {
 
   pages: INavPage[] = [
     {
-      label: 'Projects',
+      label: 'Published',
       route: '/'
     },
     // {

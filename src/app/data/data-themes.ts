@@ -47,9 +47,10 @@ export const ProjectTheme_Red: IProjectTheme = {
 }
 
 export const ProjectTheme_Teal: IProjectTheme = {
-    primary: '55, 210, 200',
-    secondary: '205, 220, 190',
+    primary: '34, 218, 204',
+    secondary: '255, 216, 0',
     contrast: '255, 255, 255',
+    tertiary: '247, 66, 87',
 }
 
 export const ProjectTheme_Blue: IProjectTheme = {
@@ -69,7 +70,7 @@ export const ProjectTheme_ImagineX: IProjectTheme = {
     primary: '255, 70, 100',
     secondary: '190, 110, 200',
     contrast: '255, 255, 255',
-    tertiary: '255, 70, 80',
+    tertiary: '178, 67, 210',
 }
 
 export const ProjectTheme_LightPurple: IProjectTheme = {
@@ -83,7 +84,7 @@ export const ProjectTheme_Orange: IProjectTheme = {
     primary: '255, 135, 131',
     secondary: '245, 206, 110',
     contrast: '255, 255, 255',
-    tertiary: '255, 135, 131',
+    tertiary: '255, 84, 94',
 }
 
 export const ProjectTheme_DeepOrange: IProjectTheme = {

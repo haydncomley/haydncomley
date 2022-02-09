@@ -46,8 +46,8 @@ export const Project_GetCards: IProject = {
             animation: 'slide',
             height: '15rem',
             images: [
-                '/assets/projects/getcards/preview-1.png',
-                '/assets/projects/getcards/preview-2.png',
+                '/assets/projects/getcards/preview-1.webp',
+                '/assets/projects/getcards/preview-2.webp',
             ]
         }),
         new ProjectContentItem_Break(),

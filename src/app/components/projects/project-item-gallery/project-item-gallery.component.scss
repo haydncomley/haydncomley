@@ -9,7 +9,7 @@ $dotSize: .5rem;
     align-items: center;
     justify-content: center;
     margin-top: var(--padding);
-    filter: drop-shadow(0px .2rem .2rem rgba(0,0,0,.1));
+    filter: drop-shadow(0 .25rem .5rem rgba(0,0,0,.1));
 
     &:hover, &:focus-within {
         outline: none;
@@ -70,7 +70,7 @@ $dotSize: .5rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(to right, rgba(var(--theme-background-contrast), .5), transparent);
+        background: linear-gradient(to right, rgba(var(--project-secondary), .5), transparent);
         opacity: 0;
         transition: .2s ease;
 
@@ -81,16 +81,24 @@ $dotSize: .5rem;
                 transform-origin: 50% 50%;
                 display: block;
                 transform: scale(.75) translateX(-50%);
+                --burger-color: rgba(var(--project-secondary), 1);
             }
         }
 
         &--other {
             left: auto;
             right: 0;
-            background: linear-gradient(to left, rgba(var(--theme-background-contrast), .5), transparent);
+            background: linear-gradient(to left, rgba(var(--project-primary), .5), transparent);
 
             .c-pi-gallery__side__icon {
                 transform: rotateZ(180deg);
+            }
+
+            app-navbar-burger {
+                transform-origin: 50% 50%;
+                display: block;
+                transform: scale(.75) translateX(-50%);
+                --burger-color: rgba(var(--project-primary), 1);
             }
         }
 

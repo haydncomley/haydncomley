@@ -9,6 +9,8 @@
     flex-direction: column;
     width: 100%;
     padding-bottom: var(--padding);
+    background: rgba(var(--theme-background));
+    min-height: 100vh;
 
     @include mobile {
         display: block;

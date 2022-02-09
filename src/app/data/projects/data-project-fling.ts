@@ -34,7 +34,7 @@ export const Project_Fling: IProject = {
             position: 'bottom',
             maxHeight: '15rem',
             images: [
-                '/assets/projects/fling/preview-1.jpg',
+                '/assets/projects/fling/preview-1.webp',
             ]
         }),
         new ProjectContentItem_Paragraph({

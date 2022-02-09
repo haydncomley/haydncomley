@@ -13,3 +13,12 @@ body {
         opacity: .5;
     }
 }
+
+::selection {
+    color: rgba(var(--project-contrast), 1);
+    background: rgba(var(--project-primary), .8);
+    
+    @supports (-webkit-background-clip: text) {
+        -webkit-text-fill-color: rgba(var(--project-contrast), 1);
+    }
+}

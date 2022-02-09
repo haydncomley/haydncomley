@@ -3,6 +3,13 @@
     
     &--accent {
         color: rgba(var(--project-primary));
+
+        @supports (-webkit-background-clip: text) {
+            color: rgba(var(--theme-background-contrast), 1);
+            background: linear-gradient(to bottom right, rgba(var(--project-primary), 1), rgba(var(--project-secondary), 1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     }
 
     &--block {
@@ -15,6 +22,6 @@
     &--quiet {
         font-weight: normal;
         font-size: .8em;
-        opacity: 0.5;
+        color: rgba(var(--theme-background-contrast), .5);
     }
 }

@@ -58,6 +58,9 @@ $slimSlideTime: .3s ease;
         position: fixed;
         transition: .3s ease;
         transform: translateX(-100%);
+        height: auto;
+        top: 0;
+        bottom: 0;
         box-shadow: 0 0 1.5rem transparent;
 
         &.open {
