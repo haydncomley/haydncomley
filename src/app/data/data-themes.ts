@@ -2,8 +2,9 @@ import { IProjectTheme } from '../interfaces/IProject';
 
 export const ProjectTheme_Green: IProjectTheme = {
 	contrast: '255, 255, 255',
-	primary: '73, 216, 188',
-	secondary: '143, 222, 130',
+	primary: '73, 236, 98',
+	secondary: '143, 222, 100',
+	tertiary: '73, 216, 188',
 };
 
 export const ProjectTheme_Forest: IProjectTheme = {
@@ -117,9 +118,9 @@ export const ProjectTheme_Memoray: IProjectTheme = {
 
 export const ProjectTheme_EasyTheme: IProjectTheme = {
 	contrast: '255, 255, 255',
-	primary: '227, 30, 120',
-	secondary: '227, 100, 180',
-	tertiary: '227, 70, 100',
+	primary: '157, 90, 120',
+	secondary: '127, 100, 200',
+	// tertiary: '195, 7, 66',
 };
 
 export const ProjectTheme_LetsDraw: IProjectTheme = {
@@ -127,4 +128,11 @@ export const ProjectTheme_LetsDraw: IProjectTheme = {
 	primary: '255, 27, 76',
 	secondary: '255, 27, 76',
 	tertiary: '195, 7, 66',
+};
+
+export const ProjectTheme_DiscordLinker: IProjectTheme = {
+	contrast: '255, 255, 255',
+	primary: '40, 40, 40',
+	secondary: '56, 62, 74',
+	tertiary: '230, 223, 217'
 };

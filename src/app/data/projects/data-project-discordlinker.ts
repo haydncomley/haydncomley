@@ -1,34 +1,51 @@
-import { IProject, ProjectContentItem_Break, ProjectContentItem_Columns, ProjectContentItem_Gallery, ProjectContentItem_Header, ProjectContentItem_Paragraph, ProjectContentItem_Text } from '../../interfaces/IProject';
+import { IProject, ProjectContentItem_Break, ProjectContentItem_Columns, ProjectContentItem_Gallery, ProjectContentItem_Header, ProjectContentItem_Link, ProjectContentItem_Paragraph, ProjectContentItem_Text } from '../../interfaces/IProject';
 import { ProjectTheme_DiscordLinker } from '.././data-themes';
 
 export const Project_DiscordLinker: IProject = {
 	content: [
 		new ProjectContentItem_Header({
-			header: 'Knapsack',
-			subtitle: 'This is a SaaS project management tool aimed at students and creative startups.'
+			header: 'Discord Linker',
+			subtitle: 'A web application that hooks into an existing API to allow linking of their accounts to a game server.'
 		}),
 		new ProjectContentItem_Paragraph({
-			header: 'The __Problem__ and __Solution__',
+			header: 'API __Integration__',
 			text: new ProjectContentItem_Text({
-				text: 'Throughout my time at the !!University of Portsmouth!! one of the pain points was always group projects. Different groups would have different ways of handling projects but they always left something to be desired. !!Knapsack!! aims to be the solution to four key areas identified by myself within a creative working environment: !!Collaboration!!, !!Communication!!, !!Content!! and !!Context!!.'
+				text: 'The !!API!! for this project already existing and is part of a further set of tools that enable users to manage a variety of game servers.'
 			})
 		}),
 		new ProjectContentItem_Columns({
 			center: false,
 			items: [
 				new ProjectContentItem_Text({
-					text: 'Group projects trend towards a !!split in the technologies!! used, and while this can be beneficial in some cases - for the most part it leads to !!duplicated or lost work!!, !!mis-communications!! and a !!lack of productivity!!.'
+					text: 'There was a previous application that was used by people in order to interact with this service, however it was outdated and required a new lease of life.'
 				}),
 				new ProjectContentItem_Text({
-					text: 'The fix for this is to !!consolidate the core features!! needed for a successful group project in a means that allows users to !!work in a way that they choose!!. This is different to how they can be forced to work in un-favourable, or un-familiar ways on other platforms.'
+					text: 'I was brought in to develop a new frontend for this application - it had to be trustworthy looking while also tailored towards gaming centric communities.'
 				})
 			]
 		}),
 		new ProjectContentItem_Break(),
+		new ProjectContentItem_Columns({
+			center: false,
+			items: [
+				new ProjectContentItem_Text({
+					text: 'This project was completed in a total of about 7 days including all the steps from ideation, design, development and implementation. This rapid development was due to strong communication with the client who was excited to get this out as soon as possible.'
+				}),
+				new ProjectContentItem_Link({
+					header: 'View Website',
+					link: 'https://discordlinker.com'
+				})
+			]
+		}),
+		// new ProjectContentItem_Paragraph({
+		// 	header: 'Quick __Turnaround__',
+		// 	text: new ProjectContentItem_Text({
+		// 		text: 'This project was completed in a total of about 7 days including all the steps from ideation, design, development and implementation. This rapid development was due to strong communication with the client who was excited to get this out as soon as possible.'
+		// 	})
+		// }),
 		new ProjectContentItem_Paragraph({
-			header: 'What is __Knapsack?__',
 			text: new ProjectContentItem_Text({
-				text: 'Throughout my time at the !!University of Portsmouth!! one of the pain points was always group projects. Different groups would have different ways of handling projects but they always left something to be desired. !!Knapsack!! aims to be the solution to four key areas identified by myself within a creative working environment: !!Collaboration!!, !!Communication!!, !!Content!! and !!Context!!.'
+				text: 'The platform is a !!React!! application that handles routing and API interaction - it is apart of a larger !!.NET!! backend implementation that also contains hosting. Users can view all of the connected communities from the home page, as well as being able to complete community specific actions on each organisation page. As well as these actions, the pages are also customised via the data received from the API such as the name and images.'
 			})
 		}),
 		new ProjectContentItem_Gallery({
@@ -36,51 +53,21 @@ export const Project_DiscordLinker: IProject = {
 			fit: 'contain',
 			height: '15rem',
 			images: [
-				'/assets/projects/knapsack/preview-1.png',
-				'/assets/projects/knapsack/preview-2.png',
-				'/assets/projects/knapsack/preview-4.png',
-				'/assets/projects/knapsack/preview-3.png',
+				'/assets/projects/discordlinker/preview-1.png',
+				'/assets/projects/discordlinker/preview-2.png',
+				'/assets/projects/discordlinker/preview-3.png',
 			],
 			interval: 3000
-		}),
-		new ProjectContentItem_Columns({
-			center: false,
-			items: [
-				new ProjectContentItem_Text({
-					text: 'Group projects trend towards a !!split in the technologies!! used, and while this can be beneficial in some cases - for the most part it leads to !!duplicated or lost work!!, !!mis-communications!! and a !!lack of productivity!!.'
-				}),
-				new ProjectContentItem_Text({
-					text: 'The fix for this is to !!consolidate the core features!! needed for a successful group project in a means that allows users to !!work in a way that they choose!!. This is different to how they can be forced to work in un-favourable, or un-familiar ways on other platforms.'
-				})
-			]
-		}),
-		new ProjectContentItem_Break(),
-		new ProjectContentItem_Paragraph({
-			header: '__Future__ Plans',
-			text: new ProjectContentItem_Text({
-				text: 'Throughout my time at the !!University of Portsmouth!! one of the pain points was always group projects. Different groups would have different ways of handling projects but they always left something to be desired. !!Knapsack!! aims to be the solution to four key areas identified by myself within a creative working environment: !!Collaboration!!, !!Communication!!, !!Content!! and !!Context!!.'
-			})
-		}),
-		new ProjectContentItem_Columns({
-			center: false,
-			items: [
-				new ProjectContentItem_Text({
-					text: 'Group projects trend towards a !!split in the technologies!! used, and while this can be beneficial in some cases - for the most part it leads to !!duplicated or lost work!!, !!mis-communications!! and a !!lack of productivity!!.'
-				}),
-				new ProjectContentItem_Text({
-					text: 'The fix for this is to !!consolidate the core features!! needed for a successful group project in a means that allows users to !!work in a way that they choose!!. This is different to how they can be forced to work in un-favourable, or un-familiar ways on other platforms.'
-				})
-			]
 		}),
 		new ProjectContentItem_Break(),
 	],
 	is_live: {
 		label: 'View Beta',
-		link: 'https://beta.knapsack-app.com',
+		link: 'https://discordlinker.com',
 	},
-	name: 'Knapsack',
+	name: 'Discord Linker',
 	short_desc: 'Web Application',
-	tags: ['Angular', 'SaaS', 'TypeScript', 'PWA'],
+	tags: ['React', 'API Integration', 'TypeScript'],
 	theme: ProjectTheme_DiscordLinker,
-	time: 'Early 2022',
+	time: 'Mid 2022',
 };

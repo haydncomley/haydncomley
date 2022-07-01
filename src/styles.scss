@@ -17,8 +17,24 @@ body {
 ::selection {
     color: rgba(var(--project-contrast), 1);
     background: rgba(var(--project-primary), .8);
-    
+
     @supports (-webkit-background-clip: text) {
         -webkit-text-fill-color: rgba(var(--project-contrast), 1);
+    }
+}
+
+::-webkit-scrollbar {
+    width: .4rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(var(--theme-background-contrast), 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--theme-background-contrast), 0.2);
+
+    &:hover {
+        background-color: rgba(var(--theme-background-contrast), 0.4);
     }
 }

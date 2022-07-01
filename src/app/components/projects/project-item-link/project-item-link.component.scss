@@ -28,10 +28,11 @@
         width: 70%;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 20vw;
+        max-width: 20rem;
     }
-    
-    &:hover, &:focus {
+
+    &:hover,
+    &:focus {
         box-shadow: 0 0 0 .15rem rgba(var(--theme-background-contrast), .8) inset;
         outline: none;
 
@@ -52,11 +53,12 @@
         color: rgba(var(--project-contrast), 1);
         border: none;
 
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             border: none;
             box-shadow: 0 0 0 .15rem rgba(var(--project-contrast), .8) inset;
             outline: none;
-           
+
             .c-pi-link__url {
                 opacity: 1;
             }

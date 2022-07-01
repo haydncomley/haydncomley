@@ -82,5 +82,5 @@ export const Project_Knapsack: IProject = {
 	short_desc: 'Web Application',
 	tags: ['Angular', 'SaaS', 'TypeScript', 'PWA'],
 	theme: ProjectTheme_Teal,
-	time: 'Early 2022',
+	time: 'Late 2021',
 };
