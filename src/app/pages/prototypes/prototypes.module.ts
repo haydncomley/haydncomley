@@ -7,12 +7,12 @@ import { ProjectItemHeaderModule } from 'src/app/components/projects/project-ite
 
 
 @NgModule({
-  declarations: [PrototypesComponent],
-  imports: [
-    CommonModule,
-    ProjectPaneModule,
-    ProjectItemHeaderModule
-  ],
-  exports: [PrototypesComponent],
+	declarations: [PrototypesComponent],
+	exports: [PrototypesComponent],
+	imports: [
+		CommonModule,
+		ProjectPaneModule,
+		ProjectItemHeaderModule
+	],
 })
 export class PrototypesModule { }

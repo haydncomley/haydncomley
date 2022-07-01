@@ -11,24 +11,24 @@ import { ProjectModule } from './pages/project/project.module';
 import { PrototypesModule } from './pages/prototypes/prototypes.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
+	bootstrap: [AppComponent],
+	declarations: [
+		AppComponent,
+	],
+	imports: [
+		BrowserModule,
+		BrowserAnimationsModule,
+		AppRoutingModule,
 
-    // Components
-    NavbarModule,
+		// Components
+		NavbarModule,
 
-    // Pages
-    HomeModule,
-    PrototypesModule,
-    ProjectModule,
-    AboutModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+		// Pages
+		HomeModule,
+		PrototypesModule,
+		ProjectModule,
+		AboutModule
+	],
+	providers: []
 })
 export class AppModule { }

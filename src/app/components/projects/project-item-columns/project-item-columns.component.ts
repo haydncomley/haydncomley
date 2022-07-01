@@ -1,11 +1,11 @@
-import { AfterContentInit, AfterViewInit, Component, ComponentFactoryResolver, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, Component, ComponentFactoryResolver, Input, ViewChild, ViewContainerRef } from '@angular/core';
 import { IProject, ProjectContentItem } from 'src/app/interfaces/IProject';
 import { ProjectItemBase } from '../project-item-base.component';
 
 @Component({
-  selector: 'app-project-item-columns',
-  templateUrl: './project-item-columns.component.html',
-  styleUrls: ['./project-item-columns.component.scss']
+	selector: 'app-project-item-columns',
+	styleUrls: ['./project-item-columns.component.scss'],
+	templateUrl: './project-item-columns.component.html'
 })
 export class ProjectItemColumnsComponent implements ProjectItemBase, AfterViewInit {
 
@@ -14,34 +14,34 @@ export class ProjectItemColumnsComponent implements ProjectItemBase, AfterViewIn
   public project: IProject;
 
   @Input() items: ProjectContentItem[];
-  @Input() minWidth: string = '';
-  @Input() center: boolean = true;
+  @Input() minWidth = '';
+  @Input() center = true;
 
   constructor(
     private factoryResolver: ComponentFactoryResolver
   ) { }
 
   ngAfterViewInit(): void {
-    requestAnimationFrame(() => {
-      this.viewContainer.clear();
+  	requestAnimationFrame(() => {
+  		this.viewContainer.clear();
 
-      this.items.forEach((component) => {
-        const factory = this.factoryResolver.resolveComponentFactory(component.component)
-        const view = this.viewContainer.createComponent(factory);
-        const propKeys = Object.keys(component.props);
+  		this.items.forEach((component) => {
+  			const factory = this.factoryResolver.resolveComponentFactory(component.component);
+  			const view = this.viewContainer.createComponent(factory);
+  			const propKeys = Object.keys(component.props);
 
-        propKeys.forEach(key => {
-          view.instance[key] = component.props[key];
-        });
-        view.instance['project'] = this.project;
+  			propKeys.forEach(key => {
+  				view.instance[key] = component.props[key];
+  			});
+  			view.instance['project'] = this.project;
 
-        (view.location.nativeElement as HTMLElement).style.flex = '1';
+  			(view.location.nativeElement as HTMLElement).style.flex = '1';
 
-        if (this.minWidth) {
-          (view.location.nativeElement as HTMLElement).style.minWidth = this.minWidth;
-        }
-      });
-    })
+  			if (this.minWidth) {
+  				(view.location.nativeElement as HTMLElement).style.minWidth = this.minWidth;
+  			}
+  		});
+  	});
   }
 
 }

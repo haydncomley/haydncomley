@@ -6,12 +6,12 @@ import { ProjectItemTextModule } from '../project-item-text/project-item-text.mo
 
 
 @NgModule({
-  declarations: [ProjectItemParagraphComponent],
-  imports: [
-    CommonModule,
+	declarations: [ProjectItemParagraphComponent],
+	exports: [ProjectItemParagraphComponent],
+	imports: [
+		CommonModule,
 
-    ProjectItemTextModule
-  ],
-  exports: [ProjectItemParagraphComponent],
+		ProjectItemTextModule
+	],
 })
 export class ProjectItemParagraphModule { }

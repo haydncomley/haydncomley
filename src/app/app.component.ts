@@ -6,59 +6,59 @@ import { IProject } from './interfaces/IProject';
 import { ProjectSelectionService } from './services/project-selection.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  animations: [pageAnimation]
+	animations: [pageAnimation],
+	selector: 'app-root',
+	styleUrls: ['./app.component.scss'],
+	templateUrl: './app.component.html'
 })
 export class AppComponent {
 
-  slimNavbar = false;
-  selected: IProject;
+	slimNavbar = false;
+	selected: IProject;
 
-  lastScrollHeight = 0;
-  lastPath = '/';
+	lastScrollHeight = 0;
+	lastPath = '/';
 
-  showWarning = true;
-  isProduction = environment.production;
+	showWarning = true;
+	isProduction = environment.production;
 
-  constructor(
+	constructor(
     private projectSelection: ProjectSelectionService
-  ) {
-    this.projectSelection.getSelectedProject().subscribe((e) => {
-      this.selected = e;
+	) {
+		this.projectSelection.getSelectedProject().subscribe((e) => {
+			this.selected = e;
 
-      const pages = document.querySelector('.app__pages');
+			const pages = document.querySelector('.app__pages');
 
-      if (pages) {
-        if (e) {
-          this.lastScrollHeight = pages.scrollTop;
-          this.lastPath = location.pathname;
-          pages.scrollTop = 0;
-        } else {
-          requestAnimationFrame(() => {
-            pages.scrollTop = this.lastPath == location.pathname ? this.lastScrollHeight : 0;
-            this.lastScrollHeight = 0;
-          })
-        }
-      }
-    });
-  }
+			if (pages) {
+				if (e) {
+					this.lastScrollHeight = pages.scrollTop;
+					this.lastPath = location.pathname;
+					pages.scrollTop = 0;
+				} else {
+					requestAnimationFrame(() => {
+						pages.scrollTop = this.lastPath == location.pathname ? this.lastScrollHeight : 0;
+						this.lastScrollHeight = 0;
+					});
+				}
+			}
+		});
+	}
 
-  onScroll(e: Event) {
-    const page = e.target as HTMLElement;
-    this.slimNavbar = page.scrollTop > 0;
-    if (!this.selected) {
-      this.projectSelection.setScrollPos(page.scrollTop);
-    }
-  }
+	onScroll(e: Event) {
+		const page = e.target as HTMLElement;
+		this.slimNavbar = page.scrollTop > 0;
+		if (!this.selected) {
+			this.projectSelection.setScrollPos(page.scrollTop);
+		}
+	}
 
-  prepareRoute(outlet: RouterOutlet) {
-    return outlet?.activatedRouteData?.['animation'];
-  }
+	prepareRoute(outlet: RouterOutlet) {
+		return outlet?.activatedRouteData?.['animation'];
+	}
 
-  hideWarning() {
-    this.showWarning = false;
-  }
+	hideWarning() {
+		this.showWarning = false;
+	}
 
 }

@@ -6,11 +6,11 @@ import { ProjectPaneModule } from 'src/app/components/project-pane/project-pane.
 
 
 @NgModule({
-  declarations: [HomeComponent],
-  imports: [
-    CommonModule,
-    ProjectPaneModule
-  ],
-  exports: [HomeComponent],
+	declarations: [HomeComponent],
+	exports: [HomeComponent],
+	imports: [
+		CommonModule,
+		ProjectPaneModule
+	],
 })
 export class HomeModule { }

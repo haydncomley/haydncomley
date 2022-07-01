@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { IProject, ProjectContentItem_Text } from 'src/app/interfaces/IProject';
 import { FormatUtil } from 'src/app/utils/format.util';
@@ -6,9 +6,9 @@ import { ProjectItemBase } from '../project-item-base.component';
 import { ProjectItemTextComponent } from '../project-item-text/project-item-text.component';
 
 @Component({
-  selector: 'app-project-item-paragraph',
-  templateUrl: './project-item-paragraph.component.html',
-  styleUrls: ['./project-item-paragraph.component.scss']
+	selector: 'app-project-item-paragraph',
+	styleUrls: ['./project-item-paragraph.component.scss'],
+	templateUrl: './project-item-paragraph.component.html'
 })
 export class ProjectItemParagraphComponent implements ProjectItemBase, AfterViewInit {
 
@@ -18,8 +18,8 @@ export class ProjectItemParagraphComponent implements ProjectItemBase, AfterView
 
   @Input() text: ProjectContentItem_Text;
   public set header(value: string) {
-    this._header = this.sanitiser.bypassSecurityTrustHtml(FormatUtil.parse(value));
-  };
+  	this._header = this.sanitiser.bypassSecurityTrustHtml(FormatUtil.parse(value));
+  }
 
   _header: SafeHtml;
 
@@ -28,7 +28,7 @@ export class ProjectItemParagraphComponent implements ProjectItemBase, AfterView
   ) { }
 
   ngAfterViewInit(): void {
-    requestAnimationFrame(() => this.textElement.text = this.text.props['text']);
+  	requestAnimationFrame(() => this.textElement.text = this.text.props['text']);
   }
 
 }

@@ -4,20 +4,20 @@ import { IProject } from 'src/app/interfaces/IProject';
 import { ProjectItemBase } from '../project-item-base.component';
 
 @Component({
-  selector: 'app-project-item-link',
-  templateUrl: './project-item-link.component.html',
-  styleUrls: ['./project-item-link.component.scss']
+	selector: 'app-project-item-link',
+	styleUrls: ['./project-item-link.component.scss'],
+	templateUrl: './project-item-link.component.html'
 })
 export class ProjectItemLinkComponent implements ProjectItemBase, OnInit {
 
-  public project: IProject;
+	public project: IProject;
 
   @Input() header: string;
   @Input() link: string;
-  @Input() filled: boolean = false;
+  @Input() filled = false;
 
   get isLocal() {
-    return !(this.link || '').startsWith('http');
+  	return !(this.link || '').startsWith('http');
   }
 
   constructor(
@@ -28,11 +28,11 @@ export class ProjectItemLinkComponent implements ProjectItemBase, OnInit {
   }
 
   open() {
-    if (this.isLocal) {
-      this.router.navigate([this.link]);
-    } else {
-      window.open(this.link, '_blank');
-    }
+  	if (this.isLocal) {
+  		this.router.navigate([this.link]);
+  	} else {
+  		window.open(this.link, '_blank');
+  	}
   }
 
 }

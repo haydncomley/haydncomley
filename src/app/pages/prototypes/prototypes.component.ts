@@ -5,34 +5,34 @@ import { IProject } from 'src/app/interfaces/IProject';
 import { ProjectSelectionService } from 'src/app/services/project-selection.service';
 
 @Component({
-  selector: 'app-prototypes',
-  templateUrl: './prototypes.component.html',
-  styleUrls: ['./prototypes.component.scss']
+	selector: 'app-prototypes',
+	styleUrls: ['./prototypes.component.scss'],
+	templateUrl: './prototypes.component.html'
 })
 export class PrototypesComponent implements OnInit, OnDestroy {
 
-  selected: IProject = null;
-  selectedProjectSub: Subscription;
+	selected: IProject = null;
+	selectedProjectSub: Subscription;
 
-  projects: IProject[] = AllPrototypes;
+	projects: IProject[] = AllPrototypes;
 
-  header = 'Prototypes';
-  subtitle = ''
+	header = 'Prototypes';
+	subtitle = '';
 
-  constructor(
+	constructor(
     private projectService: ProjectSelectionService
-  ) { }
+	) { }
 
-  ngOnInit(): void {
-    this.selectedProjectSub = this.projectService.getSelectedProject().subscribe((e) => this.selected = e);
-  }
+	ngOnInit(): void {
+		this.selectedProjectSub = this.projectService.getSelectedProject().subscribe((e) => this.selected = e);
+	}
 
-  ngOnDestroy() {
-    if (this.selectedProjectSub) { this.selectedProjectSub.unsubscribe(); }
-  }
+	ngOnDestroy() {
+		if (this.selectedProjectSub) { this.selectedProjectSub.unsubscribe(); }
+	}
 
-  trackByProject(index: number, item: IProject) {
-    return item.name;
-  }
+	trackByProject(index: number, item: IProject) {
+		return item.name;
+	}
 
 }

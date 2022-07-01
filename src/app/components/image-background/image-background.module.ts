@@ -5,10 +5,10 @@ import { ImageBackgroundComponent } from './image-background.component';
 
 
 @NgModule({
-  declarations: [ImageBackgroundComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [ImageBackgroundComponent]
+	declarations: [ImageBackgroundComponent],
+	exports: [ImageBackgroundComponent],
+	imports: [
+		CommonModule
+	]
 })
 export class ImageBackgroundModule { }

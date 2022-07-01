@@ -1,8 +1,8 @@
-import { EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { EventEmitter, HostListener, Output } from '@angular/core';
 import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
-    selector: '[interaction]'
+	selector: '[interaction]'
 })
 export class InteractDirective {
 
@@ -12,19 +12,19 @@ export class InteractDirective {
 
     @HostListener('click', ['$event'])
     onClick(e: MouseEvent) {
-        this.doInteraction(e, true);
+    	this.doInteraction(e, true);
     }
 
     @HostListener('keydown', ['$event'])
     onEnter(e: KeyboardEvent) {
-        if (e.key !== 'Enter') return;
-        this.doInteraction(e);
+    	if (e.key !== 'Enter') return;
+    	this.doInteraction(e);
 
     }
 
     doInteraction(event: any, removeFocus?: boolean) {
-        if (document.activeElement && document.activeElement != document.body && removeFocus) (document.activeElement as HTMLElement).blur();
-        this.interaction.emit(event)
+    	if (document.activeElement && document.activeElement != document.body && removeFocus) (document.activeElement as HTMLElement).blur();
+    	this.interaction.emit(event);
     }
 
 }

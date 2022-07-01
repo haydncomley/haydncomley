@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ProjectItemBreakComponent } from './project-item-break.component';
 
 @NgModule({
-  declarations: [ProjectItemBreakComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [ProjectItemBreakComponent],
+	declarations: [ProjectItemBreakComponent],
+	exports: [ProjectItemBreakComponent],
+	imports: [
+		CommonModule
+	],
 })
 export class ProjectItemBreakModule { }

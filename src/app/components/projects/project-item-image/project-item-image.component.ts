@@ -4,17 +4,17 @@ import { IProject } from 'src/app/interfaces/IProject';
 import { ProjectItemBase } from '../project-item-base.component';
 
 @Component({
-  selector: 'app-project-item-image',
-  templateUrl: './project-item-image.component.html',
-  styleUrls: ['./project-item-image.component.scss']
+	selector: 'app-project-item-image',
+	styleUrls: ['./project-item-image.component.scss'],
+	templateUrl: './project-item-image.component.html'
 })
 export class ProjectItemImageComponent implements ProjectItemBase, OnInit {
 
-  public project: IProject;
+	public project: IProject;
 
   @Input() set image(value: string) {
-    this.imageSrc = this.sanitiser.bypassSecurityTrustResourceUrl(value);
-  }
+		this.imageSrc = this.sanitiser.bypassSecurityTrustResourceUrl(value);
+	}
   imageSrc: SafeResourceUrl;
 
   constructor(

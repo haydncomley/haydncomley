@@ -1,116 +1,123 @@
-import { IProjectTheme } from "../interfaces/IProject";
+import { IProjectTheme } from '../interfaces/IProject';
 
 export const ProjectTheme_Green: IProjectTheme = {
-    primary: '73, 216, 188',
-    secondary: '143, 222, 130',
-    contrast: '255, 255, 255',
-}
+	contrast: '255, 255, 255',
+	primary: '73, 216, 188',
+	secondary: '143, 222, 130',
+};
 
 export const ProjectTheme_Forest: IProjectTheme = {
-    primary: '83, 127, 32',
-    secondary: '76, 78, 15',
-    contrast: '255, 255, 255',
-    tertiary: '93, 157, 52',
-}
+	contrast: '255, 255, 255',
+	primary: '83, 127, 32',
+	secondary: '76, 78, 15',
+	tertiary: '93, 157, 52',
+};
 
 export const ProjectTheme_Violet: IProjectTheme = {
-    primary: '155, 195, 252',
-    secondary: '209, 195, 252',
-    contrast: '255, 255, 255'
-}
+	contrast: '255, 255, 255',
+	primary: '155, 195, 252',
+	secondary: '209, 195, 252'
+};
 
 export const ProjectTheme_Santander: IProjectTheme = {
-    primary: '235, 49, 35',
-    secondary: '113, 40, 220',
-    contrast: '255, 255, 255',
-    tertiary: '235, 49, 35',
-}
+	contrast: '255, 255, 255',
+	primary: '235, 49, 35',
+	secondary: '113, 40, 220',
+	tertiary: '235, 49, 35',
+};
 
 export const ProjectTheme_Purple: IProjectTheme = {
-    primary: '154, 117, 245',
-    secondary: '214, 140, 245',
-    contrast: '255, 255, 255',
-    tertiary: '154, 117, 245',
-}
+	contrast: '255, 255, 255',
+	primary: '154, 117, 245',
+	secondary: '214, 140, 245',
+	tertiary: '154, 117, 245',
+};
 
 export const ProjectTheme_Brown: IProjectTheme = {
-    primary: '200, 65, 120',
-    secondary: '200, 30, 120',
-    contrast: '255, 255, 255'
-}
+	contrast: '255, 255, 255',
+	primary: '200, 65, 120',
+	secondary: '200, 30, 120'
+};
 
 export const ProjectTheme_Red: IProjectTheme = {
-    primary: '255, 56, 56',
-    secondary: '210, 60, 100',
-    contrast: '255, 255, 255',
-    tertiary: '210, 60, 100',
-}
+	contrast: '255, 255, 255',
+	primary: '255, 56, 56',
+	secondary: '210, 60, 100',
+	tertiary: '210, 60, 100',
+};
 
 export const ProjectTheme_Teal: IProjectTheme = {
-    primary: '34, 218, 204',
-    secondary: '255, 216, 0',
-    contrast: '255, 255, 255',
-    tertiary: '247, 66, 87',
-}
+	contrast: '255, 255, 255',
+	primary: '34, 218, 204',
+	secondary: '255, 216, 0',
+	tertiary: '247, 66, 87',
+};
 
 export const ProjectTheme_Blue: IProjectTheme = {
-    primary: '100, 175, 250',
-    secondary: '35, 225, 230',
-    contrast: '255, 255, 255'
-}
+	contrast: '255, 255, 255',
+	primary: '100, 175, 250',
+	secondary: '35, 225, 230'
+};
 
 export const ProjectTheme_BlueGold: IProjectTheme = {
-    primary: '18, 85, 164',
-    secondary: '8, 35, 44',
-    contrast: '255, 255, 255',
-    tertiary: '18, 85, 164'
-}
+	contrast: '255, 255, 255',
+	primary: '18, 85, 164',
+	secondary: '8, 35, 44',
+	tertiary: '18, 85, 164'
+};
 
 export const ProjectTheme_ImagineX: IProjectTheme = {
-    primary: '255, 70, 100',
-    secondary: '190, 110, 200',
-    contrast: '255, 255, 255',
-    tertiary: '178, 67, 210',
-}
+	contrast: '255, 255, 255',
+	primary: '255, 70, 100',
+	secondary: '190, 110, 200',
+	tertiary: '178, 67, 210',
+};
 
 export const ProjectTheme_LightPurple: IProjectTheme = {
-    primary: '190, 177, 255',
-    secondary: '129, 157, 226',
-    contrast: '255, 255, 255',
-    tertiary: '100, 134, 218',
-}
+	contrast: '255, 255, 255',
+	primary: '190, 177, 255',
+	secondary: '129, 157, 226',
+	tertiary: '100, 134, 218',
+};
 
 export const ProjectTheme_Orange: IProjectTheme = {
-    primary: '255, 135, 131',
-    secondary: '245, 206, 110',
-    contrast: '255, 255, 255',
-    tertiary: '255, 84, 94',
-}
+	contrast: '255, 255, 255',
+	primary: '255, 135, 131',
+	secondary: '245, 206, 110',
+	tertiary: '255, 84, 94',
+};
 
 export const ProjectTheme_DeepOrange: IProjectTheme = {
-    primary: '255, 155, 55',
-    secondary: '230, 210, 140',
-    contrast: '255, 255, 255',
-    tertiary: '255, 155, 55',
-}
+	contrast: '255, 255, 255',
+	primary: '255, 155, 55',
+	secondary: '230, 210, 140',
+	tertiary: '255, 155, 55',
+};
 
 export const ProjectTheme_VM: IProjectTheme = {
-    primary: '250, 95, 149',
-    secondary: '250, 156, 141',
-    contrast: '255, 255, 255',
-    tertiary: '250, 95, 149',
-}
+	contrast: '255, 255, 255',
+	primary: '250, 95, 149',
+	secondary: '250, 156, 141',
+	tertiary: '250, 95, 149',
+};
 
 export const ProjectTheme_VocalCommunities: IProjectTheme = {
-    primary: '248, 222, 47',
-    secondary: '240, 70, 110',
-    contrast: '255, 255, 255',
-    tertiary: '240, 70, 110',
-}
+	contrast: '255, 255, 255',
+	primary: '248, 222, 47',
+	secondary: '240, 70, 110',
+	tertiary: '240, 70, 110',
+};
 
 export const ProjectTheme_Memoray: IProjectTheme = {
-    primary: '260, 150, 70',
-    secondary: '255, 240, 10',
-    contrast: '255, 255, 255',
-    tertiary: '220, 120, 70',
-}
+	contrast: '255, 255, 255',
+	primary: '260, 150, 70',
+	secondary: '255, 240, 10',
+	tertiary: '220, 120, 70',
+};
+
+export const ProjectTheme_DiscordLinker: IProjectTheme = {
+	contrast: '255, 255, 255',
+	primary: '260, 150, 70',
+	secondary: '255, 240, 10',
+	tertiary: '220, 120, 70',
+};

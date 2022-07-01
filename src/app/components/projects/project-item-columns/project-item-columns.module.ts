@@ -5,10 +5,10 @@ import { ProjectItemColumnsComponent } from './project-item-columns.component';
 
 
 @NgModule({
-  declarations: [ProjectItemColumnsComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [ProjectItemColumnsComponent],
+	declarations: [ProjectItemColumnsComponent],
+	exports: [ProjectItemColumnsComponent],
+	imports: [
+		CommonModule
+	],
 })
 export class ProjectItemColumnsModule { }

@@ -6,11 +6,11 @@ import { ImageBackgroundModule } from '../../image-background/image-background.m
 
 
 @NgModule({
-  declarations: [ProjectItemImageComponent],
-  imports: [
-    CommonModule,
-    ImageBackgroundModule
-  ],
-  exports: [ProjectItemImageComponent],
+	declarations: [ProjectItemImageComponent],
+	exports: [ProjectItemImageComponent],
+	imports: [
+		CommonModule,
+		ImageBackgroundModule
+	],
 })
 export class ProjectItemImageModule { }

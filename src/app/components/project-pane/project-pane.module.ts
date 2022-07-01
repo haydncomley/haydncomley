@@ -8,14 +8,14 @@ import { SharedDirectivesModule } from 'src/app/directives/shared-directives.mod
 
 
 @NgModule({
-  declarations: [ProjectPaneComponent],
-  imports: [
-    CommonModule,
-    SharedDirectivesModule,
+	declarations: [ProjectPaneComponent],
+	exports: [ProjectPaneComponent],
+	imports: [
+		CommonModule,
+		SharedDirectivesModule,
 
-    NavbarBurgerModule,
-    ChipModule
-  ],
-  exports: [ProjectPaneComponent],
+		NavbarBurgerModule,
+		ChipModule
+	],
 })
 export class ProjectPaneModule { }

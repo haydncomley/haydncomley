@@ -5,10 +5,10 @@ import { NavbarBurgerComponent } from './navbar-burger.component';
 
 
 @NgModule({
-  declarations: [NavbarBurgerComponent],
-  imports: [
-    CommonModule,
-  ],
-  exports: [NavbarBurgerComponent],
+	declarations: [NavbarBurgerComponent],
+	exports: [NavbarBurgerComponent],
+	imports: [
+		CommonModule,
+	],
 })
 export class NavbarBurgerModule { }

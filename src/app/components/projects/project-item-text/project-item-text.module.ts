@@ -5,10 +5,10 @@ import { ProjectItemTextComponent } from './project-item-text.component';
 
 
 @NgModule({
-  declarations: [ProjectItemTextComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [ProjectItemTextComponent],
+	declarations: [ProjectItemTextComponent],
+	exports: [ProjectItemTextComponent],
+	imports: [
+		CommonModule
+	],
 })
 export class ProjectItemTextModule { }

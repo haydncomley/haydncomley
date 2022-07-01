@@ -7,13 +7,13 @@ import { SharedDirectivesModule } from 'src/app/directives/shared-directives.mod
 
 
 @NgModule({
-  declarations: [ProjectItemLinkComponent],
-  imports: [
-    CommonModule,
-    SharedDirectivesModule,
+	declarations: [ProjectItemLinkComponent],
+	exports: [ProjectItemLinkComponent],
+	imports: [
+		CommonModule,
+		SharedDirectivesModule,
 
-    NavbarBurgerModule
-  ],
-  exports: [ProjectItemLinkComponent],
+		NavbarBurgerModule
+	],
 })
 export class ProjectItemLinkModule { }

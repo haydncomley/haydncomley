@@ -6,11 +6,11 @@ import { ProjectItemHeaderModule } from 'src/app/components/projects/project-ite
 
 
 @NgModule({
-  declarations: [AboutComponent],
-  imports: [
-    CommonModule,
-    ProjectItemHeaderModule
-  ],
-  exports: [AboutComponent],
+	declarations: [AboutComponent],
+	exports: [AboutComponent],
+	imports: [
+		CommonModule,
+		ProjectItemHeaderModule
+	],
 })
 export class AboutModule { }

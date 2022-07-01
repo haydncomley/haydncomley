@@ -1,7 +1,7 @@
 import { IProject, ProjectContentItem_Break, ProjectContentItem_Columns, ProjectContentItem_Gallery, ProjectContentItem_Header, ProjectContentItem_Paragraph, ProjectContentItem_Text } from '../../interfaces/IProject';
-import { ProjectTheme_Teal } from '.././data-themes';
+import { ProjectTheme_DiscordLinker } from '.././data-themes';
 
-export const Project_Knapsack: IProject = {
+export const Project_DiscordLinker: IProject = {
 	content: [
 		new ProjectContentItem_Header({
 			header: 'Knapsack',
@@ -81,6 +81,6 @@ export const Project_Knapsack: IProject = {
 	name: 'Knapsack',
 	short_desc: 'Web Application',
 	tags: ['Angular', 'SaaS', 'TypeScript', 'PWA'],
-	theme: ProjectTheme_Teal,
+	theme: ProjectTheme_DiscordLinker,
 	time: 'Early 2022',
 };

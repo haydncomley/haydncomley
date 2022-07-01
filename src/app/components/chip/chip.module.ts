@@ -5,10 +5,10 @@ import { ChipComponent } from './chip.component';
 
 
 @NgModule({
-  declarations: [ChipComponent],
-  imports: [
-    CommonModule
-  ],
-  exports: [ChipComponent],
+	declarations: [ChipComponent],
+	exports: [ChipComponent],
+	imports: [
+		CommonModule
+	],
 })
 export class ChipModule { }

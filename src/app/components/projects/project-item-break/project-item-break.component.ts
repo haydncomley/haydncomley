@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-project-item-break',
-  templateUrl: './project-item-break.component.html',
-  styleUrls: ['./project-item-break.component.scss']
+	selector: 'app-project-item-break',
+	styleUrls: ['./project-item-break.component.scss'],
+	templateUrl: './project-item-break.component.html'
 })
 export class ProjectItemBreakComponent implements OnInit {
 
-  constructor() { }
+	constructor() { }
 
-  ngOnInit(): void {
-  }
+	ngOnInit(): void {
+	}
 
 }
