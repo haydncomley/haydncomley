@@ -48,7 +48,7 @@ export const ProjectTheme_Red: IProjectTheme = {
 
 export const ProjectTheme_Teal: IProjectTheme = {
     primary: '34, 218, 204',
-    secondary: '255, 216, 0',
+    secondary: '34, 218, 164',
     contrast: '255, 255, 255',
     tertiary: '247, 66, 87',
 }
@@ -109,8 +109,22 @@ export const ProjectTheme_VocalCommunities: IProjectTheme = {
 }
 
 export const ProjectTheme_Memoray: IProjectTheme = {
-    primary: '260, 150, 70',
-    secondary: '255, 240, 10',
+    primary: '70, 130, 230',
+    secondary: '170, 160, 250',
     contrast: '255, 255, 255',
-    tertiary: '220, 120, 70',
+    // tertiary: '220, 120, 70',
+}
+
+export const ProjectTheme_EasyTheme: IProjectTheme = {
+    primary: '227, 30, 120',
+    secondary: '227, 100, 180',
+    contrast: '255, 255, 255',
+    tertiary: '227, 70, 100',
+}
+
+export const ProjectTheme_LetsDraw: IProjectTheme = {
+    primary: '255, 27, 76',
+    secondary: '255, 27, 76',
+    contrast: '255, 255, 255',
+    tertiary: '195, 7, 66',
 }

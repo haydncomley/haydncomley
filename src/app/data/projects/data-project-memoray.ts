@@ -2,9 +2,9 @@ import { IProject, ProjectContentItem_Break, ProjectContentItem_Columns, Project
 import { ProjectTheme_Memoray } from ".././data-themes";
 
 export const Project_Memoray: IProject = {
-    name: 'Memo-rays',
+    name: 'Memo Ray',
     short_desc: 'AI Powered Application',
-    time: 'Early 2022',
+    time: 'Late 2021',
     is_live: {
         link: 'httsp://memo-ray.web.app/'
     },
