@@ -1,9 +1,0 @@
-<div class="p-home">
-    <!-- <app-project-item-header [header]="header" [subtitle]="subtitle" [slim]="true">
-    </app-project-item-header> -->
-    <div class="p-home__list" id="projectList">
-        <app-project-pane *ngFor="let project of projects; let i = index; trackBy: trackByProject" [project]="project"
-            [style.z-index]="projects.length - i" [offset]="i" [isLast]="index === projects.length - 1">
-        </app-project-pane>
-    </div>
-</div>
