@@ -1,0 +1,11 @@
+---
+import { Themes } from '../../lib/Themes.lib';
+---
+
+<div class="theme_selection">
+    { Themes.map((theme) => (
+        <button id={theme.id} class="theme_selection__item">
+            <label class="theme_selection__item__label" for={theme.id}>{theme.name}</label>
+        </button>
+    )) }
+</div>

@@ -40,7 +40,12 @@ try {
     const THEME_SELECTOR_REGEX = /useTheme\(.+\)/gm; 
     AllThemes.forEach(([file, theme]) => {
         const fileContent = fs.readFileSync(path.join(process.cwd(), THEMES_BASE_DIR, file), 'utf8');
-        const newContent = fileContent.replace(THEME_SELECTOR_REGEX, `useTheme('${theme}')`);
+        let newContent = fileContent.replace(THEME_SELECTOR_REGEX, `useTheme($theme)`);
+        const themeVar = `$theme: '${theme}';`;
+        if (!newContent.startsWith(themeVar)) {
+            newContent = newContent.replaceAll(/^\$theme.*/gm, '')
+            newContent = themeVar + '\n' + newContent.trim();
+        };
         console.log(theme)
         if (newContent !== fileContent) {
             fs.writeFileSync(path.join(process.cwd(), THEMES_BASE_DIR, file), newContent);

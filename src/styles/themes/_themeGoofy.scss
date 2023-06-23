@@ -1,4 +1,6 @@
-@include useTheme('Goofy') {
+$theme: 'Goofy';
+
+@include useTheme($theme) {
     color: red;
     font-family:  monospace;
 }

@@ -1,6 +1,4 @@
 {
-    "name": "Haydn Comley",
-    "foo": {
-        "bar": "baz"
-    }
+    "title": "Haydn Comley",
+    "subtitle": "Design & Development"
 }
