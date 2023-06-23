@@ -1,0 +1,20 @@
+---
+import { changeLanguage, t } from "i18next";
+import Layout from "../layouts/Layout.astro";
+import DashboardTitle from "../components/DashboardTitle.astro";
+import ThemeSelector from "../components/core/ThemeSelector.astro";
+import { Projects } from "../lib/Projects.lib";
+
+changeLanguage("en");
+---
+
+<Layout title={t('name')}>
+	<ThemeSelector />
+	<main>
+		<DashboardTitle />
+		{ Projects.map(async (project) => {
+			const Project = (await import(`../components/projects/${project}.astro`)).default;
+			return <Project id={project} />
+		}) } 
+	</main>
+</Layout>

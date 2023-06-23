@@ -1,0 +1,22 @@
+@mixin useTheme($theme) {
+    // body:has(input##{$theme}[type="radio"]:checked) {
+    //     --theme: #{$theme};
+    //     @content;
+    // }
+    body > input##{$theme}[type="radio"]:checked ~ main {
+        --theme: #{$theme};
+        @content;
+    }
+}
+
+@mixin useSelected() {
+    &:target {
+        @content;
+    }
+}
+
+@mixin useNotSelected() {
+    &:not(:target) {
+        @content;
+    }
+}

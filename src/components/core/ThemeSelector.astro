@@ -1,0 +1,7 @@
+---
+import { Themes } from '../../lib/Themes.lib';
+---
+
+{ Themes.map((theme, index) => (
+    <input class="theme" id={theme.id} checked={index === 0} type="radio" name="theme">
+)) }
