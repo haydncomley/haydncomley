@@ -1,4 +1,3 @@
-@@ -1,8 +0,0 @@
 ## Hey there - I'm Haydn Comley 👋
 
 > I like making accessible software that's either fun or something everyone can
