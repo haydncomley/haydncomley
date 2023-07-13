@@ -1,7 +1,9 @@
 import i18next from "i18next";
 
 export const Projects = [
+    'OutRanked',
     'EasyTheme',
+    'LetsDraw',
 ] as const;
 
 export type Projects = typeof Projects[number];

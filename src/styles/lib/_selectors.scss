@@ -4,6 +4,8 @@
     }
 }
 
+// #### Theme ####
+
 @mixin _ThemeSelector() {
     @include useSelector('.theme_selection') {
         @content;
@@ -24,11 +26,27 @@
     }
 }
 
+// #### Core Elements ####
+
 @mixin _Body() {
     @include useSelector('.body') {
         @content;
     }
 }
+
+@mixin _Button() {
+    @include useSelector('.button') {
+        @content;
+    }
+}
+
+@mixin _Tag() {
+    @include useSelector('.tag') {
+        @content;
+    }
+}
+
+// #### Specific Elements ####
 
 @mixin _Title() {
     @include useSelector('.title') {
@@ -68,6 +86,48 @@
 
 @mixin _Project() {
     @include useSelector('.project') {
+        @content;
+    }
+}
+
+@mixin _ProjectSplash() {
+    @include useSelector('.project-splash') {
+        @content;
+    }
+}
+
+@mixin _ProjectSplash_Name() {
+    @include useSelector('.project-splash__name') {
+        @content;
+    }
+}
+
+@mixin _ProjectSplash_Description() {
+    @include useSelector('.project-splash__desc') {
+        @content;
+    }
+}
+
+@mixin _ProjectSplash_Tags() {
+    @include useSelector('.project-splash__tags') {
+        @content;
+    }
+}
+
+@mixin _ProjectSplash_Actions() {
+    @include useSelector('.project-splash__actions') {
+        @content;
+    }
+}
+
+@mixin _PreviewWrapper() {
+    @include useSelector('.preview-wrapper') {
+        @content;
+    }
+}
+
+@mixin _Preview() {
+    @include useSelector('.preview') {
         @content;
     }
 }

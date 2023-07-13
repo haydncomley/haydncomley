@@ -7,6 +7,7 @@ import ThemeSelection from "../components/ThemeSelection.astro";
 import { Projects } from "../lib/Projects.lib";
 import HeaderSocials from "../components/HeaderSocials.astro";
 import Project from "../components/Project.astro";
+import Preview from "../components/Preview.astro";
 
 changeLanguage("en");
 ---
@@ -24,5 +25,9 @@ changeLanguage("en");
 				{ Projects.map(async (project) => <Project id={project} />) } 
 			</div>
 		</div>
+
+		<section class="preview-wrapper">
+			{ Projects.map(async (project) => <Preview id={project} />) } 
+		</section>
 	</main>
 </Layout>

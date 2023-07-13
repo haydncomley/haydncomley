@@ -1,7 +1,7 @@
 $theme: 'Default';
 @use "easy-theme" as theme;
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 @mixin Button() {
     border: .1rem solid theme.Color('backgroundAlt');
@@ -26,11 +26,38 @@ $theme: 'Default';
     @include theme.ThemeColor('accent', #fa6395, #ffffff, false, []);
     
     font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 300;
     background: theme.Color('background');
     color: theme.Contrast('background');
 
     ::selection {
         background-color: theme.Color('accent', 0.25);
+    }
+
+    @include _Button {
+        display: inline-block;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 400;
+        background-color: theme.Contrast('background');
+        color: theme.Color('background');
+        letter-spacing: .02rem;
+        padding: .6rem 1rem;
+        border-radius: .4rem;
+        box-shadow: 0 0.2rem .1rem 0 theme.Contrast('background', .2);
+        transition: .12s ease;
+        
+        &:hover {
+            border-radius: .6rem;
+            transform: scale(1.025);
+            box-shadow: 0 0.1rem .3rem 0 theme.Contrast('background', .5);
+        }
+
+        &:active {
+            border-radius: .6rem;
+            transform: scale(1);
+            box-shadow: 0 0rem .1rem 0 theme.Contrast('background', .2);
+        }
     }
 
     @include _ThemeSelector {
@@ -68,7 +95,13 @@ $theme: 'Default';
 
     @include _Title {
         text-align: center;
-        padding: 3rem 0 1rem;
+        padding: 1.5rem 0 3rem;
+        margin-bottom: 1.5rem;
+        position: sticky;
+        top: 0;
+        background-color: theme.Color('background', .75);
+        border-bottom: .1rem solid theme.Color('backgroundAlt');
+        backdrop-filter: blur(0.5rem);
 
         @include _Title_Main() {
             margin: 0;
@@ -90,6 +123,9 @@ $theme: 'Default';
         justify-content: center;
         gap: 0.5rem;
         padding-bottom: 1.5rem;
+        position: sticky;
+        top: 6.75rem;
+        margin-top: -4.5rem;
 
         @include _Socials_Item {
             color: theme.Color('accent');
@@ -99,7 +135,7 @@ $theme: 'Default';
             border-radius: .25rem;
             border: .1rem solid theme.Color('accent', 0.5);
             transition: .1s ease;
-
+            
             &:hover {
                 color: theme.Contrast('accent');
                 background-color: theme.Color('accent');
@@ -112,10 +148,123 @@ $theme: 'Default';
 
     @include _Projects {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 2rem;
 
         @include _Project {
-            color: blue;
+            width: 65%;
+            min-height: 12.5rem;
+            background-color: theme.Color('backgroundAlt');
+            padding: .2rem;
+            max-width: 1080px;
+            border-radius: .75rem;
+            display: flex;
+
+            @include theme.Mobile {
+                width: calc(100% - 2.5rem);
+                padding-bottom: 0.5rem;
+            }
+            
+            @include _ProjectSplash {
+                box-sizing: border-box;
+                flex: 1;
+                min-height: 100%;
+                background-color: theme.Color('background');
+                padding: 1rem;
+                border-radius: .6rem;
+                transition: margin .2s ease;
+            }
+
+            @include theme.NotMobile {
+                @include _ProjectSplash {
+                    flex: 0;
+                    min-width: 50%;
+                }
+
+                &:nth-child(2n) {
+                    @include _ProjectSplash {
+                        margin-left: auto;
+                    }
+                }
+            }
+
+            @include theme.Tablet {
+                @include _ProjectSplash {
+                    min-width: 80%;
+                }
+            }
+        }
+    }
+
+    @include _ProjectSplash {
+        display: flex;
+        flex-direction: column;
+
+        @include _ProjectSplash_Name {
+            margin: 0;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        @include _ProjectSplash_Description {
+            margin: 0.5rem 0 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        @include _ProjectSplash_Tags {
+            display: flex;
+            flex-direction: row;
+            gap: 0.5rem;
+        }
+
+        @include _ProjectSplash_Actions {
+            margin-top: auto;
+            margin-left: auto;
+            margin-right: -.25rem;
+            margin-bottom: -.25rem;
+        }
+    }
+    
+    @include _Tag {
+        display: inline-block;
+        font-size: 0.8rem;
+        padding: .2rem .5rem;
+        border-radius: 1rem;
+        border: .15rem solid theme.Color('backgroundAlt');
+        margin: 0;
+    }
+
+    @include _PreviewWrapper {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        pointer-events: none;
+        z-index: 10;
+        overflow: hidden;
+    }
+
+    @include _Preview {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        transition: .15s ease;
+        background-color: theme.Color('backgroundAlt');
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+
+        @include useSelected() {
+            opacity: 1;
+            pointer-events: all;
         }
     }
 }

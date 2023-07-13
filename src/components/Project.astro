@@ -1,8 +1,14 @@
 ---
-import { UseProject } from "../lib/Projects.lib";
+import { Projects, UseProject } from "../lib/Projects.lib";
+import ProjectSplash from "./ProjectSplash.astro";
+
+interface Props {
+    id: typeof Projects[number]
+}
+
 const { project, id } = UseProject(Astro.props.id);
 ---
 
 <div class="project" id={`card-${id}`}>
-    { project('name') }
+    <ProjectSplash id={Astro.props.id} actionable />
 </div>
