@@ -1,6 +1,8 @@
 $theme: 'Default';
 @use "easy-theme" as theme;
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap');
+
 @mixin Button() {
     border: .1rem solid theme.Color('backgroundAlt');
     background-color: theme.Contrast('background');
@@ -21,15 +23,20 @@ $theme: 'Default';
 @include useTheme($theme) {
     @include theme.ThemeColor('background', #fef4f4, #2e2828, false, []);
     @include theme.ThemeColor('backgroundAlt', #e0cfcf, #2e2828, false, []);
-    @include theme.ThemeColor('accent', #6395fa, #ffffff, false, []);
+    @include theme.ThemeColor('accent', #fa6395, #ffffff, false, []);
     
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background: theme.Color('background');
     color: theme.Contrast('background');
+
+    ::selection {
+        background-color: theme.Color('accent', 0.25);
+    }
 
     @include _ThemeSelector {
         display: flex;
         background-color: theme.Contrast('background');
+        display: none;
 
         @include _ThemeSelector_Item {
             border: none;
@@ -49,7 +56,7 @@ $theme: 'Default';
             }
 
             &:hover {
-                background-color: theme.Color('backgroundAlt', .4);
+                background-color: theme.Color('accent', .25);
             }
         }
 
@@ -61,7 +68,7 @@ $theme: 'Default';
 
     @include _Title {
         text-align: center;
-        padding: 2rem 0;
+        padding: 3rem 0 1rem;
 
         @include _Title_Main() {
             margin: 0;
@@ -77,4 +84,38 @@ $theme: 'Default';
         }
     }
 
+    @include _Socials {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.5rem;
+        padding-bottom: 1.5rem;
+
+        @include _Socials_Item {
+            color: theme.Color('accent');
+            text-decoration: none;
+            font-size: 0.8rem;
+            padding: .25rem .5rem;
+            border-radius: .25rem;
+            border: .1rem solid theme.Color('accent', 0.5);
+            transition: .1s ease;
+
+            &:hover {
+                color: theme.Contrast('accent');
+                background-color: theme.Color('accent');
+                box-shadow: 0 .1rem .2rem 0 theme.Color('accent', .2);
+                transform: scale(1.05);
+                outline: none;
+            }
+        }
+    }
+
+    @include _Projects {
+        display: flex;
+        justify-content: center;
+
+        @include _Project {
+            color: blue;
+        }
+    }
 }

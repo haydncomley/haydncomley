@@ -47,3 +47,27 @@
         @content;
     }
 }
+
+@mixin _Socials() {
+    @include useSelector('.socials') {
+        @content;
+    }
+}
+
+@mixin _Socials_Item() {
+    @include useSelector('.socials__item') {
+        @content;
+    }
+}
+
+@mixin _Projects() {
+    @include useSelector('.projects') {
+        @content;
+    }
+}
+
+@mixin _Project() {
+    @include useSelector('.project') {
+        @content;
+    }
+}

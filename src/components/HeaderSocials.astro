@@ -1,0 +1,11 @@
+---
+import { Socials } from "../lib/Socials.lib";
+---
+
+<div class="socials">
+    { Object.keys(Socials).map((social) => (
+        <a class="socials__item" href={Socials[social].url} target="_blank">
+            { Socials[social].label }
+        </a>
+    )) }
+</div>

@@ -1,0 +1,8 @@
+---
+import { UseProject } from "../lib/Projects.lib";
+const { project, id } = UseProject(Astro.props.id);
+---
+
+<div class="project" id={`card-${id}`}>
+    { project('name') }
+</div>
