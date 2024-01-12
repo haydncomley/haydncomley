@@ -1,8 +1,4 @@
-// Core
 @import './lib/normalize';
 @import './lib/base';
-@import './lib/utils';
-@import './lib/selectors';
 
-// Themes
-@import './themes/!themes.scss';
+@import './nav';

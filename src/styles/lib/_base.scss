@@ -1,10 +1,43 @@
-html, body, main {
-    font-family: system-ui, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+html {
+    --background: white;
+    --contrast: black;
+    --thickness: 1px;
+    --padding: .75rem;
+    --border: var(--thickness) solid var(--contrast);
+    --transition: .25s .1s ease;
+}
+
+html, body {
     margin: 0;
     height: 100%;
     display: flow-root;
     overflow-x: hidden;
     scroll-behavior: smooth;
+
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+
+    &::-webkit-scrollbar {
+        width: .2rem;
+        background: var(--contrast);
+    }
+    
+    &::-webkit-scrollbar-track {
+        background: var(--contrast);
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: var(--background);
+        border-left: var(--border);
+    }
+}
+
+main {
+    height: 200vh;
 }
 
 .theme {
