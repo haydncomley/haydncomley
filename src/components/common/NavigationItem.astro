@@ -57,26 +57,8 @@ const { href, label, index } = Astro.props;
             color: var(--contrast);
             display: grid;
             grid-template-columns: auto 0fr;
-            transition: var(--transitionSlow);
+            transition: var(--transitionSlow), transform var(--transition), opacity var(--transition);
             z-index: 1;
-
-            &::before {
-                position: absolute;
-                content: '';
-                left: 25%;
-                right: 75%;
-                opacity: 0;
-                bottom: 50%;
-                height: 1px;
-                background-color: var(--contrast);
-                transform: translateY(.5em);
-                transition: var(--transition);
-
-                @include theme.Mobile {
-                    content: none;
-                }
-            }
-
         }
         
         span {
@@ -113,12 +95,10 @@ const { href, label, index } = Astro.props;
             transition: var(--transitionSlow);
         }
 
-        &:not(&:target):hover {
+        &:not(&:target):not(&:nth-child(1):not(:has(~ .navItem:target))):hover {
             a {
-                &::before {
-                    right: 25%;
-                    opacity: 1;
-                }
+                transform: scale(0.9);
+                opacity: 0.6;
             }
         }
         
