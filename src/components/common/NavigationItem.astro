@@ -19,6 +19,8 @@ const { href, label, index } = Astro.props;
 </li>
 
 <style lang="scss" define:vars={{ index: `${(index * 0.05) }s` }}>
+    @use "easy-theme" as theme;
+
     @keyframes softBlink {
         0% {
             opacity: .8;
@@ -69,7 +71,12 @@ const { href, label, index } = Astro.props;
                 background-color: var(--contrast);
                 transform: translateY(.5em);
                 transition: var(--transition);
+
+                @include theme.Mobile {
+                    content: none;
+                }
             }
+
         }
         
         span {
