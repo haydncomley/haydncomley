@@ -9,12 +9,14 @@ import HeaderSocials from "../components/HeaderSocials.astro";
 import Project from "../components/Project.astro";
 import Preview from "../components/Preview.astro";
 import Navigation from "../components/common/Navigation.astro";
+import NavigationMenu from "../components/common/NavigationMenu.astro";
 
 changeLanguage("en");
 ---
 
 <Layout title={t('pageTitle')}>
 	<Navigation />
+	<NavigationMenu />
 
 	<main>
 		<!-- hello -->

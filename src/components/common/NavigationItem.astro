@@ -1,0 +1,117 @@
+---
+interface Props {
+    href: string;
+    label: string;
+    index: number;
+}
+
+const { href, label, index } = Astro.props;
+const isActive = Astro.url.pathname === href;
+---
+
+<li class="navItem" id={ href }>
+    <a href={ '#' + href }>
+        0.{ index + 1 }
+
+        <span>
+            { label }
+        </span>
+    </a>
+</li>
+
+<style lang="scss">
+    .navItem {
+        transition: var(--transitionSlow);
+        border-left: var(--border);
+        position: relative;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        
+        a {
+            position: relative;
+            text-decoration: none;
+            margin: 0;
+            padding: var(--padding);
+            color: var(--contrast);
+            display: grid;
+            grid-template-columns: auto 0fr;
+            transition: grid-template-columns var(--transitionSlow);
+            z-index: 1;
+
+            &::before {
+                position: absolute;
+                content: '';
+                left: 25%;
+                right: 75%;
+                opacity: 0;
+                bottom: 50%;
+                height: 1px;
+                background-color: var(--contrast);
+                transform: translateY(.5em);
+                transition: var(--transition);
+            }
+        }
+        
+        span {
+            overflow: hidden;
+            transition: var(--transitionSlow);
+            color: var(--background);
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                width: .2em;
+                height: .2em;
+                border-radius: 50%;
+                transform: translate(0%, 0%);
+                background-color: var(--background);
+                opacity: 0;
+                transition: var(--transition);
+                transition-delay: .4s;
+            }
+        }
+        
+        &::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 0%;
+            background-color: var(--contrast);
+        }
+
+        &:hover {
+            a {
+                &::before {
+                    right: 25%;
+                    opacity: 1;
+                }
+            }
+        }
+        
+        &:target {
+            &::before {
+                width: 100%;
+            }
+            
+            a {
+                color: var(--background);
+                grid-template-columns: auto 1fr;
+            }
+            
+            span {
+                margin-left: .5rem;
+                padding-left: .5rem;
+
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+</style>

@@ -3,10 +3,13 @@
 html {
     --background: white;
     --contrast: black;
+    --primary: #ff5c8e;
+    --secondary: #5c77ff;
     --thickness: 1px;
     --padding: .75rem;
     --border: var(--thickness) solid var(--contrast);
-    --transition: .25s .1s ease;
+    --transition: .25s .05s ease;
+    --transitionSlow: .4s 0.05s ease;
 }
 
 html, body {

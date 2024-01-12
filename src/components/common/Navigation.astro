@@ -1,44 +1,53 @@
 ---
-import { t } from "i18next";
+import NavigationItem from './NavigationItem.astro'
+import NavigationButton from './NavigationButton.astro'
+
+type NavItemProps = Omit<Parameters<typeof NavigationItem>[0], 'index'>;
+
+const navItems = [
+    {
+        label: 'Haydn Comley',
+        href: '/'
+    },
+    {
+        label: 'About',
+        href: '/about'
+    },
+    {
+        label: 'Contact',
+        href: '/contact',
+    },
+] as const satisfies NavItemProps[];
 ---
 
 <nav class="nav">
     <div>
     </div>
 
-    <ul class="nav__items">
-        <li class="nav__items__link" id="welcome">
-            <a href="#welcome">
-                H.1
+    <ul class="navLinks">
+        { navItems.map((item, index) => (
+            <NavigationItem {...item} index={index}></NavigationItem>
+        )) }
 
-                <span class="nav__items__link__desc">
-                    - Welcome
-                </span>
-            </a>
-        </li>
-        
-        <li class="nav__items__link" id="another">
-            <a href="#another">
-                H.2
-
-                <span class="nav__items__link__desc">
-                    - About
-                </span>
-            </a>
-        </li>
-
-        <li class="nav__items__link" id="something">
-            <a href="#something">
-                H.3
-
-                <span class="nav__items__link__desc">
-                    - Contact
-                </span>
-            </a>
-        </li>
-
-        <button class="nav__items__link nav__items__burger">
-            
-        </button>
+        <NavigationButton></NavigationButton>
     </ul>
 </nav>
+
+<style lang="scss">
+    .nav {
+        border-bottom: var(--border);
+        display: flex;
+        justify-content: space-between;
+        z-index: 10;
+        position: sticky;
+        top: 0;
+        background-color: var(--background);
+    }
+
+    .navLinks {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+</style>

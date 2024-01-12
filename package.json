@@ -15,7 +15,7 @@
     "astro-single-file": "^1.1.0",
     "easy-theme": "^1.0.71",
     "html-minifier-terser": "^7.2.0",
-    "sass": "^1.63.6"
+    "sass": "1.69.7"
   },
   "devDependencies": {
     "@types/html-minifier-terser": "^7",
