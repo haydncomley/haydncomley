@@ -2,18 +2,18 @@
 import WavesImage from '../../img/waves.webp'
 ---
 
-<main>
+<section>
     <img class="backgroundImage" src={WavesImage}>
 
     <div class="titleWrapper">
         <h2 class="title">{ 'dev\ndesign' }</h2>
     </div>
-</main>
+</section>
 
 <style lang="scss">
     @use "easy-theme" as theme;
 
-    main {
+    section {
         position: relative;
         height: 100vh;
         transform-style: inherit;
@@ -33,15 +33,15 @@ import WavesImage from '../../img/waves.webp'
         @include theme.Mobile {
             height: 150vh;
             width: 210%;
-            transform: translateZ(-1px) scale(1) translate(-25%, -30%);
+            transform: translateZ(-1px) scale(1) translate(-25%, -35%);
         }
     }
 
     .titleWrapper {
-        padding: 3rem;
+        padding: 5rem 3rem;
         
         @include theme.Mobile {
-            padding: 1.5rem;
+            padding: 3.5rem 1.5rem;
         }
     }
 

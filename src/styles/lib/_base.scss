@@ -22,29 +22,7 @@ html, body {
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
-
-    perspective: 1px;
-    transform-style: preserve-3d;
-    overflow-x: hidden;
-    overflow-y: visible;
-
-    &::-webkit-scrollbar {
-        width: .2rem;
-        background: var(--contrast);
-    }
-    
-    &::-webkit-scrollbar-track {
-        background: var(--contrast);
-    }
-    
-    &::-webkit-scrollbar-thumb {
-        background: var(--background);
-        border-left: var(--border);
-    }
-}
-
-main {
-    height: 300vh;
+    overflow: hidden;
 }
 
 .theme {

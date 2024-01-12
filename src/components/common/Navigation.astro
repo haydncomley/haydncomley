@@ -7,15 +7,15 @@ type NavItemProps = Omit<Parameters<typeof NavigationItem>[0], 'index'>;
 const navItems = [
     {
         label: 'Haydn Comley',
-        href: '/'
+        href: ''
     },
     {
         label: 'About',
-        href: '/about'
+        href: 'about'
     },
     {
         label: 'Contact',
-        href: '/contact',
+        href: 'contact',
     },
 ] as const satisfies NavItemProps[];
 ---
@@ -42,6 +42,13 @@ const navItems = [
         position: sticky;
         top: 0;
         background-color: var(--background);
+        transition: var(--transitionSlow);
+    }
+    
+    body:has(#menu:checked) {
+        .nav {
+            background-color: var(----contrast);
+        }
     }
 
     .navLinks {

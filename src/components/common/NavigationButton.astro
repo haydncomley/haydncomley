@@ -1,23 +1,23 @@
 <span class="navBurgerWrapper">
-    <a class="navBurger" id="menu" href="#menu">
-        <span class="navBurgerRow">
-            <span class="navBurgerDot"></span>
-            <span class="navBurgerDot"></span>
-            <span class="navBurgerDot"></span>
-        </span>
-        <span class="navBurgerRow">
-            <span class="navBurgerDot"></span>
-            <span class="navBurgerDot"></span>
-            <span class="navBurgerDot"></span>
-        </span>
-        <span class="navBurgerRow">
-            <span class="navBurgerDot"></span>
-            <span class="navBurgerDot"></span>
-            <span class="navBurgerDot"></span>
-        </span>
-    </a>
+    <input type="checkbox" id="menu"></input>
 
-    <a class="navBurgerClose" href="#"></a>
+    <label class="navBurger" for="menu">
+        <span class="navBurgerRow">
+            <span class="navBurgerDot"></span>
+            <span class="navBurgerDot"></span>
+            <span class="navBurgerDot"></span>
+        </span>
+        <span class="navBurgerRow">
+            <span class="navBurgerDot"></span>
+            <span class="navBurgerDot"></span>
+            <span class="navBurgerDot"></span>
+        </span>
+        <span class="navBurgerRow">
+            <span class="navBurgerDot"></span>
+            <span class="navBurgerDot"></span>
+            <span class="navBurgerDot"></span>
+        </span>
+    </label>
 </span>
 
 <style lang="scss">
@@ -28,13 +28,16 @@
 
     .navBurgerWrapper {
         position: relative;
+
+        input {
+            display: none;
+        }
     }
 
     .navBurger {
         position: relative;
         height: $size;
         width: $size;
-        border-left: var(--border);
         background-color: var(--contrast);
         transition: var(--transitionSlow);
         display: flex;
@@ -42,8 +45,9 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        overflow: hidden;
         
-        &:not(:target):hover {
+        #menu:not(:checked) ~ &:hover {
             gap: 0;
             background-color: var(--secondary);
             
@@ -68,7 +72,7 @@
             }
         }
 
-        &:target {
+        #menu:checked ~ & {
             gap: 0;
             background-color: var(--primary);
 
@@ -100,10 +104,6 @@
                     }
                 }
             }
-
-            &~.navBurgerClose {
-                pointer-events: all;
-            }
         }
     }
 
@@ -119,15 +119,5 @@
         background-color: var(--background);
         transition: var(--transitionSlow);
         border-radius: 25%;
-    }
-
-    .navBurgerClose {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        pointer-events: none;
     }
 </style>
