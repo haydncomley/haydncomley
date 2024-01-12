@@ -1,0 +1,73 @@
+---
+import WavesImage from '../../img/waves.webp'
+---
+
+<main>
+    <img class="backgroundImage" src={WavesImage}>
+
+    <div class="titleWrapper">
+        <h2 class="title">{ 'dev\ndesign' }</h2>
+    </div>
+</main>
+
+<style lang="scss">
+    @use "easy-theme" as theme;
+
+    main {
+        position: relative;
+        height: 100vh;
+        transform-style: inherit;
+    }
+
+    .backgroundImage {
+        width: 210%;
+        object-fit: cover;
+        object-position: center bottom;
+        height: 200vh;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        transform: translateZ(-1px) scale(1) translate(-25%, -25%);
+        transform-origin: bottom;
+
+        @include theme.Mobile {
+            height: 150vh;
+            width: 210%;
+            transform: translateZ(-1px) scale(1) translate(-25%, -30%);
+        }
+    }
+
+    .titleWrapper {
+        padding: 3rem;
+        
+        @include theme.Mobile {
+            padding: 1.5rem;
+        }
+    }
+
+    .title {
+        margin: 0;
+        color: var(--primary);
+        white-space: pre-line;
+        font-size: 15rem;
+        font-weight: 900;
+        line-height: .6em;
+        position: relative;
+        margin-left: 0.6em;
+
+        @include theme.Tablet {
+            font-size: 10rem;
+        }
+
+        @include theme.Mobile {
+            font-size: 5rem;
+        }
+
+        &:before {
+            content: '&';
+            position: absolute;
+            bottom: 0;
+            right: calc(100% - .05em);
+        }
+    }
+</style>

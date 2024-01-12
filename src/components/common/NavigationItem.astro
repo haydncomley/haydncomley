@@ -85,7 +85,7 @@ const isActive = Astro.url.pathname === href;
             background-color: var(--contrast);
         }
 
-        &:hover {
+        &:not(&:target):hover {
             a {
                 &::before {
                     right: 25%;

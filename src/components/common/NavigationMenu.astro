@@ -12,9 +12,12 @@
         background-color: var(--contrast);
         pointer-events: none;
         transition: var(--transitionSlow);
+        z-index: 5;
     }
 
     body:has(#menu:target) {
+        // overflow: hidden;
+
         .navMenu {
             height: 100%;
         }

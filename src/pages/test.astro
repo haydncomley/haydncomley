@@ -1,15 +1,11 @@
 ---
 import { changeLanguage, t } from "i18next";
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
-import ThemesSetup from "../components/ThemesSetup.astro";
-import ThemeSelection from "../components/ThemeSelection.astro";
-import { Projects } from "../lib/Projects.lib";
-import HeaderSocials from "../components/HeaderSocials.astro";
-import Project from "../components/Project.astro";
-import Preview from "../components/Preview.astro";
+
 import Navigation from "../components/common/Navigation.astro";
 import NavigationMenu from "../components/common/NavigationMenu.astro";
+
+import LandingSection from "../components/sections/Landing.astro";
 
 changeLanguage("en");
 ---
@@ -18,7 +14,5 @@ changeLanguage("en");
 	<Navigation />
 	<NavigationMenu />
 
-	<main>
-		<!-- hello -->
-	</main>
+	<LandingSection></LandingSection>
 </Layout>
