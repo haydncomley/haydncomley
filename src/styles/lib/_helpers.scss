@@ -1,29 +1,11 @@
-@mixin DarkMode {
-    @media (prefers-color-scheme: dark) {
+@mixin showMenu {
+    body:has(#menuBurger:focus), body:has(#menuSheet:focus) {
         @content;
     }
 }
 
-@mixin MobileTiny {
-    @media screen and (max-width: 350px) {
-        @content;
-    }
-}
-
-@mixin Mobile {
-    @media screen and (max-width: 600px) {
-        @content;
-    }
-}
-
-@mixin Tablet {
-    @media screen and (max-width: 1000px) {
-        @content;
-    }
-}
-
-@mixin NotMobile {
-    @media screen and (min-width: 600px) {
+@mixin hideMenu {
+    body:not(:has(#menuBurger:focus), :has(#menuSheet:focus)) {
         @content;
     }
 }

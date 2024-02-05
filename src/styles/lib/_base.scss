@@ -25,6 +25,11 @@ html, body {
     overflow: hidden;
 }
 
+::selection {
+    background: var(--secondary);
+    color: var(--background);
+}
+
 .theme {
     display: none
 }

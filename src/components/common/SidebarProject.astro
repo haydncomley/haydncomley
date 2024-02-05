@@ -1,0 +1,74 @@
+---
+interface Props {
+    color: 'red' | 'orange' | 'purple' | 'blue' | 'green';
+}
+
+const { color } = Astro.props;
+---
+
+<div class:list={['project', color]} tabindex="0">
+</div>
+
+<style lang="scss">
+    @use "easy-theme" as theme;
+
+    .project {
+        $height: calc(theme.Variable('spacing') * 7);
+        display: flex;
+        width: calc(100% + (theme.Variable('spacing') * 4));
+        height: $height;
+        margin-top: calc(theme.Variable('spacing') * -1);
+        overflow: hidden;
+        box-sizing: border-box;
+        border: theme.Variable('border');
+        border-left: none;
+        background-color: theme.Color('primary');
+        color: theme.Contrast('primary');
+        border-radius: 0 $height $height 0;
+        transition: width 0.2s ease;
+        flex-shrink: 0;
+
+        @include theme.Mobile {
+            width: calc(100%);
+            border-right: none;
+            border-radius: 0;
+            margin-top: 0;
+            border-top: none;
+
+            &:last-of-type {
+                border-bottom: none;
+                height: calc(theme.Variable('spacing') * 6);
+            }
+        }
+
+        &.red {
+            background-color: theme.Color('red');
+            color: theme.Contrast('red');
+        }
+
+        &.orange {
+            background-color: theme.Color('orange');
+            color: theme.Contrast('orange');
+        }
+
+        &.purple {
+            background-color: theme.Color('purple');
+            color: theme.Contrast('purple');
+        }
+
+        &.blue {
+            background-color: theme.Color('blue');
+            color: theme.Contrast('blue');
+        }
+
+        &.green {
+            background-color: theme.Color('green');
+            color: theme.Contrast('green');
+        }
+
+        &:hover {
+            width: calc(100% + (theme.Variable('spacing') * 6));
+            cursor: pointer;
+        }
+    }
+</style>

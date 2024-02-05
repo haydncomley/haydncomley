@@ -1,0 +1,117 @@
+---
+import { changeLanguage, t } from "i18next";
+import Layout from "../layouts/Layout.astro";
+
+import Sidebar from "../components/common/Sidebar.astro";
+import SidebarProject from "../components/common/SidebarProject.astro";
+import Content from "../components/common/Content.astro";
+
+changeLanguage("en");
+---
+
+<Layout title={'Test 2'}>
+	<main class="app">
+        <div class="sidebars">
+            <input type="checkbox" id="sidebar">
+            <Sidebar style="darker">
+                <label class="sidebarClose" for="sidebar">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M9.4 278.6c-12.5-12.5-12.5-32.8 0-45.3l128-128c9.2-9.2 22.9-11.9 34.9-6.9s19.8 16.6 19.8 29.6l0 256c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-128-128z"/></svg>
+                </label>
+            </Sidebar>
+            <Sidebar style="dark">
+                <SidebarProject color="purple"></SidebarProject>
+                <SidebarProject color="orange"></SidebarProject>
+                <SidebarProject color="red"></SidebarProject>
+                <SidebarProject color="blue"></SidebarProject>
+                <SidebarProject color="green"></SidebarProject>
+            </Sidebar>
+        </div>
+
+        <div class="content">
+            <Content></Content>
+        </div>
+	</main>
+</Layout>
+
+<style lang="scss">
+    @use "easy-theme" as theme;
+
+    .app {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        background-color: theme.Color('primary');
+        color: theme.Contrast('primary');
+        border: theme.Variable('border');
+        box-sizing: border-box;
+
+        @include theme.Mobile {
+            flex-direction: column;
+        }
+    }
+
+    .sidebars {
+        display: flex;
+        z-index: 1;
+
+        @include theme.Mobile {
+            flex-direction: column;
+        }
+
+        input {
+            display: none;
+        }
+    }
+
+    .sidebarClose {
+        padding: theme.Variable('spacing') calc(theme.Variable('spacing') * 0.6);
+        height: calc(theme.Variable('spacing') * 1.5);
+        width: calc(theme.Variable('spacing') * 1.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        fill: theme.Color('primary');
+        cursor: pointer;
+        transition: .15s ease;
+        transform-origin: 50% 50%;
+
+        &:hover {
+            opacity: .75;
+        }
+
+        @include theme.Mobile {
+            transform: rotateZ(90deg);
+            padding: calc(theme.Variable('spacing') * 1) theme.Variable('spacing');
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+            &:focus {
+                outline: none !important;
+            }
+
+            svg {
+                transform: translateX(.1rem);
+            }
+        }
+    }
+
+    .content {
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+
+    #sidebar:not(:checked) ~ :global(*) > .sidebarClose {
+        transform: rotateZ(180deg);
+
+        @include theme.Mobile {
+            transform: rotateZ(270deg);
+        }
+    }
+</style>

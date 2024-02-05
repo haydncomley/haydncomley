@@ -1,28 +1,12 @@
 ---
 import NavigationItem from './NavigationItem.astro'
 import NavigationButton from './NavigationButton.astro'
-
-type NavItemProps = Omit<Parameters<typeof NavigationItem>[0], 'index'>;
-
-const navItems = [
-    {
-        label: 'Haydn Comley',
-        href: ''
-    },
-    {
-        label: 'About',
-        href: 'about'
-    },
-    {
-        label: 'Contact',
-        href: 'contact',
-    },
-] as const satisfies NavItemProps[];
+import NavigationName from './NavigationName.astro'
+import { navItems } from '../../lib/Pages.lib';
 ---
 
 <nav class="nav">
-    <div>
-    </div>
+    <NavigationName></NavigationName>
 
     <ul class="navLinks">
         { navItems.map((item, index) => (
@@ -38,11 +22,13 @@ const navItems = [
         border-bottom: var(--border);
         display: flex;
         justify-content: space-between;
+        align-items: center;
         z-index: 10;
         position: sticky;
         top: 0;
         background-color: var(--background);
         transition: var(--transitionSlow);
+        padding-left: .5rem;
     }
     
     body:has(#menu:checked) {

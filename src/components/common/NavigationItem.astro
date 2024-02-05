@@ -18,7 +18,7 @@ const { href, label, index } = Astro.props;
     </a>
 </li>
 
-<style lang="scss" define:vars={{ index: `${(index * 0.05) }s` }}>
+<style lang="scss">
     @use "easy-theme" as theme;
 
     @keyframes softBlink {
@@ -40,7 +40,7 @@ const { href, label, index } = Astro.props;
         }
     }
     .navItem {
-        transition: .3s var(--index) ease;
+        transition: .3s ease;
         border-left: var(--border);
         position: relative;
         display: flex;
@@ -119,6 +119,4 @@ const { href, label, index } = Astro.props;
             }
         }
     }
-
-
 </style>

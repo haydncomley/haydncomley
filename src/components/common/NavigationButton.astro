@@ -1,7 +1,5 @@
 <span class="navBurgerWrapper">
-    <input type="checkbox" id="menu"></input>
-
-    <label class="navBurger" for="menu">
+    <div class="navBurger" id="menuBurger" tabindex="0">
         <span class="navBurgerRow">
             <span class="navBurgerDot"></span>
             <span class="navBurgerDot"></span>
@@ -17,7 +15,7 @@
             <span class="navBurgerDot"></span>
             <span class="navBurgerDot"></span>
         </span>
-    </label>
+    </div>
 </span>
 
 <style lang="scss">
@@ -28,12 +26,6 @@
 
     .navBurgerWrapper {
         position: relative;
-
-        input {
-            opacity: 0;
-            position: absolute;
-            pointer-events: none;
-        }
     }
 
     .navBurger {
@@ -49,8 +41,12 @@
         justify-content: center;
         overflow: hidden;
         cursor: pointer;
+
+        &:focus {
+            background-color: red;
+        }
         
-        #menu:not(:checked) ~ &:hover {
+        #menu:not(:focus) ~ &:hover {
             gap: 0;
             background-color: var(--secondary);
             
@@ -75,7 +71,7 @@
             }
         }
 
-        #menu:checked ~ & {
+        #menu:focus ~ & {
             gap: 0;
             background-color: var(--primary);
 

@@ -27,3 +27,31 @@ const { title } = Astro.props;
 		<slot />
 	</body>
 </html>
+
+<style lang="scss">
+    @use "easy-theme" as theme;
+
+	$light-theme: (
+        'primary': (#c86ae3, #f6f4f0, true),
+        'red': (#e33052, #f6f4f0, true),
+        'orange': (#f74848, #f6f4f0, true),
+        'purple': (#c86ae3, #f6f4f0, true),
+        'blue': (#736ae3, #f6f4f0, true),
+        'green': (#30e384, #f6f4f0, true),
+    );
+
+    $variables: (
+		'radius': .2rem,
+        'spacing': .75rem,
+        'border': theme.Variable('spacing') solid theme.Contrast('primary'),
+    );
+
+    @include theme.UseTheme((
+        light: $light-theme,
+        variables: $variables,
+		steps: (
+			'dark': -35%,
+			'darker': -50%
+		)
+    ));
+</style>

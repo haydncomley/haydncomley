@@ -1,0 +1,25 @@
+<div class="name">
+    <p class="nameItem">Haydn</p>
+    <p class="nameItem">Comley</p>
+</div>
+
+<style lang="scss">
+    .name {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nameItem {
+        font-family: 'Playfair Display', serif;
+        font-weight: 900;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        font-style: italic;
+        
+        &:nth-child(2) {
+            margin-left: .4em;
+            margin-top: -.3em;
+        }
+    }
+</style>

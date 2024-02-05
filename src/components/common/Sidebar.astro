@@ -1,0 +1,55 @@
+---
+interface Props {
+    style: 'dark' | 'darker';
+}
+
+const { style } = Astro.props;
+---
+
+<div class:list={['sidebar', { 'darker': style === 'darker' }]}>
+    <slot></slot>
+</div>
+
+<style lang="scss">
+    @use "easy-theme" as theme;
+
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        background-color: theme.Color('primary', 'dark');
+        color: theme.Contrast('primary');
+        border-right: theme.Variable('border');
+        box-sizing: border-box;
+        width: 15rem;
+        transition: width 0.5s ease;
+
+        @include theme.Mobile {
+            width: 100%;
+            border-right: none;
+            border-bottom: theme.Variable('border');
+            transition: transform 0.5s ease;
+        }
+
+        &:nth-of-type(2) {
+            transition-delay: 0.075s;
+            z-index: -1;
+        }
+
+        &.darker {
+            background-color: theme.Color('primary', 'darker');
+        }
+    }
+
+    :global(#sidebar:not(:checked)) ~ .sidebar {
+        width: calc(theme.Variable('spacing') * 4);
+
+        @include theme.Mobile {
+            width: 100%;
+
+            &:nth-of-type(2) {
+                transform: translateY(-100%);
+            }
+        }
+    }
+</style>

@@ -1,0 +1,18 @@
+---
+interface Props {
+}
+
+const { } = Astro.props;
+---
+
+<div class="sticker">
+    <slot></slot>
+</div>
+
+<style lang="scss">
+    @use "easy-theme" as theme;
+
+    .sticker {
+        filter: drop-shadow(0px 0.5rem 1rem  theme.Contrast('primary'));
+    }
+</style>

@@ -1,0 +1,28 @@
+---
+interface Props {
+}
+
+const { } = Astro.props;
+---
+
+<p class="editableText" contenteditable="true">
+    Available Now!
+</p>
+
+<style lang="scss">
+    @use "easy-theme" as theme;
+
+    .editableText {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: bold;
+        font-size: 2rem;
+        display: inline-flex;
+        outline: none;
+        text-align: center;
+        line-height: 0.85em;
+        letter-spacing: -0.075em;
+        color: theme.Color('green');
+        filter: drop-shadow(0.1em 0.1em 0.02em theme.Contrast('primary'))
+                drop-shadow(-0.1em 0.1em 0.02em theme.Contrast('primary'));
+    }
+</style>
