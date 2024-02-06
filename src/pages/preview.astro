@@ -9,7 +9,7 @@ import Content from "../components/common/Content.astro";
 changeLanguage("en");
 ---
 
-<Layout title={'Test 2'}>
+<Layout title={t('pageTitle')}>
 	<main class="app">
         <div class="sidebars">
             <input type="checkbox" id="sidebar">
@@ -19,11 +19,13 @@ changeLanguage("en");
                 </label>
             </Sidebar>
             <Sidebar style="dark">
-                <SidebarProject color="purple"></SidebarProject>
-                <SidebarProject color="orange"></SidebarProject>
-                <SidebarProject color="red"></SidebarProject>
-                <SidebarProject color="blue"></SidebarProject>
-                <SidebarProject color="green"></SidebarProject>
+                <div>
+                    <SidebarProject color="purple"></SidebarProject>
+                    <SidebarProject color="orange"></SidebarProject>
+                    <SidebarProject color="red"></SidebarProject>
+                    <SidebarProject color="blue"></SidebarProject>
+                    <SidebarProject color="green"></SidebarProject>
+                </div>
             </Sidebar>
         </div>
 
@@ -54,6 +56,19 @@ changeLanguage("en");
     .sidebars {
         display: flex;
         z-index: 1;
+        position: relative;
+
+        @include theme.NotMobile {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            height: 100%;
+            border-left: theme.Variable('border');
+            border-top: theme.Variable('border');
+            border-bottom: theme.Variable('border');
+            box-sizing: border-box;
+        }
 
         @include theme.Mobile {
             flex-direction: column;
@@ -62,41 +77,67 @@ changeLanguage("en");
         input {
             display: none;
         }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: calc(100vw - (theme.Variable('border-thickness') * 2));
+            height: calc(100vh - (theme.Variable('border-thickness') * 2));
+            background: theme.Color('primary', 'darker');
+            opacity: 0;
+            pointer-events: none;
+            z-index: -2;
+            transition: .5s ease-out;
+        }
+
+        &:has(:checked) {
+            &::after {
+                opacity: 0.8;
+                pointer-events: all;
+            }
+        }
     }
 
     .sidebarClose {
-        padding: theme.Variable('spacing') calc(theme.Variable('spacing') * 0.6);
+        padding: theme.Variable('spacing');
         height: calc(theme.Variable('spacing') * 1.5);
         width: calc(theme.Variable('spacing') * 1.5);
         display: flex;
         align-items: center;
         justify-content: center;
-        fill: theme.Color('primary');
+        fill: theme.Contrast('primary');
         cursor: pointer;
-        transition: .15s ease;
         transform-origin: 50% 50%;
+        transition: .15s ease;
 
-        &:hover {
-            opacity: .75;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        
+        svg {
+            transition: .15s ease;
+        }
+
+        @include theme.NotMobile {
+            &:hover {
+                transform: scale(0.8);
+            }
         }
 
         @include theme.Mobile {
-            transform: rotateZ(90deg);
             padding: calc(theme.Variable('spacing') * 1) theme.Variable('spacing');
-            -webkit-tap-highlight-color: transparent;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-
-            &:focus {
-                outline: none !important;
-            }
-
+            border-right: theme.Variable('border');
+            border-bottom: none;
+            background: theme.Color('primary', 'dark');
+            
             svg {
-                transform: translateX(.1rem);
+                transform: rotateZ(90deg) translateX(.1rem);
             }
         }
     }
@@ -105,13 +146,19 @@ changeLanguage("en");
         display: flex;
         width: 100%;
         height: 100%;
+
+        @include theme.NotMobile {
+            margin-left: calc((theme.Variable('border-thickness') * 2) + theme.Variable('spacing') * 7);
+        }
     }
 
     #sidebar:not(:checked) ~ :global(*) > .sidebarClose {
-        transform: rotateZ(180deg);
+        svg {
+            transform: rotateZ(180deg) translateX(.1rem);
 
-        @include theme.Mobile {
-            transform: rotateZ(270deg);
+            @include theme.Mobile {
+                transform: rotateZ(270deg) translateX(.1rem);
+            }
         }
     }
 </style>

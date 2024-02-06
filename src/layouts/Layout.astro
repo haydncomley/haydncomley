@@ -1,5 +1,4 @@
 ---
-import "../styles/index.scss";
 import i18next from "i18next";
 
 export interface Props {
@@ -31,6 +30,8 @@ const { title } = Astro.props;
 <style lang="scss">
     @use "easy-theme" as theme;
 
+	@import '../styles/lib/normalize';
+
 	$light-theme: (
         'primary': (#c86ae3, #f6f4f0, true),
         'red': (#e33052, #f6f4f0, true),
@@ -43,7 +44,8 @@ const { title } = Astro.props;
     $variables: (
 		'radius': .2rem,
         'spacing': .75rem,
-        'border': theme.Variable('spacing') solid theme.Contrast('primary'),
+        'border-thickness': .75rem,
+        'border': theme.Variable('border-thickness') solid theme.Contrast('primary'),
     );
 
     @include theme.UseTheme((
@@ -54,4 +56,11 @@ const { title } = Astro.props;
 			'darker': -50%
 		)
     ));
+
+	html, body {
+		height: 100%;
+		width: 100%;
+		box-sizing: border-box;
+		overflow: hidden;
+	}
 </style>

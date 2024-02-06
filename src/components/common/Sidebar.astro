@@ -20,7 +20,7 @@ const { style } = Astro.props;
         background-color: theme.Color('primary', 'dark');
         color: theme.Contrast('primary');
         border-right: theme.Variable('border');
-        box-sizing: border-box;
+        box-sizing: content-box;
         width: 15rem;
         transition: width 0.5s ease;
 
@@ -28,12 +28,26 @@ const { style } = Astro.props;
             width: 100%;
             border-right: none;
             border-bottom: theme.Variable('border');
-            transition: transform 0.5s ease;
+
+            &:nth-of-type(2) {
+                border-bottom: none;
+                height: 0;
+
+                & > :global(*) {
+                    transition: transform 0.5s ease;
+                    border-bottom: theme.Variable('border');
+                }
+            }
         }
 
         &:nth-of-type(2) {
             transition-delay: 0.075s;
             z-index: -1;
+
+            @include theme.Mobile {
+                position: absolute;
+                top: 100%;
+            }
         }
 
         &.darker {
@@ -42,13 +56,15 @@ const { style } = Astro.props;
     }
 
     :global(#sidebar:not(:checked)) ~ .sidebar {
-        width: calc(theme.Variable('spacing') * 4);
+        width: calc(theme.Variable('spacing') * 3.5);
 
         @include theme.Mobile {
             width: 100%;
 
             &:nth-of-type(2) {
-                transform: translateY(-100%);
+                & > :global(*) {
+                    transform: translateY(-100%);
+                }
             }
         }
     }

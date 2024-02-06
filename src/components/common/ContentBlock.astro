@@ -1,0 +1,38 @@
+---
+interface Props {
+    width?: number;
+    height?: number;
+}
+
+const { width = 1, height = 1 } = Astro.props;
+---
+
+<div class="contentBlock">
+    <slot></slot>
+</div>
+
+<style lang="scss" define:vars={{ width, height }}>
+    @use "easy-theme" as theme;
+
+    .contentBlock {
+        grid-column: auto / span var(--width);
+        grid-row: auto / span var(--height);
+        box-shadow: 0 0 0 theme.Variable('border-thickness') theme.Contrast('primary');
+
+        // &:nth-child(3n) {
+        //     background-color: theme.Color('primary', 'darker');
+        // }
+
+        &:nth-child(2n - 1) {
+            background-color: theme.Color('primary', 'dark');
+        }
+
+        &:nth-child(2n) {
+            background-color: theme.Color('primary', 'darker');
+        }
+
+        @include theme.Mobile {
+            aspect-ratio: var(--width) / var(--height);
+        }
+    }
+</style>
