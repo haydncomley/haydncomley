@@ -18,10 +18,7 @@ const { width = 1, height = 1 } = Astro.props;
         grid-column: auto / span var(--width);
         grid-row: auto / span var(--height);
         box-shadow: 0 0 0 theme.Variable('border-thickness') theme.Contrast('primary');
-
-        // &:nth-child(3n) {
-        //     background-color: theme.Color('primary', 'darker');
-        // }
+        scroll-snap-align: center;
 
         &:nth-child(2n - 1) {
             background-color: theme.Color('primary', 'dark');

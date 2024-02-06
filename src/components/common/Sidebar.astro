@@ -24,6 +24,20 @@ const { style } = Astro.props;
         width: 15rem;
         transition: width 0.5s ease;
 
+        @include theme.NotMobile {
+            &:nth-of-type(2) {
+                & > :global(*) {
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                    width: calc(100% + (theme.Variable('spacing') * 7));
+
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
+                }
+            }
+        }
+
         @include theme.Mobile {
             width: 100%;
             border-right: none;
@@ -47,6 +61,14 @@ const { style } = Astro.props;
             @include theme.Mobile {
                 position: absolute;
                 top: 100%;
+                height: calc(100vh - 100% - theme.Variable('border-thickness'));
+                overflow: auto;
+                background-color: transparent;
+                pointer-events: auto;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
             }
         }
 
@@ -62,6 +84,8 @@ const { style } = Astro.props;
             width: 100%;
 
             &:nth-of-type(2) {
+                pointer-events: none;
+                
                 & > :global(*) {
                     transform: translateY(-100%);
                 }

@@ -1,6 +1,14 @@
 ---
 interface Props {
-    color: 'red' | 'orange' | 'purple' | 'blue' | 'green';
+    color:  'red' |
+            'orange' |
+            'yellow' |
+            'green' |
+            'cyan' |
+            'turquoise' |
+            'blue' |
+            'indigo' |
+            'violet';
 }
 
 const { color } = Astro.props;
@@ -15,7 +23,7 @@ const { color } = Astro.props;
     .project {
         $height: calc(theme.Variable('spacing') * 7);
         display: flex;
-        width: calc(100% + (theme.Variable('spacing') * 4));
+        width: calc(100% - (theme.Variable('spacing') * 2));
         height: $height;
         margin-top: calc(theme.Variable('border-thickness') * -1);
         overflow: hidden;
@@ -51,14 +59,9 @@ const { color } = Astro.props;
             color: theme.Contrast('orange');
         }
 
-        &.purple {
-            background-color: theme.Color('purple');
-            color: theme.Contrast('purple');
-        }
-
-        &.blue {
-            background-color: theme.Color('blue');
-            color: theme.Contrast('blue');
+        &.yellow {
+            background-color: theme.Color('yellow');
+            color: theme.Contrast('yellow');
         }
 
         &.green {
@@ -66,8 +69,33 @@ const { color } = Astro.props;
             color: theme.Contrast('green');
         }
 
+        &.cyan {
+            background-color: theme.Color('cyan');
+            color: theme.Contrast('cyan');
+        }
+
+        &.turquoise {
+            background-color: theme.Color('turquoise');
+            color: theme.Contrast('turquoise');
+        }
+
+        &.blue {
+            background-color: theme.Color('blue');
+            color: theme.Contrast('blue');
+        }
+
+        &.indigo {
+            background-color: theme.Color('indigo');
+            color: theme.Contrast('indigo');
+        }
+
+        &.violet {
+            background-color: theme.Color('violet');
+            color: theme.Contrast('violet');
+        }
+
         &:hover {
-            width: calc(100% + (theme.Variable('spacing') * 6));
+            width: 100%;
             cursor: pointer;
         }
     }

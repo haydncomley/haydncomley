@@ -33,12 +33,16 @@ const { title } = Astro.props;
 	@import '../styles/lib/normalize';
 
 	$light-theme: (
-        'primary': (#c86ae3, #f6f4f0, true),
+        'primary': (#30e384, #f6f4f0, true),
         'red': (#e33052, #f6f4f0, true),
         'orange': (#f74848, #f6f4f0, true),
-        'purple': (#c86ae3, #f6f4f0, true),
-        'blue': (#736ae3, #f6f4f0, true),
-        'green': (#30e384, #f6f4f0, true),
+        'yellow': (#f0d74b, #f6f4f0, true),
+        'green': (#99d84e, #f6f4f0, true),
+        'turquoise': (#30e384, #f6f4f0, true),
+        'cyan': (#4ed8cd, #f6f4f0, true),
+        'blue': (#6a73e3, #f6f4f0, true),
+        'indigo': (#934ceb, #f6f4f0, true),
+        'violet': (#c86ae3, #f6f4f0, true),
     );
 
     $variables: (
@@ -52,8 +56,8 @@ const { title } = Astro.props;
         light: $light-theme,
         variables: $variables,
 		steps: (
-			'dark': -35%,
-			'darker': -50%
+			'dark': 15%,
+			'darker': -45%
 		)
     ));
 
