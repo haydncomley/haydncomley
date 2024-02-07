@@ -1,18 +1,23 @@
 ---
-import { changeLanguage, t } from "i18next";
-import Layout from "../layouts/Layout.astro";
+import Layout from "../../lib/layouts/Layout.astro";
+import Sidebar from "../../lib/components/common/Sidebar.astro";
+import SidebarProject from "../../lib/components/common/SidebarProject.astro";
+import Content from "../../lib/components/common/Content.astro";
+import { TProject } from "../../lib/types/TProject";
 
-import Sidebar from "../components/common/Sidebar.astro";
-import SidebarProject from "../components/common/SidebarProject.astro";
-import Content from "../components/common/Content.astro";
+import { PROJECTS } from '../../lib/data'
 
-changeLanguage("en");
+interface Props {
+    currentProject?: TProject;
+}
+
+const { currentProject } = Astro.props;
 ---
 
-<Layout title={t('pageTitle')}>
-	<main class="app">
+<Layout title={`Haydn Comley - ${ currentProject ? currentProject.name : 'Portfolio' }`}>
+	<main class="app red">
         <div class="sidebars">
-            <input type="checkbox" id="sidebar">
+            <input type="checkbox" id="sidebar" transition:persist>
             <Sidebar style="darker">
                 <label class="sidebarClose" for="sidebar">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M9.4 278.6c-12.5-12.5-12.5-32.8 0-45.3l128-128c9.2-9.2 22.9-11.9 34.9-6.9s19.8 16.6 19.8 29.6l0 256c0 12.9-7.8 24.6-19.8 29.6s-25.7 2.2-34.9-6.9l-128-128z"/></svg>
@@ -20,26 +25,27 @@ changeLanguage("en");
             </Sidebar>
             <Sidebar style="dark">
                 <div>
-                    <SidebarProject color="red"></SidebarProject>
-                    <SidebarProject color="orange"></SidebarProject>
-                    <SidebarProject color="yellow"></SidebarProject>
-                    <SidebarProject color="green"></SidebarProject>
-                    <SidebarProject color="turquoise"></SidebarProject>
-                    <SidebarProject color="cyan"></SidebarProject>
-                    <SidebarProject color="blue"></SidebarProject>
-                    <SidebarProject color="indigo"></SidebarProject>
-                    <SidebarProject color="violet"></SidebarProject>
+                    { PROJECTS.map((project) => (
+                        <SidebarProject project={project} isActive={currentProject?.slug === project.slug}></SidebarProject>
+                    )) }
                 </div>
             </Sidebar>
         </div>
 
         <div class="content">
-            <Content></Content>
+            <Content blocks={currentProject?.blocks ?? []}></Content>
         </div>
 	</main>
 </Layout>
 
-<style lang="scss">
+<style lang="scss" define:vars={currentProject?.theme ? {
+        'theme-primary': `var(--theme-${currentProject.theme})`,
+        'theme-primary-contrast': `var(--theme-${currentProject.theme}-contrast)`,
+        'theme-primary-rgb': `var(--theme-${currentProject.theme}-rgb)`,
+        'theme-primary-contrast-rgb': `var(--theme-${currentProject.theme}-contrast-rgb)`,
+        'theme-primary-dark': `var(--theme-${currentProject.theme}-dark)`,
+        'theme-primary-darker': `var(--theme-${currentProject.theme}-darker)`,
+} : {}}>
     @use "easy-theme" as theme;
 
     .app {

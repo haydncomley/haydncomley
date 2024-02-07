@@ -1,0 +1,19 @@
+---
+import App from "../../lib/layouts/App.astro";
+import { PROJECTS } from '../../lib/data'
+
+export function getStaticPaths() {
+  return PROJECTS.map((project) => {
+    return {
+      params: {
+        project: project.slug
+      }
+    };
+  });
+}
+
+const { project } = Astro.params;
+const currentProject = PROJECTS.find((p) => p.slug === project);
+---
+
+<App currentProject={currentProject}></App>

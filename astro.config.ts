@@ -8,4 +8,7 @@ export default defineConfig({
     astroI18next(),
     astroSingleFile(),
   ],
+  experimental: {
+    viewTransitions: true,
+  }
 });

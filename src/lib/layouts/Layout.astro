@@ -1,5 +1,5 @@
 ---
-import i18next from "i18next";
+import { ViewTransitions } from 'astro:transitions';
 
 export interface Props {
 	title: string;
@@ -9,11 +9,12 @@ const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang={i18next.language}>
+<html>
 	<head>
 		<!-- Meta -->
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
+		<ViewTransitions />
 		
 		<!-- Details -->
 		<title>{title}</title>
@@ -30,7 +31,7 @@ const { title } = Astro.props;
 <style lang="scss">
     @use "easy-theme" as theme;
 
-	@import '../styles/lib/normalize';
+	@import '../../styles/_normalize.scss';
 
 	$light-theme: (
         'primary': (#30e384, #f6f4f0, true),

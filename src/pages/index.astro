@@ -1,33 +1,5 @@
 ---
-import { changeLanguage, t } from "i18next";
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
-import ThemesSetup from "../components/ThemesSetup.astro";
-import ThemeSelection from "../components/ThemeSelection.astro";
-import { Projects } from "../lib/Projects.lib";
-import HeaderSocials from "../components/HeaderSocials.astro";
-import Project from "../components/Project.astro";
-import Preview from "../components/Preview.astro";
-
-changeLanguage("en");
+import App from "../lib/layouts/App.astro";
 ---
 
-<Layout title={t('pageTitle')}>
-	<ThemesSetup />
-	<main>
-		<ThemeSelection />
-
-		<div class="body">
-			<Header />
-			<HeaderSocials></HeaderSocials>
-
-			<div class="projects">
-				{ Projects.map(async (project) => <Project id={project} />) } 
-			</div>
-		</div>
-
-		<section class="preview-wrapper">
-			{ Projects.map(async (project) => <Preview id={project} />) } 
-		</section>
-	</main>
-</Layout>
+<App></App>

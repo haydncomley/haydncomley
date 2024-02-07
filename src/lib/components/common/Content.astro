@@ -1,18 +1,23 @@
 ---
+import { TProjectBlocks } from "../../types/TProject";
 import ContentBlock from "./ContentBlock.astro";
 
 interface Props {
+    blocks: TProjectBlocks[];
 }
 
-const { } = Astro.props;
+const { blocks } = Astro.props;
 ---
 
 <div class="content">
-    <ContentBlock width={1}></ContentBlock>
+    { blocks.map((block) => (
+        <ContentBlock width={block.size.width} height={block.size.height}></ContentBlock>
+    )) }
+    <!-- <ContentBlock width={1}></ContentBlock>
     <ContentBlock height={2}></ContentBlock>
     <ContentBlock height={1} width={2}></ContentBlock>
     <ContentBlock height={3} width={2}></ContentBlock>
-    <ContentBlock height={1} width={2}></ContentBlock>
+    <ContentBlock height={1} width={2}></ContentBlock> -->
 </div>
 
 <style lang="scss">
