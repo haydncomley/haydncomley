@@ -62,10 +62,35 @@ const { title } = Astro.props;
 		)
     ));
 
+	@font-face {
+		font-family: "Teachers";
+		src: url('/fnt/Teachers-Regular.otf');
+		font-weight: 400;
+
+	}
+
+	@font-face {
+		font-family: "Teachers";
+		font-weight: 500;
+		src: url('/fnt/Teachers-SemBd.otf');
+	}
+
+	@font-face {
+		font-family: "Teachers";
+		font-weight: 600;
+		src: url('/fnt/Teachers-ExtraBold.otf');
+	}
+
 	html, body {
 		height: 100%;
 		width: 100%;
 		box-sizing: border-box;
 		overflow: hidden;
+		font-family: "Teachers", serif;
+	}
+
+	:global(::selection) {
+		background: theme.Contrast('primary');
+		color: theme.Color('primary');
 	}
 </style>

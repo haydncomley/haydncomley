@@ -1,0 +1,32 @@
+---
+import { TProjectTitleBlock } from '../../types/TProject'
+
+type Props = TProjectTitleBlock['content'];
+
+const { text } = Astro.props;
+---
+
+<div class="titleBlock">
+    <h1 class="titleBlockText">{ text }</h1>
+</div>
+
+<style lang="scss">
+    .titleBlock {
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .titleBlockText {
+        font-size: 2.75rem;
+        margin: 0;
+        white-space: pre-line;
+        text-transform: uppercase;
+        line-height: 0.8em;
+    }
+</style>

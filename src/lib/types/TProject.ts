@@ -15,7 +15,7 @@ export interface TProject {
     blocks: TProjectBlocks[];
 }
 
-export type TProjectBlocks = TProjectImageBlock | TProjectTextBlock;
+export type TProjectBlocks = TProjectEmptyBlock | TProjectTitleBlock | TProjectImageBlock | TProjectTextBlock;
 
 export interface TProjectBlock {
     type: string;
@@ -26,11 +26,25 @@ export interface TProjectBlock {
     content?: unknown;
 }
 
+// Done
+export interface TProjectEmptyBlock extends TProjectBlock {
+    type: 'empty';
+}
+
+export interface TProjectTitleBlock extends TProjectBlock {
+    type: 'title';
+    content: {
+        text: string;
+    }
+}
+
+// In-progress
 export interface TProjectImageBlock extends TProjectBlock {
     type: 'image';
     content: {
         src: string;
         alt: string;
+        caption?: string;
     };
 }
 

@@ -1,0 +1,43 @@
+---
+import { TProjectImageBlock } from '../../types/TProject'
+
+type Props = TProjectImageBlock['content'];
+
+const { alt, src, caption } = Astro.props;
+---
+
+<div class="imageBlock">
+    <img class="imageBlockSrc" src={src} alt={alt}>
+    {caption ? <span class="imageBlockCaption">{caption}</span> : null}
+</div>
+
+<style lang="scss">
+    @use "easy-theme" as theme;
+
+    .imageBlock {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    .imageBlockSrc {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .imageBlockCaption {
+        // font-size: 0.8rem;
+        font-weight: 400;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        padding: calc(theme.Variable('spacing') * 0.5) theme.Variable('spacing');
+        background-color: theme.Color('primary', 'darker');
+        color: theme.Contrast('primary');
+        // border-radius: 2rem;
+        border: theme.Variable('border');
+        border-bottom: none;
+        border-left: none;
+    }
+</style>

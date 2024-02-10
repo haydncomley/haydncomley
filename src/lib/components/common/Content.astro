@@ -1,6 +1,15 @@
 ---
 import { TProjectBlocks } from "../../types/TProject";
 import ContentBlock from "./ContentBlock.astro";
+import TitleBlock from "../blocks/TitleBlock.astro";
+import ImageBlock from "../blocks/ImageBlock.astro";
+
+const ContentBlockMap: Record<TProjectBlocks['type'], any> = {
+    "empty": null,
+    "title": TitleBlock,
+    "image": ImageBlock,
+    "text": null,
+};
 
 interface Props {
     blocks: TProjectBlocks[];
@@ -11,13 +20,16 @@ const { blocks } = Astro.props;
 
 <div class="content">
     { blocks.map((block) => (
-        <ContentBlock width={block.size.width} height={block.size.height}></ContentBlock>
+        <ContentBlock
+            width={block.size.width}
+            height={block.size.height}
+            type={block.type}>
+            { ContentBlockMap[block.type] ? () => {
+                const Block = ContentBlockMap[block.type];
+                return <Block {...(typeof block.content === 'object' ? block.content : {})} />
+            } : null }
+        </ContentBlock>
     )) }
-    <!-- <ContentBlock width={1}></ContentBlock>
-    <ContentBlock height={2}></ContentBlock>
-    <ContentBlock height={1} width={2}></ContentBlock>
-    <ContentBlock height={3} width={2}></ContentBlock>
-    <ContentBlock height={1} width={2}></ContentBlock> -->
 </div>
 
 <style lang="scss">
@@ -33,31 +45,34 @@ const { blocks } = Astro.props;
         border-collapse: collapse;
         grid-gap: theme.Variable('border-thickness');
         overflow: auto;
-        // scroll-snap-type: y proximity;
-
-        // TODO: Revisit Scrollbar - unsure of how to style it
-        // &::-webkit-scrollbar {
-        //     width: calc(theme.Variable('border-thickness') * 2);
-		// }
-		
-		// &::-webkit-scrollbar-track {
-        //     background-color: theme.Color('primary', 'darker');
-        //     border-left: theme.Variable('border');
-		// }
-		
-		// &::-webkit-scrollbar-thumb {
-        //     background-color: theme.Color('primary', 'dark');
-        //     border-left: theme.Variable('border');
-        //     transition: .15s ease;
-
-        //     &:hover {
-        //         background-color: theme.Color('primary');
-        //     }
-		// }
 
         &::-webkit-scrollbar {
             display: none;
         }
+
+        // @include theme.NotMobile {
+        //     :global(.contentBlock) {
+        //         transition: 0.3s ease;
+        //     }
+
+        //     &:hover {
+        //         :global(.contentBlock) {
+        //             opacity: 0.6;
+                    
+        //             &:nth-child(2n - 1) {
+        //                 opacity: 0.7;
+        //             }
+
+        //             &:nth-child(2n) {
+        //                 opacity: 0.8;
+        //             }
+                    
+        //             &:hover {
+        //                 opacity: 1;
+        //             }
+        //         }
+        //     }
+        // }
 
         @include theme.Mobile {
             grid-template-columns: 1fr 1fr;

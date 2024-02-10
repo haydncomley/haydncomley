@@ -2,14 +2,13 @@
 interface Props {
     width?: number;
     height?: number;
+    type: string;
 }
 
-const { width = 1, height = 1 } = Astro.props;
+const { width = 1, height = 1, type } = Astro.props;
 ---
 
-<div class="contentBlock">
-    <slot></slot>
-</div>
+<div class:list={['contentBlock', type]}><slot></slot></div>
 
 <style lang="scss" define:vars={{ width, height }}>
     @use "easy-theme" as theme;
@@ -19,17 +18,23 @@ const { width = 1, height = 1 } = Astro.props;
         grid-row: auto / span var(--height);
         box-shadow: 0 0 0 theme.Variable('border-thickness') theme.Contrast('primary');
         scroll-snap-align: center;
+        
+        // &:nth-child(2n - 1) {
+        //     background-color: theme.Color('primary', 'dark');
+        // }
 
         &:nth-child(2n - 1) {
-            background-color: theme.Color('primary', 'dark');
-        }
-
-        &:nth-child(2n) {
             background-color: theme.Color('primary', 'darker');
         }
 
+        &:nth-child(3n - 1) {
+            background-color: theme.Color('primary', 'dark');
+        }
+
         @include theme.Mobile {
-            aspect-ratio: var(--width) / var(--height);
+            &:empty {
+                display: none;
+            }
         }
     }
 </style>
